@@ -19,7 +19,7 @@ interface Props {
 
 const postTypes: Array<T.PostType> = [T.PostType.ARTICLE, T.PostType.PROJECT]
 
-function CreateLink({ user, categoryList, token }: Props) {
+function CreateLinkPage({ user, categoryList, token }: Props) {
   const [formValues, setFormValues] = useState<T.CreatePostForm>({
     title: '',
     description: '',
@@ -217,4 +217,4 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   }
 }
 
-export default observer(CreateLink)
+export default observer(CreateLinkPage)

@@ -1,32 +1,67 @@
 import React, { ChangeEvent, FormEventHandler, useEffect, useState } from 'react'
+import Link from 'next/link';
 import Router from 'next/router';
 import axios from 'axios';
+import styled from 'styled-components';
+import { IoIosArrowForward } from 'react-icons/io'
 
-import { isAuth } from '@root/helpers/auth';
+import { authenticate, isAuth } from '@root/helpers/auth';
 import Button from '@root/components/atoms/button';
 import InputWithLabel from '@root/components/molecules/inputWithLabel';
 import AuthForm from '@root/components/templates/authForm';
 import * as T from '@root/types'
-import {
-  StyledForm,
-  Title,
-  InputWrapper,
-  Logline,
-} from './styles';
 import ErrorBox from '@root/components/molecules/errorBox';
 import { API } from '@root/config';
 
-const ForgotPassword = () => {
+const StyledForm = styled.form`
+  width: 100%;
+`;
+
+const Title = styled.h1`
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 12px;
+`;
+
+const Logline = styled.p`
+  color: ${({ theme }) => theme.subText};
+  font-size: 14px;
+`;
+
+const InputWrapper = styled.div`
+  margin-bottom: 50.71px;
+`;
+
+const DirectToWrapper = styled.div`
+  text-align: right;
+  padding: 7px auto;
+
+  a {
+    margin-left: 5px;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+`;
+
+const ArrowForward = styled(IoIosArrowForward)`
+  font-size: 18px;
+`;
+
+
+function LoginPage() {
   const [formValues, setFormValues] = useState({
     email: '',
+    password: '',
   });
   const [formErrors, setFormErrors] = useState<T.Object>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
   const [serverErrorMessage, setServerErrorMessage] = useState('');
-  const [buttonText, setButtonText] = useState('링크 보내기')
+  const [buttonText, setButtonText] = useState('로그인')
 
-  const { email } = formValues;
+  const {
+    email, password,
+  } = formValues;
 
   useEffect(() => {
     isAuth() && Router.push('/')
@@ -39,7 +74,7 @@ const ForgotPassword = () => {
   };
 
   // form validation handler
-  const validate = (values: T.ForgotPasswordForm) => {
+  const validate = (values: T.LoginForm) => {
     const errorRegisters: T.Object = {};
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 
@@ -48,7 +83,12 @@ const ForgotPassword = () => {
     } else if (!regex.test(values.email)) {
       errorRegisters.email = '올바르지 않은 이메일 주소입니다';
     }
-    
+
+    if (!values.password) {
+      errorRegisters.password = '비밀번호를 입력해야 합니다';
+    } else if (values.password.length < 4) {
+      errorRegisters.password = '비밀번호는 적어도 네 글자 이상입니다';
+    }
     return errorRegisters;
   };
 
@@ -59,37 +99,46 @@ const ForgotPassword = () => {
   };
 
   useEffect(() => {
-    const sendPasswordRestLink = async () => {
-      setButtonText('링크보내는 중...')
+    const login = async () => {
       try {
-        const res = await axios.put(`${API}/forgot-password`, {
-            email
+        const res = await axios.post(`${API}/login`, {
+            email, password,
         })      
         setFormValues({
           email: '',
+          password: '',
         })
-        setButtonText('이메일 발신 완료')
+        setButtonText('로그인 완료')
         setServerErrorMessage('')
-        setSuccessMessage(res.data.message)
+        setSuccessMessage('성공적으로 로그인하였습니다')
         setIsSubmitting(false);
+        authenticate(res, () => {
+          if (isAuth()) {
+            if (isAuth().role === 'admin') {
+              Router.push('/admin')
+            } else if (isAuth().role === 'subscriber') {
+              Router.push('/user')
+            }
+          }
+        })
       } catch (err: any) {
-        setButtonText('링크 보내기')
+        setButtonText('로그인')
         setServerErrorMessage(err.response.data.error)
         setIsSubmitting(false);
       }
     }
-    if (!Object.keys(formErrors).length && isSubmitting) sendPasswordRestLink()
-  }, [formErrors, isSubmitting, email]);
+    if (!Object.keys(formErrors).length && isSubmitting) login()
+  }, [formErrors, isSubmitting, email, password]);
 
   const title = (
     <Title>
-      비밀번호 재설정하기
+      로그인하기
     </Title>
   );
-
+  
   const subTitle = (
     <Logline>
-      아래 입력한 이메일 주소로 비밀번호 재설정을 위한 링크가 발신됩니다. 10분 내로 확인하고 비밀번호 재설정을 완료해주세요.
+      관리자를 위한 로그인 페이지입니다
     </Logline>
   )
 
@@ -105,6 +154,15 @@ const ForgotPassword = () => {
           handleChange={handleChange}
           formErrors={formErrors}
         />
+        <InputWithLabel
+          id="password"
+          label="비밀번호"
+          type="password"
+          value={password}
+          placeholder="비밀번호를 입력하세요"
+          handleChange={handleChange}
+          formErrors={formErrors}
+        />
         <ErrorBox
           success={successMessage}
           error={serverErrorMessage}
@@ -116,13 +174,36 @@ const ForgotPassword = () => {
     </StyledForm>
   );
 
+  const findPassword = (
+    <Link href='/auth/password/forgot'>
+      <a>
+        <span>
+          비밀번호 찾기
+        </span>
+        <ArrowForward />
+      </a>
+    </Link>
+  )
+
+  const directTo = (
+    <DirectToWrapper>
+      새로 오셨나요?
+      {' '}
+      <Link href="/register">
+        <a>가입하기</a>
+      </Link>
+    </DirectToWrapper>
+  );
+
   return (
     <AuthForm
       title={title}
       subTitle={subTitle}
       form={form}
+      findPassword={findPassword}
+      // directTo={directTo}
     />
   );
 }
 
-export default ForgotPassword
+export default LoginPage

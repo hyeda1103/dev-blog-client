@@ -1,6 +1,7 @@
 import { GetServerSideProps } from 'next'
 import { ChangeEvent, FormEventHandler, useEffect, useState } from 'react';
 import axios from 'axios'
+import styled from 'styled-components'
 
 import * as T from '@root/types';
 import { API } from '@root/config';
@@ -8,14 +9,56 @@ import { getCookie } from '@root/helpers/auth';
 import Button from '@root/components/atoms/button';
 import ErrorBox from '@root/components/molecules/errorBox';
 import InputWithLabel from '@root/components/molecules/inputWithLabel';
-import { InputWrapper, StyledForm, Title, Container, TitleWrapper, Header, Logline } from './styles';
+
+const Container = styled.div`
+  position: relative;
+  width: 364px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 0;
+`;
+
+const Header = styled.div`
+  margin-bottom: 28px;
+  padding: 0 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+const TitleWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+`;
+
+const Title = styled.h1`
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 12px;
+`;
+
+const Logline = styled.p`
+  color: ${({ theme }) => theme.subText};
+  font-size: 14px;
+`;
+
+const StyledForm = styled.form`
+  width: 100%;
+`;
+
+const InputWrapper = styled.div`
+  margin-bottom: 50.71px;
+`;
 
 interface Props {
   admin: T.Profile
   token: string
 }
 
-const CreateCategory = ({ admin, token }: Props) => {
+function CreateCategoryPage({ admin, token }: Props) {
   const [formValues, setFormValues] = useState<T.CreateCategoryForm>({
     name: "",
   })
@@ -131,4 +174,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 }
 
 
-export default CreateCategory
+export default CreateCategoryPage

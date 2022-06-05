@@ -18,7 +18,7 @@ interface Props {
   postSkip: number
 }
 
-function SingleCategory({ slug, category, posts, numOfPosts, postsLimit, postSkip }: Props) {
+function SingleCategoryPage({ slug, category, posts, numOfPosts, postsLimit, postSkip }: Props) {
   const [allPosts, setAllPosts] = useState<Array<T.Post>>(posts)
   const [limit, setLimit] = useState(postsLimit);
   const [skip, setSkip] = useState(postSkip)
@@ -62,7 +62,7 @@ function SingleCategory({ slug, category, posts, numOfPosts, postsLimit, postSki
   )
 }
 
-export default SingleCategory
+export default SingleCategoryPage
 
 export const getServerSideProps: GetServerSideProps = async ({ query, req }) => {
   let skip = 0

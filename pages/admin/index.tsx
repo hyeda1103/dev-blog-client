@@ -1,18 +1,53 @@
 import { GetServerSideProps } from 'next'
 import axios from 'axios'
+import styled from 'styled-components';
 
 import * as T from '@root/types';
 import { getCookie } from '@root/helpers/auth';
 import { API } from '@root/config';
 import SelectList from '@root/components/organisms/selectList';
-import { Container, Header, TitleWrapper, Title, Logline } from './styles';
+
+const Container = styled.div`
+  position: relative;
+  width: 364px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 0;
+`;
+
+const Header = styled.div`
+  margin-bottom: 28px;
+  padding: 0 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+const TitleWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+`;
+
+const Title = styled.h1`
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 12px;
+`;
+
+const Logline = styled.p`
+  color: ${({ theme }) => theme.subText};
+  font-size: 14px;
+`;
 
 interface Props {
   admin: T.Profile
 }
 
 
-const Admin = ({ admin }: Props) => {
+function AdminPage ({ admin }: Props) {
   return (
     <Container>
       <Header>
@@ -54,4 +89,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 }
 
 
-export default Admin
+export default AdminPage

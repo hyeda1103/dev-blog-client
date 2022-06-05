@@ -1,13 +1,30 @@
-import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import styled from "styled-components";
+import { FaSadTear } from "react-icons/fa";
 
 import { API } from '@root/config'
 import * as T from '@root/types'
 import PostList from '@root/components/organisms/postList'
-import { Message, NoResultBox, SadFaceIcon } from './styles'
 import Section from '@root/components/organisms/section'
+
+export const NoResultBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 364px;
+  margin: 80px auto;
+  align-items: center;
+  gap: 24px;
+`;
+
+export const SadFaceIcon = styled(FaSadTear)`
+  font-size: 36px;
+`;
+
+export const Message = styled.p`
+  font-size: 16px;
+`;
 
 function SearchResultPage() {
   const router = useRouter()

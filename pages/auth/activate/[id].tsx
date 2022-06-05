@@ -3,15 +3,34 @@ import { withRouter } from 'next/router'
 import { WithRouterProps } from 'next/dist/client/with-router'
 import jwt from 'jsonwebtoken'
 import axios from 'axios'
+import styled from 'styled-components';
 
 import ErrorBox from '@root/components/molecules/errorBox';
 import Button from '@root/components/atoms/button';
 import * as T from '@root/types'
 import AuthForm from '@root/components/templates/authForm'
-import { InputWrapper, StyledForm, SubTitle, Title } from './styles'
 import { API } from '@root/config'
 
-const ActivateAccount = ({ router }: WithRouterProps) => {
+const StyledForm = styled.form`
+  width: 100%;
+`;
+
+const Title = styled.h1`
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38.4px;
+`;
+
+const SubTitle = styled.p`
+  margin-top: 20px;
+  font-size: 16px;
+`;
+
+const InputWrapper = styled.div`
+  margin-bottom: 50.71px;
+`;
+
+function ActivateAccount({ router }: WithRouterProps) {
   const [formValues, setFormValues] = useState({
     name: '',
     token: '',

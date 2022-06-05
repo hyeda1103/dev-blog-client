@@ -1,6 +1,7 @@
 import React, { useEffect, useState, ChangeEvent, FormEventHandler } from 'react'
 import Link from 'next/link';
 import Router from 'next/router';
+import styled from 'styled-components';
 
 import Button from '@root/components/atoms/button';
 import InputWithLabel from '@root/components/molecules/inputWithLabel';
@@ -8,16 +9,36 @@ import ErrorBox from '@root/components/molecules/errorBox';
 import AuthForm from '@root/components/templates/authForm';
 import * as T from '@root/types'
 import { isAuth } from '@root/helpers/auth';
-import {
-  StyledForm,
-  Title,
-  DirectToWrapper,
-  InputWrapper,
-} from './styles';
 import axios from 'axios';
 import { API } from '@root/config'
 
-const Register = () => {
+const StyledForm = styled.form`
+  width: 100%;
+`;
+
+const Title = styled.h1`
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38.4px;
+`;
+
+const InputWrapper = styled.div`
+  margin-bottom: 50.71px;
+`;
+
+const DirectToWrapper = styled.div`
+  text-align: right;
+  padding: 7px auto;
+
+  a {
+    margin-left: 5px;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+`;
+
+
+function RegisterPage() {
   const [formValues, setFormValues] = useState({
     name: '',
     email: '',
@@ -179,4 +200,4 @@ const Register = () => {
   );
 }
 
-export default Register
+export default RegisterPage
