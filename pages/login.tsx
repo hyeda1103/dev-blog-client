@@ -150,7 +150,7 @@ function LoginPage() {
           label="이메일"
           type="email"
           value={email}
-          placeholder="이메일 주소를 입력하세요"
+          placeholder="이메일을 입력하세요"
           handleChange={handleChange}
           formErrors={formErrors}
         />
