@@ -80,28 +80,27 @@ const Register = () => {
     setIsSubmitting(true);
   };
 
-  const register = async () => {
-    try {
-      const res = await axios.post(`${API}/register`, {
-          name, email, password,
-      })
-      setFormValues({
-        name: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-      })
-      setSuccessMessage(res.data.message)
-      setIsSubmitting(false);
-    } catch (err: any) {
-      setServerErrorMessage(err.response.data.error)
-      setIsSubmitting(false);
-    }
-  }
-
   useEffect(() => {
+    const register = async () => {
+      try {
+        const res = await axios.post(`${API}/register`, {
+            name, email, password,
+        })
+        setFormValues({
+          name: '',
+          email: '',
+          password: '',
+          confirmPassword: '',
+        })
+        setSuccessMessage(res.data.message)
+        setIsSubmitting(false);
+      } catch (err: any) {
+        setServerErrorMessage(err.response.data.error)
+        setIsSubmitting(false);
+      }
+    }
     if (!Object.keys(formErrors).length && isSubmitting) register()
-  }, [formErrors, isSubmitting, register]);
+  }, [formErrors, isSubmitting]);
 
   const title = (
     <Title>

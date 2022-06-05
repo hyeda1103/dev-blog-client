@@ -69,38 +69,37 @@ const Login = () => {
     setIsSubmitting(true);
   };
 
-  const login = async () => {
-    try {
-      const res = await axios.post(`${API}/login`, {
-          email, password,
-      })      
-      setFormValues({
-        email: '',
-        password: '',
-      })
-      setButtonText('로그인 완료')
-      setServerErrorMessage('')
-      setSuccessMessage('성공적으로 로그인하였습니다')
-      setIsSubmitting(false);
-      authenticate(res, () => {
-        if (isAuth()) {
-          if (isAuth().role === 'admin') {
-            Router.push('/admin')
-          } else if (isAuth().role === 'subscriber') {
-            Router.push('/user')
-          }
-        }
-      })
-    } catch (err: any) {
-      setButtonText('로그인')
-      setServerErrorMessage(err.response.data.error)
-      setIsSubmitting(false);
-    }
-  }
-
   useEffect(() => {
+    const login = async () => {
+      try {
+        const res = await axios.post(`${API}/login`, {
+            email, password,
+        })      
+        setFormValues({
+          email: '',
+          password: '',
+        })
+        setButtonText('로그인 완료')
+        setServerErrorMessage('')
+        setSuccessMessage('성공적으로 로그인하였습니다')
+        setIsSubmitting(false);
+        authenticate(res, () => {
+          if (isAuth()) {
+            if (isAuth().role === 'admin') {
+              Router.push('/admin')
+            } else if (isAuth().role === 'subscriber') {
+              Router.push('/user')
+            }
+          }
+        })
+      } catch (err: any) {
+        setButtonText('로그인')
+        setServerErrorMessage(err.response.data.error)
+        setIsSubmitting(false);
+      }
+    }
     if (!Object.keys(formErrors).length && isSubmitting) login()
-  }, [formErrors, isSubmitting, login]);
+  }, [formErrors, isSubmitting]);
 
   const title = (
     <Title>

@@ -70,29 +70,28 @@ const ResetPassword = ({ router }: WithRouterProps) => {
     setIsSubmitting(true);
   };
 
-  const sendPasswordRestLink = async () => {
-    try {
-      const res = await axios.put(`${API}/reset-password`, {
-        resetPasswordLink: token,
-        newPassword: password
-      })      
-      setFormValues({
-        password: '',
-      })
-      setButtonText('비밀번호 재설정 완료')
-      setServerErrorMessage('')
-      setSuccessMessage(res.data.message)
-      setIsSubmitting(false);
-    } catch (err: any) {
-      setButtonText('비밀번호 재설정하기')
-      setServerErrorMessage(err.response.data.error)
-      setIsSubmitting(false);
-    }
-  }
-
   useEffect(() => {
+    const sendPasswordRestLink = async () => {
+      try {
+        const res = await axios.put(`${API}/reset-password`, {
+          resetPasswordLink: token,
+          newPassword: password
+        })      
+        setFormValues({
+          password: '',
+        })
+        setButtonText('비밀번호 재설정 완료')
+        setServerErrorMessage('')
+        setSuccessMessage(res.data.message)
+        setIsSubmitting(false);
+      } catch (err: any) {
+        setButtonText('비밀번호 재설정하기')
+        setServerErrorMessage(err.response.data.error)
+        setIsSubmitting(false);
+      }
+    }
     if (!Object.keys(formErrors).length && isSubmitting) sendPasswordRestLink()
-  }, [formErrors, isSubmitting, sendPasswordRestLink]);
+  }, [formErrors, isSubmitting]);
 
   const title = (
     <Title>

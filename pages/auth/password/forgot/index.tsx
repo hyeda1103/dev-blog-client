@@ -58,29 +58,28 @@ const ForgotPassword = () => {
     setIsSubmitting(true);
   };
 
-  const sendPasswordRestLink = async () => {
-    setButtonText('링크보내는 중...')
-    try {
-      const res = await axios.put(`${API}/forgot-password`, {
-          email
-      })      
-      setFormValues({
-        email: '',
-      })
-      setButtonText('이메일 발신 완료')
-      setServerErrorMessage('')
-      setSuccessMessage(res.data.message)
-      setIsSubmitting(false);
-    } catch (err: any) {
-      setButtonText('링크 보내기')
-      setServerErrorMessage(err.response.data.error)
-      setIsSubmitting(false);
-    }
-  }
-
   useEffect(() => {
+    const sendPasswordRestLink = async () => {
+      setButtonText('링크보내는 중...')
+      try {
+        const res = await axios.put(`${API}/forgot-password`, {
+            email
+        })      
+        setFormValues({
+          email: '',
+        })
+        setButtonText('이메일 발신 완료')
+        setServerErrorMessage('')
+        setSuccessMessage(res.data.message)
+        setIsSubmitting(false);
+      } catch (err: any) {
+        setButtonText('링크 보내기')
+        setServerErrorMessage(err.response.data.error)
+        setIsSubmitting(false);
+      }
+    }
     if (!Object.keys(formErrors).length && isSubmitting) sendPasswordRestLink()
-  }, [formErrors, isSubmitting, sendPasswordRestLink]);
+  }, [formErrors, isSubmitting]);
 
   const title = (
     <Title>

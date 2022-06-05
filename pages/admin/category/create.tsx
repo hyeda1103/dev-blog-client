@@ -50,29 +50,28 @@ const CreateCategory = ({ admin, token }: Props) => {
     setFormErrors(validate(formValues));
     setIsSubmitting(true);
   };
-
-  const create = async () => {
-    try {
-      const res = await axios.post(`${API}/category`, formValues, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      }) 
-      setFormValues({
-        name: '',
-      })
-      setServerErrorMessage('')
-      setSuccessMessage(`카테고리 ${res.data.name}가(이) 성공적으로 생성되었습니다`)
-      setIsSubmitting(false);
-    } catch (err: any) {
-      setServerErrorMessage(err.response.data.error)
-      setIsSubmitting(false);
-    }
-  }
   
   useEffect(() => {
+    const create = async () => {
+      try {
+        const res = await axios.post(`${API}/category`, formValues, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }) 
+        setFormValues({
+          name: '',
+        })
+        setServerErrorMessage('')
+        setSuccessMessage(`카테고리 ${res.data.name}가(이) 성공적으로 생성되었습니다`)
+        setIsSubmitting(false);
+      } catch (err: any) {
+        setServerErrorMessage(err.response.data.error)
+        setIsSubmitting(false);
+      }
+    }
     if (!Object.keys(formErrors).length && isSubmitting) create();
-  }, [formErrors, isSubmitting, create]);
+  }, [formErrors, isSubmitting]);
 
   return (
     <Container>
