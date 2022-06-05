@@ -91,7 +91,7 @@ const ResetPassword = ({ router }: WithRouterProps) => {
       }
     }
     if (!Object.keys(formErrors).length && isSubmitting) sendPasswordRestLink()
-  }, [formErrors, isSubmitting]);
+  }, [formErrors, isSubmitting, password, token]);
 
   const title = (
     <Title>

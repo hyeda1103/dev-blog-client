@@ -99,7 +99,7 @@ const Login = () => {
       }
     }
     if (!Object.keys(formErrors).length && isSubmitting) login()
-  }, [formErrors, isSubmitting]);
+  }, [formErrors, isSubmitting, email, password]);
 
   const title = (
     <Title>

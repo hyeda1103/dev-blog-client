@@ -117,7 +117,7 @@ function CreateLink({ user, categoryList, token }: Props) {
       }
     }
     if (!Object.keys(formErrors).length && isSubmitting) create()
-  }, [formErrors, isSubmitting]);
+  }, [formErrors, isSubmitting, formValues, token]);
 
   const handleStatus: ((newValue: Array<{
     value: T.Status, label: T.Status

@@ -79,7 +79,7 @@ const ForgotPassword = () => {
       }
     }
     if (!Object.keys(formErrors).length && isSubmitting) sendPasswordRestLink()
-  }, [formErrors, isSubmitting]);
+  }, [formErrors, isSubmitting, email]);
 
   const title = (
     <Title>

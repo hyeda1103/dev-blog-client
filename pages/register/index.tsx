@@ -100,7 +100,7 @@ const Register = () => {
       }
     }
     if (!Object.keys(formErrors).length && isSubmitting) register()
-  }, [formErrors, isSubmitting]);
+  }, [formErrors, isSubmitting, email, name, password]);
 
   const title = (
     <Title>

@@ -71,7 +71,7 @@ const CreateCategory = ({ admin, token }: Props) => {
       }
     }
     if (!Object.keys(formErrors).length && isSubmitting) create();
-  }, [formErrors, isSubmitting]);
+  }, [formErrors, isSubmitting, formValues, token]);
 
   return (
     <Container>
