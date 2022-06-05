@@ -1,10 +1,10 @@
 import Link from 'next/link';
 
-import { Container, Inner, Copyright } from './styles'
+import { Root, Inner, Copyright } from './styles'
 
 export default function Footer() {
   return (
-    <Container>
+    <Root>
       <Inner>
         <Copyright>
           Copyright &copy; 해다코 {new Date().getFullYear()}, Made with{" "}
@@ -15,6 +15,6 @@ export default function Footer() {
           </Link>
         </Copyright>
       </Inner>
-    </Container>
+    </Root>
   )
 }
