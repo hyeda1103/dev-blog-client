@@ -30,7 +30,6 @@ const Login = () => {
   const [serverErrorMessage, setServerErrorMessage] = useState('');
   const [buttonText, setButtonText] = useState('로그인')
 
-
   const {
     email, password,
   } = formValues;
@@ -101,7 +100,7 @@ const Login = () => {
 
   useEffect(() => {
     if (!Object.keys(formErrors).length && isSubmitting) login()
-  }, [formErrors, isSubmitting]);
+  }, [formErrors, isSubmitting, login]);
 
   const title = (
     <Title>

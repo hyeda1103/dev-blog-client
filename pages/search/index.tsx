@@ -31,7 +31,7 @@ function SearchResultPage() {
     if (!keyword) router.push('/')
     if (typeof keyword !== 'string') return;
     fetchPostsByKeyword(keyword)
-  }, [keyword])
+  }, [keyword, router])
   
   return (
     <>

@@ -15,7 +15,6 @@ interface Props {
   token: string
 }
 
-
 const CreateCategory = ({ admin, token }: Props) => {
   const [formValues, setFormValues] = useState<T.CreateCategoryForm>({
     name: "",
@@ -73,7 +72,7 @@ const CreateCategory = ({ admin, token }: Props) => {
   
   useEffect(() => {
     if (!Object.keys(formErrors).length && isSubmitting) create();
-  }, [formErrors, isSubmitting]);
+  }, [formErrors, isSubmitting, create]);
 
   return (
     <Container>

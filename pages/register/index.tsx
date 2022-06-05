@@ -101,7 +101,7 @@ const Register = () => {
 
   useEffect(() => {
     if (!Object.keys(formErrors).length && isSubmitting) register()
-  }, [formErrors, isSubmitting]);
+  }, [formErrors, isSubmitting, register]);
 
   const title = (
     <Title>
