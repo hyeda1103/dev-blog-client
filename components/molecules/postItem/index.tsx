@@ -20,7 +20,7 @@ function PostItem({ slug, post, allPosts, setAllPosts }: Props) {
   const router = useRouter()
   const handleClick: MouseEventHandler = async (e) => {
     e.preventDefault()
-    router.push(`/daily-dev/${post._id}`)
+    router.push(`/daily-dev/${post.slug}`)
     await axios.put(`${API}/click-count`, { postId: post._id });
   }
 

@@ -20,7 +20,7 @@ function ProjectItem({ slug, post, allPosts, setAllPosts }: Props) {
 
   const handleClick: MouseEventHandler = async (e) => {
     e.preventDefault()
-    router.push(`/side-project/${post._id}`)
+    router.push(`/side-project/${post.slug}`)
     await axios.put(`${API}/click-count`, { postId: post._id })
   }
 

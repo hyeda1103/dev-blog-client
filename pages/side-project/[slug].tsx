@@ -10,9 +10,6 @@ import { API } from '@root/config'
 import * as T from '@root/types'
 import CategoryItem from '@root/components/molecules/categoryItem';
 
-const Container = styled.div`
-`;
-
 const Header = styled.div`
   display: flex;
   flex-direction: column;
@@ -46,9 +43,9 @@ interface Props {
   post: T.Post
 }
 
-function SinglePost({ post }: Props) {
+function SinglePostPage({ post }: Props) {
   return (
-    <Container>
+    <>
       <Header>
         <TagBox>
           {post.categories.map((category) => (
@@ -61,17 +58,17 @@ function SinglePost({ post }: Props) {
         </TypeWrapper>
       </Header>
       <MainText dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.description) }} />
-    </Container>
+    </>
   )
 }
 
-export default SinglePost
+export default SinglePostPage
 
 export const getServerSideProps: GetServerSideProps = async ({ query, req }) => {
-  const { id } = query
+  const { slug } = query
 
   try {
-    const res = await axios.get(`${API}/post/${id}`)
+    const res = await axios.get(encodeURI(`${API}/post/${slug}`))
     return {
       props: {
         post: res.data,

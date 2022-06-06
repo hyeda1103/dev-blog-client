@@ -27,14 +27,14 @@ function HomePage({
   return (
     <OneColumn>
       <Section
-        title='개발하는 일상'
+        title='개발과 일상'
         link={<DirectTo text={`${numOfDevPosts}개의 글 모두 보기`} link='/daily-dev' />}
-        logline='개발자로 사는 기쁨과 슬픔에 대해 주로 씁니다. (이밖에도) 새로 공부한 기술 스택, 동료에게 전수받은 개발 지식, 자주 구글링하는 이슈, 개발 서적 리뷰 등이 있습니다.'
+        logline='새로 공부한 기술, 동료에게 전수받은 개발 지식, 자주 구글링하는 이슈, 개발 서적 리뷰, 그리고 개발하는 일상에 대해 씁니다'
         contents={<PostList posts={devPosts} />}
       />
       <Section
         title='흥미로운 키워드'
-        logline='단 한 번이라도 글을 작성한 키워드라면 모두 여기에 있습니다. 눈길이 가는 키워드를 선택하고 관련한 글을 확인해보세요.'
+        logline='언젠가 포스팅을 작성하고 싶은 키워드를 모두 모아두었습니다. 눈길이 가는 키워드를 선택하고 관련한 글을 확인해보세요'
         contents={<CategoryList categories={categories} />}
       />
       <Section

@@ -20,7 +20,7 @@ function PrimaryHeader() {
           <Item>
             <Link href={T.Page.DAILY_DEV}>
               <a>
-                <Highlight isActive={router.asPath === T.Page.DAILY_DEV}>개발하는 일상</Highlight>
+                <Highlight isActive={router.asPath === T.Page.DAILY_DEV}>개발과 일상</Highlight>
               </a>
             </Link>
           </Item>

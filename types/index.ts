@@ -85,6 +85,7 @@ export interface Post {
   _id: string
   title: string
   description: string
+  slug: string
   status: Status
   webLink?: string
   githubLink?: string

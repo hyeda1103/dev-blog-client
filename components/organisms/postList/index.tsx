@@ -43,9 +43,7 @@ function PostList({ posts }: Props) {
 
   return (
     <List>
-      {allPosts?.length === 0 ? (
-        <p>등록된 포스트가 없습니다</p>
-      ) : allPosts?.map(Item)}
+      {allPosts?.map(Item)}
     </List>
   )
 }
