@@ -31,13 +31,6 @@ function PrimaryHeader() {
               </a>
             </Link>
           </Item>
-          <Item>
-            <Link href={T.Page.ABOUT}>
-              <a>
-                <Highlight isActive={router.asPath === T.Page.ABOUT}>대하여</Highlight>
-              </a>
-            </Link>
-          </Item>
           <SearchInput />
         </Nav>
       </Inner>

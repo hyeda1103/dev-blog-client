@@ -4,7 +4,6 @@ export const Root = styled.header`
   position: fixed;
   width: 100%;
   z-index: 9;
-  background-color: ${({ theme }) => theme.body};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,4 +24,3 @@ export const Logo = styled.h3`
     font-size: 32px;
   }
 `
-

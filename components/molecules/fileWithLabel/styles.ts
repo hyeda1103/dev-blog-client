@@ -25,7 +25,7 @@ export const StyledInput = styled.input<StyleProps>`
   width: 100%;
   padding: 12px;
   font-size: 18px;
-  background-color: ${({ theme }) => theme.body};
+  background-color: ${({ theme }) => theme.bodyBackground};
   border: ${({ theme, error }) => (error
     ? `2px solid ${theme.active}`
     : `1px solid ${theme.active}`)

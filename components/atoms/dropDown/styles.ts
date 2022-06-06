@@ -21,17 +21,17 @@ export const DropDownHeader = styled.div<{ isOpen: boolean }>`
     font-size: 13px;
     font-weight: 700;
     color: ${({ theme, isOpen }) => (isOpen
-    ? theme.text
-    : theme.text)};
+    ? theme.typePrimary
+    : theme.typePrimary)};
   }
 
   svg {
     fill: ${({ theme, isOpen }) => (isOpen
-    ? theme.text
-    : theme.text)};
+    ? theme.typePrimary
+    : theme.typePrimary)};
     stroke: ${({ theme, isOpen }) => (isOpen
-    ? theme.text
-    : theme.text)};
+    ? theme.typePrimary
+    : theme.typePrimary)};
   }
 `;
 
@@ -49,9 +49,9 @@ export const DropDownList = styled('ul')`
   padding: 0;
   margin: 0;
   background: #ffffff;
-  border: 1px solid ${({ theme }) => theme.text};
+  border: 1px solid ${({ theme }) => theme.typePrimary};
   box-sizing: border-box;
-  color: ${({ theme }) => theme.text};
+  color: ${({ theme }) => theme.typePrimary};
   width: 96px;
 `;
 
@@ -63,14 +63,14 @@ export const ListItem = styled('li')`
   font-size: 12px;
   padding: 5px;
   height: fit-content;
-  border-bottom: 1px solid ${({ theme }) => theme.text};
+  border-bottom: 1px solid ${({ theme }) => theme.typePrimary};
 
   &:last-child {
     border-bottom: none;
   }
 
   &:hover {
-    color: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.typePrimary};
     font-weight: 700;
   }
 `;

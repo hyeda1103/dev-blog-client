@@ -1,11 +1,10 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const lightTheme = {
-  body: '#f4f4f4',
-  text: '#161E2E',
-  subText: '#333333',
-  primary: '#B6DBB7',
-  paper: '#FFFFFF',
+  bodyBackground: '#f4f4f4',
+  typePrimary: '#161E2E',
+  themeWhite: '#FFFFFF',
+
   border: '#d2d6dc',
   disabled: '#c1c1c1',
   active: '#D7E5F0',
@@ -19,11 +18,10 @@ export const lightTheme = {
 }
 
 export const darkTheme = {
-  body: '#161E2E',
-  text: '#f4f4f4',
-  subText: '#f4f4f4',
-  primary: '#B6DBB7',
-  paper: '#161E2E',
+  bodyBackground: '#161E2E',
+  typePrimary: '#f4f4f4',
+  themeWhite: '#161E2E',
+
   border: '#6B8096',
   active: '#D7E5F0',
   disabled: '#c1c1c1',
@@ -38,12 +36,11 @@ export const darkTheme = {
 
 type Theme = {
   theme: {
-    body: string
-    text: string
-    subText: string
+    bodyBackground: string
+    typePrimary: string
+    themeWhite: string
+    
     guide: string
-    primary: string
-    paper: string
     border: string
     hover: string
     active: string
@@ -53,19 +50,17 @@ type Theme = {
 
 export const GlobalStyles = createGlobalStyle`
   * {
-      margin: 0;
-      padding: 0;
+    margin: 0;
+    padding: 0;
   }
   body {
-      background: ${({ theme }: Theme) => theme.body};
-      color: ${({ theme }: Theme) => theme.text};
-      transition: all 0.50s linear;
-      overflow-x: hidden;
-      font-family: 'KoPubWorld-Dotum-Light';
+    background: ${({ theme }: Theme) => theme.bodyBackground};
+    color: ${({ theme }: Theme) => theme.typePrimary};
+    overflow-x: hidden;
   }
   a {
     text-decoration: none;
-    color: ${({ theme }: Theme) => theme.text};
+    color: ${({ theme }: Theme) => theme.typePrimary};
   }
 
   .ql-container {

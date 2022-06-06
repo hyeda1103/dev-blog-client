@@ -5,8 +5,8 @@ export const Container = styled.div`
   top: 106px;
   width: 100%;
   height: 64px;
-  border-bottom: 1px solid ${({ theme }) => theme.text};
-  background-color: ${({ theme }) => theme.body};
+  border-bottom: 1px solid ${({ theme }) => theme.typePrimary};
+  background-color: ${({ theme }) => theme.bodyBackground};
   display: flex;
   align-items: center;
   z-index: 9;

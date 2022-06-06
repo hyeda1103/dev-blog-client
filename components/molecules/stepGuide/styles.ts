@@ -12,7 +12,7 @@ export const Title = styled.h1`
 `;
 
 export const Logline = styled.p`
-  color: ${({ theme }) => theme.subText};
+  color: ${({ theme }) => theme.typePrimary};
   font-size: 14px;
 `;
 

@@ -26,7 +26,7 @@ export const StyledInput = styled.input<StyleProps>`
   font-size: 18px;
   border: ${({ theme, error }) => (error
     ? `1px solid ${theme.fail}`
-  : `1px solid ${theme.text}`
+  : `1px solid ${theme.typePrimary}`
   )};
   outline: none;
   box-sizing: border-box;

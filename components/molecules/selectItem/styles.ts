@@ -9,14 +9,14 @@ export const ArrowIcon = styled(FaArrowAltCircleRight)`
 export const ListItem = styled.li`
   margin: 0.5rem 0;
   padding: 0.5rem;
-  border: 1px solid ${({ theme }) => theme.text};
+  border: 1px solid ${({ theme }) => theme.typePrimary};
   display: flex;
   align-items: center;
   cursor: pointer;
 
   &:hover {
-    -webkit-box-shadow: 0 2px ${({ theme }) => theme.text};
-    box-shadow: 0 2px ${({ theme }) => theme.text};
+    -webkit-box-shadow: 0 2px ${({ theme }) => theme.typePrimary};
+    box-shadow: 0 2px ${({ theme }) => theme.typePrimary};
   }
 `;
 

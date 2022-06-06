@@ -6,14 +6,14 @@ export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  border-bottom: 1px solid ${({ theme }) => theme.text};
+  border-bottom: 1px solid ${({ theme }) => theme.typePrimary};
   padding: 8px 0;
 `;
 
 export const CategoryInfo = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  border: 1px solid ${({ theme }) => theme.text};
+  border: 1px solid ${({ theme }) => theme.typePrimary};
   padding: 16px 24px;
   p {
     font-size: 32px;
@@ -21,7 +21,7 @@ export const CategoryInfo = styled.div`
 `;
 
 export const ImageWrapper = styled.div`
-  border: 1px solid ${({ theme }) => theme.text};
+  border: 1px solid ${({ theme }) => theme.typePrimary};
   border-radius: 50%;
   overflow: hidden;
   width: 200px;
@@ -44,13 +44,13 @@ export const PostList = styled.div`
 `;
 
 export const Container = styled.div`
-  border: 1px solid ${({ theme }) => theme.text};
+  border: 1px solid ${({ theme }) => theme.typePrimary};
   padding: 8px 24px;
   cursor: pointer;
 
   &:hover {
-    -webkit-box-shadow: 0 2px ${({ theme }) => theme.text };
-    box-shadow: 0 2px ${({ theme }) => theme.text };
+    -webkit-box-shadow: 0 2px ${({ theme }) => theme.typePrimary };
+    box-shadow: 0 2px ${({ theme }) => theme.typePrimary };
   }
 `;
 
@@ -99,7 +99,7 @@ export const PostedAt = styled.div`
 
 const Tag = css`
   padding: 2px 8px;
-  border: 1px solid ${({ theme }) => theme.text};
+  border: 1px solid ${({ theme }) => theme.typePrimary};
   font-size: 14px;
 `
 

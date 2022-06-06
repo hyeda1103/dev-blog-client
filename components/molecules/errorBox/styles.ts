@@ -8,7 +8,7 @@ interface StyleProps {
 
 export const Wrapper = styled.div<StyleProps>`
   margin: 7px 6px;
-  color: ${({ theme, success, error }) => error ? theme.fail : theme.text};
+  color: ${({ theme, success, error }) => error ? theme.fail : theme.typePrimary};
 
   span, svg {
     vertical-align: middle;

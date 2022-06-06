@@ -16,7 +16,7 @@ const Container = styled.div`
 const Header = styled.div`
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid ${({ theme }) => theme.text};
+  border-bottom: 1px solid ${({ theme }) => theme.typePrimary};
   padding: 16px 0;
 `;
 

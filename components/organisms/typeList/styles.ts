@@ -36,12 +36,12 @@ interface StyleProps {
 export const SelectItem = styled.li<StyleProps>`
   margin: 0.5rem 0;
   padding: 0.5rem;
-  border: 1px solid ${({ theme }) => theme.text};
+  border: 1px solid ${({ theme }) => theme.typePrimary};
   align-items: center;
   cursor: pointer;
   display: flex;
-  -webkit-box-shadow: 0 2px ${({ theme, isSelected }) => isSelected ? theme.text : theme.body };
-  box-shadow: 0 2px ${({ theme, isSelected }) => isSelected ? theme.text : theme.body };
+  -webkit-box-shadow: 0 2px ${({ theme, isSelected }) => isSelected ? theme.typePrimary : theme.bodyBackground };
+  box-shadow: 0 2px ${({ theme, isSelected }) => isSelected ? theme.typePrimary : theme.bodyBackground };
 
   &:first-child {
     margin-top: 0
@@ -52,8 +52,8 @@ export const SelectItem = styled.li<StyleProps>`
   }
 
   &:hover {
-    -webkit-box-shadow: 0 2px ${({ theme }) => theme.text};
-    box-shadow: 0 2px ${({ theme }) => theme.text};
+    -webkit-box-shadow: 0 2px ${({ theme }) => theme.typePrimary};
+    box-shadow: 0 2px ${({ theme }) => theme.typePrimary};
   }
 `;
 

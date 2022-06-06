@@ -12,8 +12,8 @@ export const Container = styled.div`
   height: 40px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid ${({ theme }) => theme.text};
-  background-color: ${({ theme }) => theme.body};
+  border-bottom: 1px solid ${({ theme }) => theme.typePrimary};
+  background-color: ${({ theme }) => theme.bodyBackground};
 `
 
 export const Inner = styled.div`
@@ -46,7 +46,7 @@ export const Item = styled.div`
   cursor: pointer;
   margin-left: 6px;
   padding: 2px 6px;
-  border: 1px solid ${({ theme }) => theme.text};
+  border: 1px solid ${({ theme }) => theme.typePrimary};
   transition: 0.05s ease;
 
   a {
@@ -54,13 +54,13 @@ export const Item = styled.div`
   }
 
   &:hover {
-    -webkit-box-shadow: 0 1px ${({ theme }) => theme.text };
-    box-shadow: 0 1px ${({ theme }) => theme.text };
+    -webkit-box-shadow: 0 1px ${({ theme }) => theme.typePrimary };
+    box-shadow: 0 1px ${({ theme }) => theme.typePrimary};
   }
 `
 
 export const SwitchMode = styled.div<StyleProps>`
-  background-color: ${({ theme }) => theme.text};
+  background-color: ${({ theme }) => theme.typePrimary};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,7 +72,7 @@ export const SwitchMode = styled.div<StyleProps>`
 
 const Icon = css`
   font-size: 17px;
-  color: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.bodyBackground};
   vertical-align: middle;
 `;
 
@@ -87,8 +87,8 @@ export const MoonIcon = styled(IoMdMoon)`
 export const LinkIcon = styled(HiLink)`
   font-size: 17px;
   color: #fff;
-  color: ${({ theme }) => theme.text};
-  border: 1px solid ${({ theme }) => theme.text};
+  color: ${({ theme }) => theme.typePrimary};
+  border: 1px solid ${({ theme }) => theme.typePrimary};
   vertical-align: middle;
   padding: 5px;
   transition: 0.25s ease;

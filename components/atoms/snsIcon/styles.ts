@@ -2,7 +2,7 @@ import { AiOutlineLinkedin, AiFillGithub, AiOutlineMail } from "react-icons/ai";
 import styled, { css } from "styled-components";
 
 const Icon = css`
-  color: ${({ theme }) => theme.text};
+  color: ${({ theme }) => theme.typePrimary};
 `;
 
 export const GitHubIcon = styled(AiFillGithub)`

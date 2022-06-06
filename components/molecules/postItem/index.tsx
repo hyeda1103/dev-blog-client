@@ -23,6 +23,7 @@ function PostItem({ slug, post, allPosts, setAllPosts }: Props) {
   const handleClick: MouseEventHandler = (e) => {
     e.preventDefault()
     router.push(`/daily-dev/${post._id}`)
+    axios.put(`${API}/click-count`, { postId: post._id });
   }
 
   const text = getFirstSentence(post.description)

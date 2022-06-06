@@ -39,25 +39,25 @@ export const ArrowForward = styled(IoIosArrowForward)`
 export const CategoryLabel = styled.p`
   display: inline-block;
   padding: 2px 8px;
-  border: 1px solid ${({ theme }) => theme.text};
+  border: 1px solid ${({ theme }) => theme.typePrimary};
   border-bottom: none;
   border-radius: 4px 4px 0 0;
-  color: ${({ theme }) => theme.text};
-  background-color: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.typePrimary};
+  background-color: ${({ theme }) => theme.bodyBackground};
 `;
 
 export const CategoryList = styled.ul`
   max-height: 200px;
   overflow-y: scroll;
   box-sizing: border-box;
-  border: 1px solid ${({ theme }) => theme.text};
+  border: 1px solid ${({ theme }) => theme.typePrimary};
   position: relative;
 
   li {
     display: flex;
     align-items: center;
     padding: 2px 8px;
-    border-bottom: 1px solid ${({ theme }) => theme.text};
+    border-bottom: 1px solid ${({ theme }) => theme.typePrimary};
     
     input {
       margin-right: 10px;
@@ -108,9 +108,9 @@ interface StyleProps {
 
 export const TypeButton = styled.button<StyleProps>`
   padding: 1rem 2rem;
-  background-color: ${({ theme, isSelected }) => isSelected ? theme.highlight : theme.body};
-  color: ${({ theme }) => theme.text};
-  border: 1px solid ${({ theme }) => theme.text};
+  background-color: ${({ theme, isSelected }) => isSelected ? theme.highlight : theme.bodyBackground};
+  color: ${({ theme }) => theme.typePrimary};
+  border: 1px solid ${({ theme }) => theme.typePrimary};
   cursor: pointer;
   border-radius: 0;
   transition: 0.25s ease;
@@ -121,8 +121,8 @@ export const TypeButton = styled.button<StyleProps>`
 
   &:hover {
     transform: translate(-2px, -2px);
-    -webkit-box-shadow: 2px 2px ${({ theme }) => theme.text };
-    box-shadow: 2px 2px ${({ theme }) => theme.text };
+    -webkit-box-shadow: 2px 2px ${({ theme }) => theme.typePrimary };
+    box-shadow: 2px 2px ${({ theme }) => theme.typePrimary };
   }
 `;
 

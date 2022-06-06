@@ -21,7 +21,7 @@ export const Loader = styled.div`
   border-top: ${({ theme }) => `0.2rem solid ${theme.border}`};
   border-right: ${({ theme }) => `0.2rem solid ${theme.border}`};
   border-bottom: ${({ theme }) => `0.2rem solid ${theme.border}`};
-  border-left: ${({ theme }) => `0.2rem solid ${theme.text}`};
+  border-left: ${({ theme }) => `0.2rem solid ${theme.typePrimary}`};
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);

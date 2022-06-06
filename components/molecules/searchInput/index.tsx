@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import React, { useState, ChangeEvent, FormEventHandler } from 'react'
-import { Container, Form, Input } from './styles'
+import { Form, Input } from './styles'
 
 function SearchInput() {
   const router = useRouter()
@@ -12,16 +12,14 @@ function SearchInput() {
     router.push(`/search?keyword=${keyword}`)
   }
   return (
-    <Container>
-      <Form onSubmit={handleSubmit} autoComplete='off'>
-        <Input 
-          name='keyword'
-          type='text'
-          placeholder='검색어를 입력하세요'
-          onChange={handleChange}
-        />
-      </Form>
-    </Container>
+    <Form onSubmit={handleSubmit} autoComplete='off'>
+      <Input 
+        name='keyword'
+        type='text'
+        placeholder='검색어를 입력하세요'
+        onChange={handleChange}
+      />
+    </Form>
   )
 }
 
