@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { HiCursorClick } from 'react-icons/hi'
-import { VscGithubInverted } from 'react-icons/vsc'
+import { VscGithubInverted, VscWindow, VscTools } from 'react-icons/vsc'
 
 export const Header = styled.div`
   display: flex;
@@ -54,11 +54,23 @@ export const Container = styled.div`
   }
 `;
 
-export const GitHubIcon = styled(VscGithubInverted)`
+const Icon = css`
   color: ${({ theme }) => theme.hyperlink.default};
   vertical-align: middle;
   font-size: 18px;
-  margin-right: 8px;
+  margin-right: 6px;
+`;
+
+export const GitHubIcon = styled(VscGithubInverted)`
+  ${Icon}
+`;
+
+export const WebIcon = styled(VscWindow)`
+  ${Icon}
+`;
+
+export const ToolIcon = styled(VscTools)`
+  ${Icon}
 `;
 
 export const Title = styled.p`
@@ -96,7 +108,6 @@ export const PostedAt = styled.div`
   font-size: 14px;
 `;
 
-
 const Tag = css`
   padding: 2px 8px;
   border: 1px solid ${({ theme }) => theme.typePrimary};
@@ -106,7 +117,6 @@ const Tag = css`
 export const TagBox = styled.div`
   display: flex;
   justify-content: flex-end;
-  gap: 6px;
 `;
 
 export const CategoryTag = styled.span`
@@ -139,11 +149,12 @@ export const ClickIcon = styled(HiCursorClick)`
 export const LinkWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 8px 0;
+  gap: 6px;
 
   a {
     display: flex;
     align-items: center;
+    font-size: 14px;
   }
 `;
 

@@ -1,16 +1,12 @@
-import React from 'react'
+import React, { MouseEventHandler } from 'react'
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import DOMPurify from 'dompurify';
-import moment from 'moment';
-import 'moment/locale/ko';
 
-import * as T from '@root/types'
-import { Details, Header, GitHubIcon, Container, TagBox, Title, Footer, Description, TypeWrapper, ClickIcon, ViewWrapper, LinkWrapper } from './styles';
 import CategoryItem from '@root/components/molecules/categoryItem/index';
-import { API } from '@root/config';
-import getFirstSentence from '@root/helpers/getFirstSentence';
 import StatusTag from '@root/components/atoms/statusTag';
+import * as T from '@root/types'
+import { API } from '@root/config';
+import { Details, Header, GitHubIcon, WebIcon, Container, TagBox, Title, Footer, TypeWrapper, ClickIcon, ViewWrapper, LinkWrapper } from './styles';
 
 interface Props {
   slug?: string
@@ -22,13 +18,14 @@ interface Props {
 function ProjectItem({ slug, post, allPosts, setAllPosts }: Props) {
   const router = useRouter()
 
-  const handleClick = async (postId: T.Post['_id']) => {
-    const res = await axios.put(`${API}/click-count`, { postId })
-    router.push(`/side-project/${postId}`)
+  const handleClick: MouseEventHandler = async (e) => {
+    e.preventDefault()
+    router.push(`/side-project/${post._id}`)
+    await axios.put(`${API}/click-count`, { postId: post._id })
   }
-  const text = getFirstSentence(post.description)
+
   return (
-    <Container onClick={(e) => handleClick(post._id)}>
+    <Container onClick={handleClick}>
       <Header>
         <Title>{post.title}</Title>
         <TypeWrapper>
@@ -40,8 +37,10 @@ function ProjectItem({ slug, post, allPosts, setAllPosts }: Props) {
           <a href={post.githubLink} target="_blank" rel="noopener noreferrer">
             <GitHubIcon />{post.githubLink}
           </a>
+          <a href={post.githubLink} target="_blank" rel="noopener noreferrer">
+            <WebIcon />{post.webLink}
+          </a>
         </LinkWrapper>
-        <Description dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(text) }} />
       </Details>
       <Footer>
         <TagBox>

@@ -87,7 +87,7 @@ export const Footer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 8px;
+  margin: 8px 0;
 `;
 
 export const PostedAt = styled.div`
