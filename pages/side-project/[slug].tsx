@@ -10,6 +10,11 @@ import { API } from '@root/config'
 import * as T from '@root/types'
 import CategoryItem from '@root/components/molecules/categoryItem';
 
+const Paper = styled.article`
+  background: ${({ theme }) => theme.themeWhite};
+  padding: 16px 24px;
+`;
+
 const Header = styled.div`
   display: flex;
   flex-direction: column;
@@ -45,7 +50,7 @@ interface Props {
 
 function SinglePostPage({ post }: Props) {
   return (
-    <>
+    <Paper>
       <Header>
         <TagBox>
           {post.categories?.map((category) => (
@@ -58,7 +63,7 @@ function SinglePostPage({ post }: Props) {
         </TypeWrapper>
       </Header>
       <MainText dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.description) }} />
-    </>
+    </Paper>
   )
 }
 

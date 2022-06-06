@@ -34,7 +34,7 @@ function SingleCategoryPage({ slug, category, posts, numOfPosts, postsLimit, pos
   const loadMore = async () => {
     let toSkip = skip + limit
     setSkip(toSkip)
-    const res = await axios.post(`${API}/category/${slug}`, { skip: toSkip, limit })
+    const res = await axios.post(encodeURI(`${API}/category/${slug}`), { skip: toSkip, limit })
     setAllPosts([...allPosts, ...res.data.posts])
     setSize(res.data.posts.length)
   }
