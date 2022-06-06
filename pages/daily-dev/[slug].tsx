@@ -44,7 +44,6 @@ interface Props {
 }
 
 function SinglePostPage({ post }: Props) {
-  console.log(post)
   return (
     <>
       <Header>
