@@ -48,7 +48,7 @@ function SinglePostPage({ post }: Props) {
     <>
       <Header>
         <TagBox>
-          {post.categories.map((category) => (
+          {post.categories?.map((category) => (
             <CategoryItem key={category._id} category={category} />
           ))}
         </TagBox>
