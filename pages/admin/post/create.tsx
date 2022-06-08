@@ -71,9 +71,9 @@ function CreateLinkPage({ user, categoryList, token }: Props) {
       errorRegisters.description = '내용을 입력해야 합니다';
     } 
 
-    // if (values.status === undefined) {
-    //   errorRegisters.status = '프로젝트 진행 상태를 설정해야 합니다';
-    // }    
+    if (values.type === T.PostType.PROJECT && values.status === undefined) {
+      errorRegisters.status = '프로젝트 진행 상태를 설정해야 합니다';
+    }    
 
     if (values.categories.length === 0) {
       errorRegisters.categories = '적어도 하나 이상의 카테고리를 선택해야 합니다'
@@ -129,25 +129,20 @@ function CreateLinkPage({ user, categoryList, token }: Props) {
     if (!Object.keys(formErrors).length && isSubmitting) create()
   }, [formErrors, isSubmitting, formValues, token]);
 
-  const handleStatus: ((newValue: Array<{
-    value: T.Status, label: T.Status
-  }> | unknown, actionMeta: ActionMeta<unknown>) => void) | undefined = (option: any) => {
-    if (!Array.isArray(option)) return;
+  const handleSelectSingle: (newValue: unknown, actionMeta: ActionMeta<unknown>) => void = (option) => {
+    const selectedStatus = (option as T.SelectOption).value
 
-    const selectedStatus = option.map((item: {
-    value: T.Status, label: T.Status
-  }) => item.value)
     setFormValues({
       ...formValues,
-      status: selectedStatus[0]
+      status: selectedStatus as T.Status
     })
     setFormErrors({
       ...formErrors,
-      status: '',
+      status: ''
     })
   }
   
-  const handleSelect: ((newValue: Array<T.SelectOption> | unknown, actionMeta: ActionMeta<unknown>) => void) | undefined = (option: any) => {
+  const handleSelectMulti: ((newValue: Array<T.SelectOption> | unknown, actionMeta: ActionMeta<unknown>) => void) | undefined = (option) => {
     if (!Array.isArray(option)) return;
 
     const selectedCategories = option.map((item: T.SelectOption) => item.value)
@@ -186,8 +181,8 @@ function CreateLinkPage({ user, categoryList, token }: Props) {
             formErrors={formErrors}
             handleSubmit={handleSubmit}
             handleChange={handleChange}
-            handleSelect={handleSelect}
-            handleStatus={handleStatus}
+            handleSelectSingle={handleSelectSingle}
+            handleSelectMulti={handleSelectMulti}
             handleContent={handleContent}
           />
         )

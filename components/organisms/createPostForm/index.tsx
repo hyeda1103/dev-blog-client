@@ -20,8 +20,8 @@ interface Props {
   formErrors: T.Object;
   handleSubmit: FormEventHandler<HTMLFormElement>;
   handleChange: (keyName: string) => (e: ChangeEvent<HTMLInputElement>) => void;
-  handleSelect: (newValue: unknown, actionMeta: ActionMeta<unknown>) => void;
-  handleStatus: (newValue: unknown, actionMeta: ActionMeta<unknown>) => void;
+  handleSelectSingle: (newValue: unknown, actionMeta: ActionMeta<unknown>) => void;
+  handleSelectMulti: (newValue: unknown, actionMeta: ActionMeta<unknown>) => void;
   handleContent: (e: string) => void;
 }
 
@@ -34,8 +34,8 @@ function CreatePostForm({
   formErrors,
   handleSubmit,
   handleChange,
-  handleSelect,
-  handleStatus,
+  handleSelectSingle,
+  handleSelectMulti,
   handleContent,
 }: Props) {
   const { title, description, webLink, githubLink } = formValues;
@@ -69,7 +69,7 @@ function CreatePostForm({
                   <SelectWithLabel
                     id="categories"
                     placeholder='카테고리'
-                    handleChange={handleSelect}
+                    handleChange={handleSelectMulti}
                     formErrors={formErrors}
                     options={options}
                     isMulti={true}
@@ -109,7 +109,7 @@ function CreatePostForm({
                 <SelectWithLabel
                   id="status"
                   placeholder='진행상황'
-                  handleChange={handleStatus}
+                  handleChange={handleSelectSingle}
                   formErrors={formErrors}
                   options={statusOptions}
                   isMulti={false}
@@ -118,7 +118,7 @@ function CreatePostForm({
                   <SelectWithLabel
                     id="categories"
                     placeholder='카테고리'
-                    handleChange={handleSelect}
+                    handleChange={handleSelectMulti}
                     formErrors={formErrors}
                     options={options}
                     isMulti={true}
