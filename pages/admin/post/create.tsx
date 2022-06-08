@@ -3,6 +3,7 @@ import axios from 'axios'
 import { GetServerSideProps } from 'next';
 import { ActionMeta } from 'react-select';
 import { observer } from 'mobx-react'
+import styled from 'styled-components';
 
 import TypeList from '@root/components/organisms/typeList';
 import CreatePostForm from '@root/components/organisms/createPostForm';
@@ -10,6 +11,15 @@ import { getCookie } from '@root/helpers/auth';
 import * as T from '@root/types';
 import { API } from '@root/config';
 import contentStore from '@root/stores/contentStore';
+
+const Layout = styled.main`
+  margin: 0 auto;
+  padding: 180px 0;
+  height: 100%;
+  min-height: calc(100vh - 41px);
+  box-sizing: border-box;
+  line-height: 1.5;
+`;
 
 interface Props {
   user: T.Profile
@@ -23,7 +33,7 @@ function CreateLinkPage({ user, categoryList, token }: Props) {
   const [formValues, setFormValues] = useState<T.CreatePostForm>({
     title: '',
     description: '',
-    status: T.Status.In_Progress,
+    status: undefined,
     webLink: '',
     githubLink: '',
     categories: [],
@@ -61,7 +71,7 @@ function CreateLinkPage({ user, categoryList, token }: Props) {
       errorRegisters.description = '내용을 입력해야 합니다';
     } 
 
-    if (!values.status) {
+    if (values.status === undefined) {
       errorRegisters.status = '프로젝트 진행 상태를 설정해야 합니다';
     }    
 
@@ -187,9 +197,9 @@ function CreateLinkPage({ user, categoryList, token }: Props) {
   })()
 
   return (
-    <>
+    <Layout>
       {Content}
-    </>
+    </Layout>
   )
 }
 

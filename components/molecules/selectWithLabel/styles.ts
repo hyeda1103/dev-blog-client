@@ -1,10 +1,18 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+interface StyleProps {
+  error: boolean
+}
+
+export const Container = styled.div<StyleProps>`
   position: relative;
-  width: 100%;
+  width: 840px;
   flex-direction: column;
-  margin: 30px 0;
+  margin: 0 auto 6px;
+  box-sizing: border-box;
+  border: ${({ theme, error }) => (
+    error ? `1px solid ${theme.fail}` : 'none'
+  )};
 
   &:first-child {
     margin-top: 0;

@@ -11,7 +11,8 @@ import {
 
 interface Props {
   id: string
-  label: string
+  label?: string
+  placeholder: string
   handleChange: ((newValue: Array<T.Category> | unknown, actionMeta: ActionMeta<unknown>) => void) | undefined
   formErrors: T.Object
   options: Array<T.SelectOption>
@@ -19,21 +20,21 @@ interface Props {
 }
 
 function SelectWithLabel({
-  id, label, handleChange, formErrors, options, isMulti
-}: Props) {
+  id, label, placeholder, handleChange, formErrors, options, isMulti
+}: Props) {  
   return (
-    <Container>
-      <Text>
-        {label}
-      </Text>
+    <Container error={!!formErrors[id]}>
+      {label && (
+        <Text>
+          {label}
+        </Text>
+      )}
       <ReactSelect
         options={options}
+        placeholder={placeholder}
         handleChange={handleChange}
         isMulti={isMulti}
       />
-      {formErrors[id] && (
-        <ErrorBox error={formErrors[id]} />
-      )}
     </Container>
   );
 }

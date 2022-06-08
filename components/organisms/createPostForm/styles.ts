@@ -1,8 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { IoIosArrowForward } from 'react-icons/io'
+import { VscGithubInverted, VscWindow } from 'react-icons/vsc';
 
 export const StyledForm = styled.form`
   width: 100%;
+  display: flex;  
+  flex-direction: column;
 `;
 
 export const Title = styled.h1`
@@ -15,10 +18,14 @@ export const InputContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 24px;
+  width: 100%;
+  /* margin: 48px 0; */
 `;
 
 export const InputWrapper = styled.div`
-  margin-bottom: 50.71px;
+  position: relative;
+  margin-bottom: 6px;
+  width: 100%;
 `;
 
 export const DirectToWrapper = styled.div`
@@ -132,3 +139,42 @@ export const TypeWrapper = styled.div`
   align-items: center;
 `;
 
+export const BasicButton = styled.button`
+  display: inline-block;
+  width: 840px;
+  height: 52px;
+  margin: 0 auto;
+  cursor: pointer;
+  font-size: 1.25rem;
+  transition: background-color .25s ease;
+  border: 1px solid ${({ theme }) => theme.typePrimary};
+  color: ${({ theme }) => theme.typePrimary};
+  background-color: ${({ theme }) => theme.bodyBackground};
+  border-radius: 4px;
+
+  &:hover {
+    color: ${({ theme }) => theme.bodyBackground};
+    background-color: ${({ theme }) => theme.typePrimary};
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: ${({ theme }) => theme.bodyBackground};
+    color: ${({ theme }) => theme.disabled};
+    border: 1px solid ${({ theme }) => theme.disabled};
+  }
+`
+
+const Icon = css`
+  vertical-align: middle;
+  font-size: 20px;
+  margin-right: 6px;
+`;
+
+export const GitHubIcon = styled(VscGithubInverted)`
+  ${Icon}
+`;
+
+export const WebIcon = styled(VscWindow)`
+  ${Icon}
+`;

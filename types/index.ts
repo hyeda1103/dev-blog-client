@@ -69,7 +69,7 @@ export enum Status {
 export interface CreatePostForm {
   title: string
   description: string
-  status: Status
+  status: Status | undefined
   webLink?: string
   githubLink?: string
   categories: Array<string>
@@ -120,5 +120,7 @@ export enum Size {
 export enum Page {
   DAILY_DEV = '/daily-dev',
   SIDE_PROJECT = '/side-project',
-  ABOUT = '/about'
+  ABOUT = '/about',
+  ADMIN = '/admin',
+  POST = '/admin/post/create'
 }

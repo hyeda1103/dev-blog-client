@@ -133,7 +133,7 @@ function CreateCategoryPage({ admin, token }: Props) {
             label="카테고리 이름"
             type="text"
             value={name}
-            placeholder="카테고리 이름을 입력하세요"
+            placeholder="카테고리 이름"
             handleChange={handleChange}
             formErrors={formErrors}
           />

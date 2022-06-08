@@ -36,45 +36,85 @@ export const darkTheme = {
 
 type Theme = {
   theme: {
-    bodyBackground: string
-    typePrimary: string
-    themeWhite: string
-    
-    guide: string
-    border: string
-    hover: string
-    active: string
-    fail: string
+    bodyBackground: string,
+    typePrimary: string,
+    themeWhite: string,
+
+    border: string,
+    disabled: string,
+    active: string,
+    fail: string,
+    highlight: string,
+    hyperlink: {
+      default: string,
+      contrast: string,
+      broken: string
+    },
   }
 }
 
 export const GlobalStyles = createGlobalStyle`
+  /* HTML5 display-role reset for older browsers */
+
+  article, aside, details, figcaption, figure,
+  footer, header, hgroup, menu, nav, section {
+    display: block;
+  }
+
   * {
     margin: 0;
     padding: 0;
+    font-family: inherit;
   }
+
   body {
     background: ${({ theme }: Theme) => theme.bodyBackground};
     color: ${({ theme }: Theme) => theme.typePrimary};
     overflow-x: hidden;
+    line-height: 1.5;
   }
+
+  ol, ul {
+    list-style: none;
+  }
+
+  blockquote, q {
+    quotes: none;
+  }
+
+  blockquote:before, blockquote:after,
+  q:before, q:after {
+    content: '';
+    content: none;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
   a {
     text-decoration: none;
     color: ${({ theme }: Theme) => theme.typePrimary};
   }
 
-  .ql-container {
-    min-height: 800px;
-    height: 100%;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+  .ql-toolbar {
+    border: none !important;
+    border-bottom: 1px solid #161E2E !important;
+    background-color: #f4f4f4 !important;
   }
 
-  .ql-editor {
-    height: 100%;
-    flex: 1;
-    overflow-y: auto;
-    width: 100%;
+  .ql-container {
+    border: none !important;
+    background-color: #FFFFFF !important;
+    width: 838px;
+    height: 840px;
+    margin: 0 auto;
+    padding: 18px 0 !important;
+
+    .ql-editor.ql-blank::before{
+      font-style: normal;
+      color: #757575;
+    }
   }
 `;

@@ -141,7 +141,7 @@ function RegisterPage() {
           label="이름"
           type="text"
           value={name}
-          placeholder="이름을 입력하세요"
+          placeholder="이름"
           handleChange={handleChange}
           formErrors={formErrors}
         />
@@ -168,7 +168,7 @@ function RegisterPage() {
           label="비밀번호 확인"
           type="password"
           value={confirmPassword}
-          placeholder="비밀번호 확인을 입력하세요"
+          placeholder="비밀번호 확인"
           handleChange={handleChange}
           formErrors={formErrors}
         />

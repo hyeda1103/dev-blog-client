@@ -2,14 +2,14 @@ import React, { ChangeEvent, FormEventHandler, SetStateAction } from 'react'
 import { ActionMeta } from 'react-select';
 import { observer } from 'mobx-react';
 
-import InputWithLabel from '@root/components/molecules/inputWithLabel';
 import TextEditor from '@root/components/molecules/textEditor';
 import ErrorBox from '@root/components/molecules/errorBox';
 import SelectWithLabel from '@root/components/molecules/selectWithLabel';
-import Button from '@root/components/atoms/button';
 import * as T from '@root/types';
 import contentStore from '@root/stores/contentStore';
-import { InputContainer, InputWrapper, StyledForm } from './styles';
+import { InputContainer, InputWrapper, StyledForm, BasicButton as Button, GitHubIcon, WebIcon } from './styles';
+import TitleInput from '@root/components/molecules/titleInput';
+import LinkInput from '@root/components/atoms/linkInput';
 
 interface Props {
   token: string
@@ -57,19 +57,18 @@ function CreatePostForm({
           <InputContainer>
             <StyledForm onSubmit={handleSubmit} noValidate>
               <InputWrapper>
-                <InputWithLabel
+                <TitleInput
                   id="title"
                   label="제목"
-                  type="text"
                   value={title}
-                  placeholder="제목을 입력하세요"
+                  placeholder="제목"
                   handleChange={handleChange}
                   formErrors={formErrors}
                 />
                 {options && (
                   <SelectWithLabel
                     id="categories"
-                    label="카테고리"
+                    placeholder='카테고리'
                     handleChange={handleSelect}
                     formErrors={formErrors}
                     options={options}
@@ -78,7 +77,6 @@ function CreatePostForm({
                 )}
                 <TextEditor
                   id="description"
-                  label="포스트"
                   value={description}
                   theme="snow"
                   handleChange={handleContent}
@@ -90,7 +88,7 @@ function CreatePostForm({
                 />
               </InputWrapper>
               <Button disabled={!token}>
-                POST
+                포스팅하기
               </Button>
             </StyledForm>
           </InputContainer>
@@ -100,18 +98,17 @@ function CreatePostForm({
           <InputContainer>
             <StyledForm onSubmit={handleSubmit} noValidate>
               <InputWrapper>
-                <InputWithLabel
+                <TitleInput
                   id="title"
                   label="제목"
-                  type="text"
                   value={title}
-                  placeholder="제목을 입력하세요"
+                  placeholder="제목"
                   handleChange={handleChange}
                   formErrors={formErrors}
                 />
                 <SelectWithLabel
                   id="status"
-                  label="진행상황"
+                  placeholder='진행상황'
                   handleChange={handleStatus}
                   formErrors={formErrors}
                   options={statusOptions}
@@ -120,34 +117,33 @@ function CreatePostForm({
                 {options && (
                   <SelectWithLabel
                     id="categories"
-                    label="카테고리"
+                    placeholder='카테고리'
                     handleChange={handleSelect}
                     formErrors={formErrors}
                     options={options}
                     isMulti={true}
                   />
                 )}
-                <InputWithLabel
+                <LinkInput
                   id="githubLink"
-                  label="Github 링크"
+                  icon={<GitHubIcon />}
                   type="text"
                   value={githubLink}
-                  placeholder="소스코드가 저장된 github 링크를 입력하세요"
+                  placeholder="github repo link"
                   handleChange={handleChange}
                   formErrors={formErrors}
                 />
-                <InputWithLabel
+                <LinkInput
                   id="webLink"
-                  label="Website 주소"
+                  icon={<WebIcon />}
                   type="text"
                   value={webLink}
-                  placeholder="배포한 웹사이트 주소를 입력하세요"
+                  placeholder="website link"
                   handleChange={handleChange}
                   formErrors={formErrors}
                 />
                 <TextEditor
                   id="description"
-                  label="포스트"
                   value={description}
                   theme="snow"
                   handleChange={handleContent}
@@ -159,7 +155,7 @@ function CreatePostForm({
                 />
               </InputWrapper>
               <Button disabled={!token}>
-                POST
+                포스팅하기
               </Button>
             </StyledForm>
           </InputContainer>

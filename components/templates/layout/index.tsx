@@ -6,8 +6,7 @@ import 'nprogress/nprogress.css'
 import Header from '@root/components/organisms/header'
 import Footer from '@root/components/organisms/footer'
 import { Main } from './styles'
-import PostHeader from '@root/components/molecules/postHeader'
-
+import * as T from '@root/types'
 interface Props {
   title?: string
   keywords?: string
@@ -21,6 +20,8 @@ Router.events.on("routeChangeComplete", NProgress.done);
 
 export default function Layout({ title, keywords, description, children }: Props) {
   const router = useRouter()
+  const IsPosting = router.asPath === T.Page.POST
+  const onAdminPage = router.asPath.startsWith(T.Page.ADMIN)
   
   return (
     <>
@@ -31,9 +32,8 @@ export default function Layout({ title, keywords, description, children }: Props
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      {router.asPath === '/admin/post/create' && <PostHeader />}
-      <Main>{children}</Main>
-      <Footer />
+      {IsPosting ? <>{children}</> : <Main>{children}</Main>}
+      {!onAdminPage && <Footer />}
     </>
   )
 }

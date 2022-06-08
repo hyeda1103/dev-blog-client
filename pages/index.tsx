@@ -28,7 +28,7 @@ function HomePage({
     <OneColumn>
       <Section
         title='개발과 일상'
-        link={<DirectTo text={`${numOfDevPosts}개의 글 모두 보기`} link='/daily-dev' />}
+        link={<DirectTo text='모두 보기' link={T.Page.DAILY_DEV} />}
         logline='새로 공부한 기술, 동료에게 전수받은 개발 지식, 자주 구글링하는 이슈, 개발 서적 리뷰, 그리고 개발하는 일상에 대해 씁니다'
         contents={<PostList posts={devPosts} />}
       />
@@ -39,7 +39,7 @@ function HomePage({
       />
       <Section
         title='사이드 프로젝트'
-        link={<DirectTo text={`${numOfProjects}개의 글 모두 보기`} link='/daily-dev' />}
+        link={<DirectTo text='모두 보기' link={T.Page.SIDE_PROJECT} />}
         logline='일상에 기름칠을 하고 싶을 땐 사이드 프로젝트!'
         contents={<PostList posts={projectPosts} />}
       />
