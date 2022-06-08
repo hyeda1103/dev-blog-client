@@ -9,6 +9,8 @@ export const Inner = styled.div`
   height: 100%;
   margin: 0 auto;
   text-align: center;
+  padding: 8px 0;
+  box-sizing: border-box;
 `
 
 export const Copyright = styled.p`

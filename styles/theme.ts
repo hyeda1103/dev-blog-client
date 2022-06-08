@@ -74,7 +74,7 @@ export const GlobalStyles = createGlobalStyle`
     line-height: 1.5;
   }
 
-  ol, ul {
+  /* ol, ul {
     list-style: none;
   }
 
@@ -86,7 +86,7 @@ export const GlobalStyles = createGlobalStyle`
   q:before, q:after {
     content: '';
     content: none;
-  }
+  } */
 
   table {
     border-collapse: collapse;
@@ -111,6 +111,13 @@ export const GlobalStyles = createGlobalStyle`
     height: 840px;
     margin: 0 auto;
     padding: 18px 0 !important;
+
+    .ql-editor {
+
+      a {
+        color: ${({ theme }) => theme.hyperlink.default};
+      }
+    }
 
     .ql-editor.ql-blank::before{
       font-style: normal;

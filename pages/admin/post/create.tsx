@@ -71,9 +71,9 @@ function CreateLinkPage({ user, categoryList, token }: Props) {
       errorRegisters.description = '내용을 입력해야 합니다';
     } 
 
-    if (values.status === undefined) {
-      errorRegisters.status = '프로젝트 진행 상태를 설정해야 합니다';
-    }    
+    // if (values.status === undefined) {
+    //   errorRegisters.status = '프로젝트 진행 상태를 설정해야 합니다';
+    // }    
 
     if (values.categories.length === 0) {
       errorRegisters.categories = '적어도 하나 이상의 카테고리를 선택해야 합니다'
