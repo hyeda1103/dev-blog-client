@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Script from 'next/script'
 import Router, { useRouter } from 'next/router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
@@ -31,11 +32,11 @@ export default function Layout({ title, keywords, description, children }: Props
         <meta name="description" content={description} />
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
       </Head>
       <Header />
       {IsPosting ? <>{children}</> : <Main>{children}</Main>}
       {!onAdminPage && <Footer />}
+      <Script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" />
     </>
   )
 }
