@@ -54,6 +54,13 @@ const MainText = styled.div`
   li.ql-indent-1 {
     margin-left: 40px;
   }
+
+  pre.ql-syntax {
+    background: ${({ theme }) => theme.bodyBackground};
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-family: consolas;
+  }
 `;
 
 const Title = styled.h1`

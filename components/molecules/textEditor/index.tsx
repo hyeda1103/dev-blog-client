@@ -3,6 +3,7 @@ import axios from "axios";
 import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css';
 import 'react-quill/dist/quill.bubble.css';
+import hljs from 'highlight.js'
 
 import * as T from '@root/types';
 import { API } from '@root/config';
@@ -20,6 +21,10 @@ interface Props {
 }
 
 const QuillNoSSRWrapper = typeof window === 'object' ? require('react-quill') : () => false
+
+hljs.configure({
+  languages: ['javascript', 'typescript', 'java']
+})
 
 function TextEditor({
   id, value, theme, handleChange, formErrors
@@ -59,6 +64,12 @@ function TextEditor({
   }
   
   const modules = useMemo(() => ({
+    history: {
+      delay: 2000,
+      maxStack: 500,
+      userOnly: true
+    },
+    syntax: true,
     toolbar: {
       container: "#toolbar",
       handlers: {

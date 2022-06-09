@@ -25,6 +25,41 @@ const Header = styled.div`
 const MainText = styled.div`
   padding: 32px 0 16px;
   line-height: 2;
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  s {
+    color: ${({ theme }) => theme.disabled};
+  }
+
+  u {
+    text-underline-offset: 2px;
+  }
+
+  a {
+    color: ${({ theme }) => theme.hyperlink.default};
+  }
+
+  li {
+    margin-left: 20px;
+  }
+
+  li.ql-indent-1 {
+    margin-left: 40px;
+  }
+
+  pre.ql-syntax {
+    background: ${({ theme }) => theme.bodyBackground};
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-family: consolas;
+  }
 `;
 
 const Title = styled.h1`
