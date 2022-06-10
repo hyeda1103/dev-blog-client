@@ -59,6 +59,7 @@ const MainText = styled.div`
     border-radius: 8px;
     padding: 12px 20px;
     font-family: consolas;
+    overflow-x: scroll;
   }
 `;
 

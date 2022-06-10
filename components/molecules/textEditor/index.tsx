@@ -1,13 +1,14 @@
 import { useMemo, useRef } from 'react';
 import axios from "axios";
+import hljs from 'highlight.js';
+
 import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css';
 import 'react-quill/dist/quill.bubble.css';
-import hljs from 'highlight.js'
 
 import * as T from '@root/types';
 import { API } from '@root/config';
-import resizeImage from "@root/helpers/resizeImage";
+import convertToBase64 from '@root/helpers/convertToBase64';
 import CustomToolbar, { formats } from '@root/components/molecules/customToolbar';
 import { EditorWrapper } from './styles';
 
@@ -44,9 +45,9 @@ function TextEditor({
       const [file] = input.files;
   
       try {
-        const image = await resizeImage(file);
+        const fileDataURL = await convertToBase64(file)
         // Get image url
-        const res = await axios.post(`${API}/post/upload-image`, { image })
+        const res = await axios.post(`${API}/post/upload-image`, { image: fileDataURL })
         const quill = QuillRef.current?.getEditor();
         
         if (quill === undefined) return;
@@ -69,7 +70,9 @@ function TextEditor({
       maxStack: 500,
       userOnly: true
     },
-    syntax: true,
+    syntax: {
+      highlight: (text: string) => hljs.highlightAuto(text).value,
+    },
     toolbar: {
       container: "#toolbar",
       handlers: {
