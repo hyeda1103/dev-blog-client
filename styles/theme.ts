@@ -34,7 +34,7 @@ export const darkTheme = {
   },
 }
 
-type Theme = {
+interface Theme {
   theme: {
     bodyBackground: string,
     typePrimary: string,
@@ -73,20 +73,6 @@ export const GlobalStyles = createGlobalStyle`
     overflow-x: hidden;
     line-height: 1.5;
   }
-
-  /* ol, ul {
-    list-style: none;
-  }
-
-  blockquote, q {
-    quotes: none;
-  }
-
-  blockquote:before, blockquote:after,
-  q:before, q:after {
-    content: '';
-    content: none;
-  } */
 
   table {
     border-collapse: collapse;

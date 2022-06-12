@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ChangeEvent, FormEventHandler } from 'react'
+import React, { useState, useEffect, ChangeEvent, FormEventHandler, SyntheticEvent } from 'react'
 import axios from 'axios'
 import { GetServerSideProps } from 'next';
 import { ActionMeta } from 'react-select';
@@ -29,13 +29,15 @@ interface Props {
 
 const postTypes: Array<T.PostType> = [T.PostType.ARTICLE, T.PostType.PROJECT]
 
-function CreateLinkPage({ user, categoryList, token }: Props) {
+function PostPage({ user, categoryList, token }: Props) {
   const [formValues, setFormValues] = useState<T.CreatePostForm>({
     title: '',
     description: '',
     status: undefined,
     webLink: '',
     githubLink: '',
+    startDate: null,
+    endDate: null,
     categories: [],
     type: undefined,
   })
@@ -73,7 +75,15 @@ function CreateLinkPage({ user, categoryList, token }: Props) {
 
     if (values.type === T.PostType.PROJECT && values.status === undefined) {
       errorRegisters.status = '프로젝트 진행 상태를 설정해야 합니다';
-    }    
+    }  
+
+    if (values.type === T.PostType.PROJECT && !values.startDate) {
+      errorRegisters.startDate = '프로젝트 기간을 설정해야 합니다';
+    }  
+
+    if (values.type === T.PostType.PROJECT && !values.endDate) {
+      errorRegisters.endDate = '프로젝트 기간을 설정해야 합니다';
+    }  
 
     if (values.categories.length === 0) {
       errorRegisters.categories = '적어도 하나 이상의 카테고리를 선택해야 합니다'
@@ -103,6 +113,8 @@ function CreateLinkPage({ user, categoryList, token }: Props) {
       status: T.Status.In_Progress,
       githubLink: '',
       webLink: '',
+      startDate: null,
+      endDate: null,
       categories: [],
       type: undefined,
     })
@@ -156,6 +168,16 @@ function CreateLinkPage({ user, categoryList, token }: Props) {
     })
   }
   
+  const handleStartDate: (date: Date, event: SyntheticEvent<any, Event>) => void = (date, e) => {
+    setFormErrors({ ...formErrors, startDate: '' });
+    setFormValues({ ...formValues, startDate: date });
+  }
+  
+  const handleEndDate: (date: Date, event: SyntheticEvent<any, Event>) => void = (date, e) => {
+    setFormErrors({ ...formErrors, endDate: '' });
+    setFormValues({ ...formValues, endDate: date });
+  }
+  
   useEffect(() => {
     const selectOptions = categoryList.map((categoryItem: T.Category) => ({
       value: categoryItem._id,
@@ -181,6 +203,8 @@ function CreateLinkPage({ user, categoryList, token }: Props) {
             formErrors={formErrors}
             handleSubmit={handleSubmit}
             handleChange={handleChange}
+            handleStartDate={handleStartDate}
+            handleEndDate={handleEndDate}
             handleSelectSingle={handleSelectSingle}
             handleSelectMulti={handleSelectMulti}
             handleContent={handleContent}
@@ -222,4 +246,4 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   }
 }
 
-export default observer(CreateLinkPage)
+export default observer(PostPage)

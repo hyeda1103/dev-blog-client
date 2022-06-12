@@ -72,6 +72,8 @@ export interface CreatePostForm {
   status: Status | undefined
   webLink?: string
   githubLink?: string
+  startDate?: Date | null
+  endDate?: Date | null
   categories: Array<string>
   type: PostType | undefined
 }

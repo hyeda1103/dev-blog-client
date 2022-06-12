@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEventHandler, SetStateAction } from 'react'
+import React, { ChangeEvent, FormEventHandler, SyntheticEvent } from 'react'
 import { ActionMeta } from 'react-select';
 import { observer } from 'mobx-react';
 
@@ -10,6 +10,7 @@ import contentStore from '@root/stores/contentStore';
 import { InputContainer, InputWrapper, StyledForm, BasicButton as Button, GitHubIcon, WebIcon } from './styles';
 import TitleInput from '@root/components/molecules/titleInput';
 import LinkInput from '@root/components/atoms/linkInput';
+import DatePicker from '@root/components/molecules/dualDatePicker';
 
 interface Props {
   token: string
@@ -20,6 +21,8 @@ interface Props {
   formErrors: T.Object;
   handleSubmit: FormEventHandler<HTMLFormElement>;
   handleChange: (keyName: string) => (e: ChangeEvent<HTMLInputElement>) => void;
+  handleStartDate: (date: Date, event: SyntheticEvent<any, Event>) => void
+  handleEndDate: (date: Date, event: SyntheticEvent<any, Event>) => void
   handleSelectSingle: (newValue: unknown, actionMeta: ActionMeta<unknown>) => void;
   handleSelectMulti: (newValue: unknown, actionMeta: ActionMeta<unknown>) => void;
   handleContent: (e: string) => void;
@@ -34,6 +37,8 @@ function CreatePostForm({
   formErrors,
   handleSubmit,
   handleChange,
+  handleStartDate,
+  handleEndDate,
   handleSelectSingle,
   handleSelectMulti,
   handleContent,
@@ -117,13 +122,19 @@ function CreatePostForm({
                 {options && (
                   <SelectWithLabel
                     id="categories"
-                    placeholder='카테고리'
+                    placeholder='기술 스택'
                     handleChange={handleSelectMulti}
                     formErrors={formErrors}
                     options={options}
                     isMulti={true}
                   />
                 )}
+                <DatePicker 
+                  handleStartDate={handleStartDate}
+                  handleEndDate={handleEndDate}
+                  formValues={formValues}
+                  formErrors={formErrors}
+                />
                 <LinkInput
                   id="githubLink"
                   icon={<GitHubIcon />}
