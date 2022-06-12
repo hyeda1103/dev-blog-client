@@ -123,7 +123,7 @@ function LoginPage() {
         })
       } catch (err: any) {
         setButtonText('로그인')
-        setServerErrorMessage(err.response)
+        setServerErrorMessage(err.response.data.error)
         setIsSubmitting(false);
       }
     }
@@ -132,13 +132,13 @@ function LoginPage() {
 
   const title = (
     <Title>
-      로그인하기
+      블로그 입장하기
     </Title>
   );
   
   const subTitle = (
     <Logline>
-      관리자를 위한 로그인 페이지입니다
+      해다코님, 반가워요. 이제 블로그에 글을 쓸 시간이에요!  
     </Logline>
   )
 
