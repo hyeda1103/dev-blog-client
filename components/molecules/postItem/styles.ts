@@ -46,6 +46,7 @@ export const Container = styled.div`
   border: 1px solid ${({ theme }) => theme.typePrimary};
   padding: 8px 24px;
   cursor: pointer;
+  background: ${({ theme }) => theme.themeWhite};
 
   &:hover {
     -webkit-box-shadow: 0 2px ${({ theme }) => theme.typePrimary };

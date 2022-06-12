@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import CategoryItem from '@root/components/molecules/categoryItem/index';
 import StatusTag from '@root/components/atoms/statusTag';
+import DateTag from '@root/components/atoms/dateTag';
 import * as T from '@root/types'
 import { API } from '@root/config';
 import { Details, Header, GitHubIcon, WebIcon, Container, TagBox, Title, Footer, TypeWrapper, ClickIcon, ViewWrapper, LinkWrapper } from './styles';
@@ -29,6 +30,7 @@ function ProjectItem({ slug, post, allPosts, setAllPosts }: Props) {
       <Header>
         <Title>{post.title}</Title>
         <TypeWrapper>
+          {(post.startDate && post.endDate) && <DateTag startDate={post.startDate} endDate={post.endDate} />}
           <StatusTag status={post.status} />
         </TypeWrapper>                      
       </Header>

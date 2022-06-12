@@ -1,9 +1,8 @@
 import React, { MouseEventHandler } from 'react'
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import moment from 'moment';
-import 'moment/locale/ko';
 
+import DateTag from '@root/components/atoms/dateTag';
 import CategoryItem from '@root/components/molecules/categoryItem/index';
 import * as T from '@root/types'
 import { API } from '@root/config';
@@ -29,7 +28,7 @@ function PostItem({ slug, post, allPosts, setAllPosts }: Props) {
       <Header>
         <Title>{post.title}</Title>
         <TypeWrapper>
-          {moment(post.createdAt).fromNow()}
+          <DateTag endDate={post.createdAt} />
         </TypeWrapper>                      
       </Header>
       <Footer>

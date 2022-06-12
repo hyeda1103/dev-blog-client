@@ -91,11 +91,13 @@ export interface Post {
   status: Status
   webLink?: string
   githubLink?: string
+  startDate?: Date;
+  endDate?: Date;
   categories: Array<Category>
   type: PostType
   clicks: number
   postedBy: Profile['_id']  
-  createdAt: string
+  createdAt: Date;
 }
 
 export interface SelectOption {
