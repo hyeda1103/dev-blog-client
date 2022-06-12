@@ -20,7 +20,10 @@ function ProjectItem({ slug, post, allPosts, setAllPosts }: Props) {
   const router = useRouter()
 
   const handleClick: MouseEventHandler = async (e) => {
+    if ((e.target as HTMLElement).tagName === 'A') return;
     e.preventDefault()
+    e.stopPropagation()
+    
     router.push(`/side-project/${post.slug}`)
     await axios.put(`${API}/click-count`, { postId: post._id })
   }
@@ -39,7 +42,7 @@ function ProjectItem({ slug, post, allPosts, setAllPosts }: Props) {
           <a href={post.githubLink} target="_blank" rel="noopener noreferrer">
             <GitHubIcon />{post.githubLink}
           </a>
-          <a href={post.githubLink} target="_blank" rel="noopener noreferrer">
+          <a href={post.webLink} target="_blank" rel="noopener noreferrer">
             <WebIcon />{post.webLink}
           </a>
         </LinkWrapper>
