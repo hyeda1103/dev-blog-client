@@ -3,7 +3,7 @@ import { GetServerSideProps } from 'next';
 import axios from 'axios'
 import DOMPurify from "dompurify";
 import styled, { css } from 'styled-components'
-import { VscGithubInverted, VscWindow } from 'react-icons/vsc';
+import { VscCalendar, VscGithubInverted, VscWindow } from 'react-icons/vsc';
 import moment from 'moment';
 import 'moment/locale/ko';
 
@@ -71,7 +71,6 @@ const Title = styled.h1`
 
 const TypeWrapper = styled.div`
   display: flex;
-  justify-content: flex-end;
   font-size: 14px;
 `;
 
@@ -95,18 +94,23 @@ const LinkWrapper = styled.div`
 `;
 
 const Icon = css`
-  color: ${({ theme }) => theme.hyperlink.default};
   vertical-align: middle;
   font-size: 18px;
   margin-right: 8px;
 `;
 
+const CalendarIcon = styled(VscCalendar)`
+  ${Icon}
+`;
+
 const GitHubIcon = styled(VscGithubInverted)`
   ${Icon}
+  color: ${({ theme }) => theme.hyperlink.default};
 `;
 
 const WebIcon = styled(VscWindow)`
   ${Icon}
+  color: ${({ theme }) => theme.hyperlink.default};
 `;
 
 interface Props {
@@ -124,7 +128,7 @@ function SinglePostPage({ post }: Props) {
         </TagBox>
         <Title>{post.title}</Title>
         <TypeWrapper>
-          {moment(post.createdAt).format("YYYY년 MM월 DD일 HH시 mm분 ss초")}
+          <CalendarIcon />{moment(post.startDate).format("YYYY년 MM월")} → {moment(post.endDate).format("YYYY년 MM월")}
         </TypeWrapper>
         <LinkWrapper>
           <a href={post.githubLink} target="_blank" rel="noopener noreferrer">
