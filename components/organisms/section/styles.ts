@@ -20,12 +20,24 @@ export const TitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+
+  @media only screen and (max-width: 840px) {
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-end;
+    margin-bottom: 12px;
+  }
 `;
 
 export const Title = styled.h1`
   font-size: 36px;
   font-weight: 700;
   margin-bottom: 12px;
+
+  @media only screen and (max-width: 840px) {
+    align-self: flex-start;
+    margin-bottom: 0;
+  }
 `;
 
 export const Logline = styled.p`

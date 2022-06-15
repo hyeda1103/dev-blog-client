@@ -18,4 +18,8 @@ export const Input = styled.input`
   &:focus {
     background: ${({ theme }) => theme.active};
   }
+
+  @media only screen and (max-width: 425px) {
+    width: 150px;
+  }
 `;

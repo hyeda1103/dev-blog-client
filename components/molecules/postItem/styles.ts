@@ -7,6 +7,7 @@ export const Header = styled.div`
   align-items: flex-end;
   border-bottom: 1px solid ${({ theme }) => theme.typePrimary};
   padding: 8px 0;
+  width: 100%;
 
   @media only screen and (max-width: 840px) {
     flex-direction: column;
@@ -49,10 +50,6 @@ export const PostList = styled.div`
 `;
 
 export const Container = styled.div`
-  width: 100%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
   border: 1px solid ${({ theme }) => theme.typePrimary};
   padding: 8px 24px;
   cursor: pointer;
@@ -100,7 +97,7 @@ export const Footer = styled.div`
   align-items: flex-end;
   margin: 8px 0;
 
-  @media only screen and (max-width: 840px) {
+  @media only screen and (max-width: 720px) {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
@@ -158,11 +155,14 @@ export const ClickIcon = styled(HiCursorClick)`
 
 export const Description = styled.div`
   margin: 8px 0;
-  width: 100%;
   font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+
+  @media only screen and (max-width: 400px) {
+    display: none;
+  }
 `;

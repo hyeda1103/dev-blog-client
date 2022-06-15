@@ -177,6 +177,10 @@ export const LinkWrapper = styled.div`
     align-items: center;
     font-size: 14px;
   }
+
+  @media only screen and (max-width: 840px) {
+    display: none;
+  }
 `;
 
 export const Description = styled.div`
