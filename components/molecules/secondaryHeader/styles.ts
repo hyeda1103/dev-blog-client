@@ -26,6 +26,10 @@ export const Inner = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 8px 0;
+
+  @media only screen and (max-width: 840px) {
+    width: 90%;
+  }
 `
 
 export const SocialIconWrapper = styled.div`

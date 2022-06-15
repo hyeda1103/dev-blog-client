@@ -62,6 +62,12 @@ const MainText = styled.div`
     font-family: consolas;
     overflow-x: scroll;
   }
+
+  img {
+    @media only screen and (max-width: 840px) {
+      width: 100%;
+    }
+  }
 `;
 
 const Title = styled.h1`

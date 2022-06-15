@@ -18,6 +18,10 @@ export const Inner = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media only screen and (max-width: 840px) {
+    width: 90%;
+  }
 `
 
 export const Logo = styled.h3`
@@ -71,5 +75,9 @@ export const Item = styled.li`
   a {
     font-size: 14px;
     text-decoration: none;
+  }
+
+  @media only screen and (max-width: 840px) {
+    display: none;
   }
 `

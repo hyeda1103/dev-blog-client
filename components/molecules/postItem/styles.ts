@@ -7,6 +7,12 @@ export const Header = styled.div`
   align-items: flex-end;
   border-bottom: 1px solid ${({ theme }) => theme.typePrimary};
   padding: 8px 0;
+
+  @media only screen and (max-width: 840px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
 `;
 
 export const CategoryInfo = styled.div`
@@ -43,6 +49,10 @@ export const PostList = styled.div`
 `;
 
 export const Container = styled.div`
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   border: 1px solid ${({ theme }) => theme.typePrimary};
   padding: 8px 24px;
   cursor: pointer;
@@ -89,6 +99,12 @@ export const Footer = styled.div`
   justify-content: space-between;
   align-items: flex-end;
   margin: 8px 0;
+
+  @media only screen and (max-width: 840px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
 `;
 
 export const PostedAt = styled.div`
@@ -129,6 +145,10 @@ export const ViewWrapper = styled.div`
   display: flex;
   align-items: center;
   font-size: 14px;
+
+  @media only screen and (max-width: 840px) {
+    display: none;
+  }
 `
 
 export const ClickIcon = styled(HiCursorClick)`

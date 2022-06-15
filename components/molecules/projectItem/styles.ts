@@ -8,6 +8,12 @@ export const Header = styled.div`
   align-items: flex-end;
   border-bottom: 1px solid ${({ theme }) => theme.typePrimary};
   padding: 8px 0;
+
+  @media only screen and (max-width: 840px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
 `;
 
 export const CategoryInfo = styled.div`
@@ -48,6 +54,10 @@ export const Container = styled.div`
   padding: 8px 24px;
   cursor: pointer;
   background: ${({ theme }) => theme.themeWhite};
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 
   &:hover {
     -webkit-box-shadow: 0 2px ${({ theme }) => theme.typePrimary };
@@ -103,6 +113,12 @@ export const Footer = styled.div`
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 8px;
+
+  @media only screen and (max-width: 840px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
 `;
 
 export const PostedAt = styled.div`
@@ -117,8 +133,7 @@ const Tag = css`
 `
 
 export const TagBox = styled.div`
-  display: flex;
-  justify-content: flex-end;
+  display: border-box;
 `;
 
 export const CategoryTag = styled.span`
@@ -141,6 +156,10 @@ export const ViewWrapper = styled.div`
   display: flex;
   align-items: center;
   font-size: 14px;
+
+  @media only screen and (max-width: 840px) {
+    display: none;
+  }
 `
 
 export const ClickIcon = styled(HiCursorClick)`
