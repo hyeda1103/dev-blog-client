@@ -25,7 +25,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
     return {
       props: {
-        devPosts: dailyPostList,
+        dailyPosts: dailyPostList,
       }
     }
   } catch (error) {
