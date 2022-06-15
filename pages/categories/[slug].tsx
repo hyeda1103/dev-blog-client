@@ -55,6 +55,7 @@ function SingleCategoryPage({ slug, category, posts, numOfPosts, postsLimit, pos
   return (
     <OneColumn>
       <Section
+        title={`${category.name}`}
         logline={`${category.name}에 대해 총 ${allPosts.length}개의 글이 작성되었습니다`}
         contents={postList}
       />

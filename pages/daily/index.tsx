@@ -5,6 +5,7 @@ import { API } from '@root/config';
 import * as T from '@root/types';
 import PostList from '@root/components/organisms/postList';
 import OneColumn from '@root/components/templates/oneColumn';
+import Section from '@root/components/organisms/section';
 
 interface Props {
   dailyPosts: Array<T.Post>
@@ -13,7 +14,11 @@ interface Props {
 function DailyPage({ dailyPosts }: Props) {
   return (
     <OneColumn>
-      <PostList posts={dailyPosts} />
+      <Section
+        title="일상"
+        logline={`일상에 대하여 총 ${dailyPosts.length}개의 글이 작성되었습니다`}
+        contents={<PostList posts={dailyPosts} />}
+      />
     </OneColumn>
   )
 }

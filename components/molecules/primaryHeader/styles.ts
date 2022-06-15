@@ -78,7 +78,6 @@ export const Item = styled.li<StyleProps>`
 
   a {
     font-size: 14px;
-    font-weight: ${({ isActive }) => isActive ? 700 : 400 };
     text-decoration: none;
     color: ${({ theme, isActive }) => isActive ? theme.themePrimary : theme.typePrimary };
   }

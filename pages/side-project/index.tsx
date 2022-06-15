@@ -6,6 +6,7 @@ import { API } from '@root/config'
 import * as T from '@root/types'
 import OneColumn from '@root/components/templates/oneColumn'
 import PostList from '@root/components/organisms/postList';
+import Section from '@root/components/organisms/section'
 
 interface Props {
   projectPosts: Array<T.Post>
@@ -14,7 +15,11 @@ interface Props {
 function ProjectPage({ projectPosts }: Props) {
   return (
     <OneColumn>
-      <PostList posts={projectPosts} />
+      <Section
+        title="사이드 프로젝트"
+        logline={`사이드 프로젝트에 대하여 총 ${projectPosts.length}개의 글이 작성되었습니다`}
+        contents={<PostList posts={projectPosts} />}
+      />
     </OneColumn>
   )
 }
