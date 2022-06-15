@@ -20,7 +20,7 @@ export const lightTheme = {
 export const darkTheme = {
   bodyBackground: '#161E2E',
   typePrimary: '#f4f4f4',
-  themeWhite: '#161E2E',
+  themeWhite: '#FFFFFF',
   themePrimary: '#0000ee',
   border: '#6B8096',
   active: '#D7E5F0',

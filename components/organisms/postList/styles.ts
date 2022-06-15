@@ -19,7 +19,7 @@ export const PostList = styled.ul`
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 24px;
-  padding: 2px;
+  padding: 1px 10px 10px 1px;
   box-sizing: border-box;
 `;
 

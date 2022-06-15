@@ -17,24 +17,24 @@ function PrimaryHeader() {
           </Link>
         </Logo>
         <Nav>
-          <Item>
+          <Item isActive={router.asPath === T.Page.DEV}>
             <Link href={T.Page.DEV}>
               <a>
-                <Highlight isActive={router.asPath === T.Page.DEV}>개발</Highlight>
+                개발
               </a>
             </Link>
           </Item>
-          <Item>
+          <Item isActive={router.asPath === T.Page.DAILY}>
             <Link href={T.Page.DAILY}>
               <a>
-                <Highlight isActive={router.asPath === T.Page.DAILY}>일상</Highlight>
+                일상
               </a>
             </Link>
           </Item>
-          <Item>
+          <Item isActive={router.asPath === T.Page.SIDE_PROJECT}>
             <Link href={T.Page.SIDE_PROJECT}>
               <a>
-                <Highlight isActive={router.asPath === T.Page.SIDE_PROJECT}>사이드 프로젝트</Highlight>
+                사이드 프로젝트
               </a>
             </Link>
           </Item>

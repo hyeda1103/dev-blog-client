@@ -64,7 +64,11 @@ export const Highlight = styled.span<StyleProps>`
   }
 `;
 
-export const Item = styled.li`
+interface StyleProps {
+  isActive: boolean
+}
+
+export const Item = styled.li<StyleProps>`
   cursor: pointer;
   margin-right: 14px;
   padding: 0 2px;
@@ -74,7 +78,15 @@ export const Item = styled.li`
 
   a {
     font-size: 14px;
+    font-weight: ${({ isActive }) => isActive ? 700 : 400 };
     text-decoration: none;
+    color: ${({ theme, isActive }) => isActive ? theme.themePrimary : theme.typePrimary };
+  }
+
+  &:hover {
+    a {
+      color: ${({ theme }) => theme.themePrimary};
+    }
   }
 
   @media only screen and (max-width: 840px) {
