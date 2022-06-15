@@ -67,7 +67,7 @@ const MainText = styled.div`
 const Title = styled.h1`
   font-size: 32px;
   font-weight: 700;
-  margin: 32px 0 16px;
+  margin: 16px 0 16px;
 `;
 
 const TypeWrapper = styled.div`
@@ -76,8 +76,8 @@ const TypeWrapper = styled.div`
 `;
 
 const TagBox = styled.div`
-  display: flex;
-  justify-content: flex-end;
+  box-sizing: border-box;
+  padding-top: 16px; 
 `;
 
 const LinkWrapper = styled.div`
@@ -129,11 +129,6 @@ function SinglePostPage({ post }: Props) {
       />
       <Paper>
         <Header>
-          <TagBox>
-            {post.categories?.map((category) => (
-              <CategoryItem key={category._id} category={category} />
-            ))}
-          </TagBox>
           <Title>{post.title}</Title>
           <TypeWrapper>
             <CalendarIcon />{moment(post.startDate).format("YYYY년 MM월")} → {moment(post.endDate).format("YYYY년 MM월")}
@@ -147,6 +142,11 @@ function SinglePostPage({ post }: Props) {
             </a>
           </LinkWrapper>
         </Header>
+        <TagBox>
+          {post.categories?.map((category) => (
+            <CategoryItem key={category._id} category={category} />
+          ))}
+        </TagBox>
         <MainText dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.description) }} />
       </Paper>
     </>

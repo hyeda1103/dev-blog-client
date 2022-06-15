@@ -24,7 +24,7 @@ const Header = styled.div`
 `;
 
 const MainText = styled.div`
-  padding: 32px 0 16px;
+  padding: 16px 0 16px;
   line-height: 2;
 
   h1 {
@@ -82,9 +82,8 @@ const TypeWrapper = styled.div`
 `;
 
 const TagBox = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  gap: 6px;
+  box-sizing: border-box;
+  padding-top: 16px; 
 `;
 
 interface Props {
@@ -102,16 +101,16 @@ function SinglePostPage({ post }: Props) {
       />
       <Paper>
         <Header>
-          <TagBox>
-            {post.categories?.map((category) => (
-              <CategoryItem key={category._id} category={category} />
-            ))}
-          </TagBox>
           <Title>{post.title}</Title>
           <TypeWrapper>
             {moment(post.createdAt).format("YYYY년 MM월 DD일 HH시 mm분 ss초")}
           </TypeWrapper>
         </Header>
+        <TagBox>
+          {post.categories?.map((category) => (
+            <CategoryItem key={category._id} category={category} />
+          ))}
+        </TagBox>
         <MainText dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.description) }} />
       </Paper>
     </>

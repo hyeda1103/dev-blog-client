@@ -133,7 +133,7 @@ const Tag = css`
 `
 
 export const TagBox = styled.div`
-  display: border-box;
+  box-sizing: border-box;
 `;
 
 export const CategoryTag = styled.span`
@@ -181,14 +181,4 @@ export const LinkWrapper = styled.div`
   @media only screen and (max-width: 840px) {
     display: none;
   }
-`;
-
-export const Description = styled.div`
-  margin: 8px 0;
-  width: 600px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
 `;

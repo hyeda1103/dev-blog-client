@@ -158,11 +158,12 @@ export const Description = styled.div`
   font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 90%;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 
-  @media only screen and (max-width: 400px) {
+  @media only screen and (max-width: 425px) {
     display: none;
   }
 `;
