@@ -32,25 +32,21 @@ function HomePage({
     <OneColumn>
       <Section
         title='개발'
-        link={<DirectTo text={`모두 보기 (${numOfDevPosts})`} link={T.Page.DEV} />}
+        link={<DirectTo NofNewPost={numOfDevPosts} link={T.Page.DEV} />}
         logline='오늘 배운 내용 (Today I Learned), 자주 구글링하는 이슈, 개발 서적 리뷰 등에 대한 글입니다'
         contents={<PostList posts={devPosts} />}
       />
       <Section
-        title='흥미로운 키워드'
-        contents={<CategoryList categories={categories} />}
+        title='일상'
+        link={<DirectTo NofNewPost={numOfDailyPosts} link={T.Page.DAILY} />}
+        logline='오늘 있었던 일에 대한 짧은 글입니다'
+        contents={<PostList posts={dailyPosts} />}
       />
       <Section
         title='사이드 프로젝트'
-        link={<DirectTo text={`모두 보기 (${numOfProjects})`} link={T.Page.SIDE_PROJECT} />}
+        link={<DirectTo NofNewPost={numOfProjects} link={T.Page.SIDE_PROJECT} />}
         logline='필요 또는 재미를 위해 만들었거나, 돈을 벌어볼 겸 참여한 프로젝트들이 있습니다'
         contents={<PostList posts={projectPosts} />}
-      />
-      <Section
-        title='일상'
-        link={<DirectTo text={`모두 보기 (${numOfDailyPosts})`} link={T.Page.DAILY} />}
-        logline='오늘 있었던 일에 대한 짧은 글입니다'
-        contents={<PostList posts={dailyPosts} />}
       />
     </OneColumn>
   )

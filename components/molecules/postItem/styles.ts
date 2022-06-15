@@ -50,14 +50,45 @@ export const PostList = styled.div`
 `;
 
 export const Container = styled.div`
+  position: relative;
   border: 1px solid ${({ theme }) => theme.typePrimary};
   padding: 8px 24px;
   cursor: pointer;
   background: ${({ theme }) => theme.themeWhite};
 
+  &:before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    right: -10px;
+    border-top: 10px solid transparent;
+	  border-left: 10px solid ${({ theme }) => theme.typePrimary };
+	  height: 100%;
+	  width: 0;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    left: -1px;
+    bottom: -10px;
+    border-top: 10px solid ${({ theme }) => theme.typePrimary };
+	  border-left: 10px solid transparent;
+	  height: 0;
+	  width: calc(100% + 1px);
+  }
+
   &:hover {
-    -webkit-box-shadow: 0 2px ${({ theme }) => theme.typePrimary };
-    box-shadow: 0 2px ${({ theme }) => theme.typePrimary };
+    border: 1px solid ${({ theme }) => theme.themePrimary};
+
+    &:before {
+      border-left: 10px solid ${({ theme }) => theme.themePrimary };
+    }
+
+    &:after {
+      content: "";
+      border-top: 10px solid ${({ theme }) => theme.themePrimary };
+    }
   }
 `;
 

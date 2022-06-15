@@ -1,20 +1,26 @@
 import Link from 'next/link'
 import React from 'react'
 
-import { Container, RightArrow } from './styles'
+import { Container, RightArrow, Circle } from './styles'
 
 interface Props {
   link: string
-  text: string
+  NofNewPost: number
 }
 
-function DirectTo({ link, text }: Props) {
+function DirectTo({ link, NofNewPost }: Props) {
   return (
     <Container>
       <Link href={link}>
-        {text}
+        <a>
+          <Circle>  
+            <p>
+              {NofNewPost}
+            </p>
+          </Circle>
+          <RightArrow />
+        </a>
       </Link>
-      <RightArrow />
     </Container>
   )
 }
