@@ -37,7 +37,6 @@ export const Container = styled.div`
   position: relative;
   border: 1px solid ${({ theme }) => theme.typePrimary};
   padding: 8px 24px;
-  margin: 0 10px 10px 0;
   cursor: pointer;
   box-sizing: border-box;
   display: flex;
