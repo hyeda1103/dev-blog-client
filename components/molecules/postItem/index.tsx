@@ -19,6 +19,7 @@ import {
   ViewWrapper,
   ContentsWrapper,
 } from './styles';
+import getFirstSentence from '@root/helpers/getFirstSentence';
 
 interface Props {
   slug?: string
@@ -38,7 +39,7 @@ function PostItem({ slug, post, allPosts, setAllPosts }: Props) {
     }
     await axios.put(`${API}/click-count`, { postId: post._id });
   }
-
+  
   return (
     <Container onClick={handleClick}>
       <Header>
@@ -47,9 +48,9 @@ function PostItem({ slug, post, allPosts, setAllPosts }: Props) {
           <DateTag endDate={post.createdAt} />
         </TypeWrapper>                      
       </Header>
-      <ContentsWrapper>
-        <Description dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.description) }} />
-      </ContentsWrapper>
+      {/* <ContentsWrapper>
+        <Description dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(previewLine) }} />
+      </ContentsWrapper> */}
       <Footer>
         <TagBox>
           {post.categories.map((category) => (

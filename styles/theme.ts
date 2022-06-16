@@ -66,13 +66,22 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: inherit;
+    box-sizing: border-box;
   }
 
   body {
     background: ${({ theme }: Theme) => theme.bodyBackground};
     color: ${({ theme }: Theme) => theme.typePrimary};
-    overflow-x: hidden;
     line-height: 1.5;
+  }
+
+  html, body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    width: 100%;
   }
 
   table {

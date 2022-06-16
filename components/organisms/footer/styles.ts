@@ -1,10 +1,7 @@
 import styled from 'styled-components'
 
 export const Root = styled.footer`
-  position: relative;
-  width: 100%;
   bottom: 0;
-  display: flex;
 `
 
 export const Inner = styled.div`

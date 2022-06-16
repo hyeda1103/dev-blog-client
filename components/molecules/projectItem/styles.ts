@@ -199,7 +199,6 @@ export const LinkWrapper = styled.div`
   gap: 6px;
 
   a {
-    display: flex;
     align-items: center;
     font-size: 14px;
     overflow: hidden;

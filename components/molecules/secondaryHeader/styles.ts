@@ -56,11 +56,6 @@ export const Item = styled.div`
   a {
     font-size: 11px;
   }
-
-  &:hover {
-    -webkit-box-shadow: 0 1px ${({ theme }) => theme.typePrimary };
-    box-shadow: 0 1px ${({ theme }) => theme.typePrimary};
-  }
 `
 
 export const SwitchMode = styled.div<StyleProps>`

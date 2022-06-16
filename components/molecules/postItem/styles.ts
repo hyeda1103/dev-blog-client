@@ -8,6 +8,12 @@ export const Header = styled.div`
   border-bottom: 1px solid ${({ theme }) => theme.typePrimary};
   padding: 8px 0;
   width: 100%;
+
+  @media only screen and (max-width: 720px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
 `;
 
 export const CategoryInfo = styled.div`
@@ -36,7 +42,6 @@ export const Container = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  width: 100%;
   color: ${({ theme }) => theme.typePrimary};
 
   &:before {
@@ -84,13 +89,6 @@ export const LinkIcon = styled(HiLink)`
 
 export const Title = styled.p`
   font-size: 20px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 80%;
-  white-space: nowrap;
-  /* display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical; */
 `;
 
 export const Details = styled.span`
@@ -113,6 +111,10 @@ export const TypeWrapper = styled.div`
   justify-content: flex-end;
   width: fit-content;
   font-size: 11px;
+
+  @media only screen and (max-width: 720px) {
+    align-self: flex-end;
+  }
 `;
 
 export const Footer = styled.div`
@@ -140,7 +142,6 @@ const Tag = css`
 `
 
 export const TagBox = styled.div`
-  white-space: nowrap;
   gap: 6px;
 `;
 
@@ -189,6 +190,5 @@ export const Description = styled.div`
 
 export const ContentsWrapper = styled.div`
   position: relative;
-  overflow: hidden;
   width: 80%;
 `;
