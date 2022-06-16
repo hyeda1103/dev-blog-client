@@ -1,7 +1,6 @@
 import React, { MouseEventHandler } from 'react'
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import DOMPurify from 'dompurify';
 
 import DateTag from '@root/components/atoms/dateTag';
 import CategoryItem from '@root/components/molecules/categoryItem/index';
@@ -9,7 +8,6 @@ import * as T from '@root/types'
 import { API } from '@root/config';
 import {
   Header,
-  Description,
   Container,
   TagBox,
   Title,
@@ -17,9 +15,7 @@ import {
   TypeWrapper,
   ClickIcon,
   ViewWrapper,
-  ContentsWrapper,
 } from './styles';
-import getFirstSentence from '@root/helpers/getFirstSentence';
 
 interface Props {
   slug?: string
@@ -48,9 +44,6 @@ function PostItem({ slug, post, allPosts, setAllPosts }: Props) {
           <DateTag endDate={post.createdAt} />
         </TypeWrapper>                      
       </Header>
-      {/* <ContentsWrapper>
-        <Description dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(previewLine) }} />
-      </ContentsWrapper> */}
       <Footer>
         <TagBox>
           {post.categories.map((category) => (
