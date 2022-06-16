@@ -12,7 +12,6 @@ import CategoryItem from '@root/components/molecules/categoryItem';
 import Meta from '@root/helpers/meta';
 
 const Paper = styled.article`
-  background: ${({ theme }) => theme.themeWhite};
   padding: 16px 24px;
 `;
 

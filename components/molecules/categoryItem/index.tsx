@@ -9,7 +9,6 @@ interface Props {
 }
 
 function CategoryItem({ category }: Props) {
-  console.log(category)
   const router = useRouter()
   const handleClick: MouseEventHandler = (e) => {
     e.stopPropagation()

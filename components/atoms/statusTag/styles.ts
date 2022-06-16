@@ -7,10 +7,11 @@ interface StyleProps {
   } | undefined
 }
 
-export const Tag = styled.div<StyleProps>`
+export const Tag = styled.span<StyleProps>`
   padding: 2px 6px;
   color: ${({ tagColor }) => tagColor?.color};
   background: ${({ tagColor }) => tagColor?.background};
   border-radius: 4px;
   font-size: 11px;
+  white-space: nowrap;
 `;

@@ -8,11 +8,12 @@ export const Header = styled.div`
   align-items: flex-end;
   border-bottom: 1px solid ${({ theme }) => theme.typePrimary};
   padding: 8px 0;
+  width: 100%;
 
   @media only screen and (max-width: 840px) {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 6px;
   }
 `;
 
@@ -21,26 +22,10 @@ export const CategoryInfo = styled.div`
   grid-template-columns: 1fr;
   border: 1px solid ${({ theme }) => theme.typePrimary};
   padding: 16px 24px;
+
   p {
     font-size: 32px;
   }
-`;
-
-export const ImageWrapper = styled.div`
-  border: 1px solid ${({ theme }) => theme.typePrimary};
-  border-radius: 50%;
-  overflow: hidden;
-  width: 200px;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const Profile = styled.img`
-  width: 100%;
-  object-fit: cover;
-  object-position: center;
 `;
 
 export const PostList = styled.div`
@@ -53,8 +38,8 @@ export const Container = styled.div`
   position: relative;
   border: 1px solid ${({ theme }) => theme.typePrimary};
   padding: 8px 24px;
+  margin: 0 10px 10px 0;
   cursor: pointer;
-  background: ${({ theme }) => theme.themeWhite};
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -117,12 +102,19 @@ export const ToolIcon = styled(VscTools)`
 
 export const Title = styled.p`
   font-size: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 80%;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 `;
 
 export const Details = styled.span`
   vertical-align: middle;
   display: inline-block;
   margin: 8px 0;
+
   a {
     color: ${({ theme }) => theme.hyperlink.default};
 
@@ -135,8 +127,11 @@ export const Details = styled.span`
 
 export const TypeWrapper = styled.div`
   display: flex;
-  font-size: 14px;
   gap: 6px;
+
+  @media only screen and (max-width: 840px) {
+    align-self: flex-end;
+  }
 `;
 
 export const Footer = styled.div`
@@ -207,9 +202,12 @@ export const LinkWrapper = styled.div`
     display: flex;
     align-items: center;
     font-size: 14px;
-  }
-
-  @media only screen and (max-width: 840px) {
-    display: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 `;

@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
-export const Tag = styled.div`
+export const Tag = styled.span`
   padding: 2px 6px;
-  color: ${({ theme }) => theme.typePrimary};
-  background: ${({ theme }) => theme.bodyBackground};
+  background: #ddebf1;
+  color: #0c6e99;
   border-radius: 4px;
   font-size: 11px;
+  white-space: nowrap;
 `;

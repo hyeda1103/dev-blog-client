@@ -38,6 +38,6 @@ export const Logline = styled.p`
 `;
 
 export const ContentsWrapper = styled.div`
-  padding-right: 10px;
-  padding-bottom: 10px;
+  /* padding-right: 10px;
+  padding-bottom: 10px; */
 `;

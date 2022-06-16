@@ -8,12 +8,6 @@ export const Header = styled.div`
   border-bottom: 1px solid ${({ theme }) => theme.typePrimary};
   padding: 8px 0;
   width: 100%;
-
-  @media only screen and (max-width: 840px) {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
 `;
 
 export const CategoryInfo = styled.div`
@@ -21,26 +15,10 @@ export const CategoryInfo = styled.div`
   grid-template-columns: 1fr;
   border: 1px solid ${({ theme }) => theme.typePrimary};
   padding: 16px 24px;
+
   p {
     font-size: 32px;
   }
-`;
-
-export const ImageWrapper = styled.div`
-  border: 1px solid ${({ theme }) => theme.typePrimary};
-  border-radius: 50%;
-  overflow: hidden;
-  width: 200px;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const Profile = styled.img`
-  width: 100%;
-  object-fit: cover;
-  object-position: center;
 `;
 
 export const PostList = styled.div`
@@ -53,8 +31,13 @@ export const Container = styled.div`
   position: relative;
   border: 1px solid ${({ theme }) => theme.typePrimary};
   padding: 8px 24px;
+  margin: 0 10px 10px 0;
   cursor: pointer;
-  background: ${({ theme }) => theme.themeWhite};
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: ${({ theme }) => theme.typePrimary};
 
   &:before {
     content: "";
@@ -101,12 +84,20 @@ export const LinkIcon = styled(HiLink)`
 
 export const Title = styled.p`
   font-size: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 80%;
+  white-space: nowrap;
+  /* display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical; */
 `;
 
 export const Details = styled.span`
   vertical-align: middle;
   display: inline-block;
   margin: 8px 0;
+
   a {
     color: ${({ theme }) => theme.hyperlink.default};
 
@@ -119,6 +110,8 @@ export const Details = styled.span`
 
 export const TypeWrapper = styled.div`
   display: flex;
+  justify-content: flex-end;
+  width: fit-content;
   font-size: 11px;
 `;
 
@@ -140,7 +133,6 @@ export const PostedAt = styled.div`
   font-size: 14px;
 `;
 
-
 const Tag = css`
   padding: 2px 8px;
   border: 1px solid ${({ theme }) => theme.typePrimary};
@@ -148,8 +140,7 @@ const Tag = css`
 `
 
 export const TagBox = styled.div`
-  display: flex;
-  justify-content: flex-end;
+  white-space: nowrap;
   gap: 6px;
 `;
 
@@ -185,16 +176,19 @@ export const ClickIcon = styled(HiCursorClick)`
 `;
 
 export const Description = styled.div`
+  position: relative;
   margin: 8px 0;
   font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 90%;
+  width: 100%;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+`;
 
-  @media only screen and (max-width: 425px) {
-    display: none;
-  }
+export const ContentsWrapper = styled.div`
+  position: relative;
+  overflow: hidden;
+  width: 80%;
 `;

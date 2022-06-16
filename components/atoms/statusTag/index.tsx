@@ -13,17 +13,17 @@ function StatusTag({ status }: Props) {
     switch (status) {
       case T.Status.In_Progress:
         return {
-          background: '#fbf3da80',
+          background: '#fbf3da',
           color: '#dfab00',
         };
       case T.Status.Completed:
         return {
-          background: '#ddedea80',
+          background: '#ddedea',
           color: '#0e7b6c'
         };
       default:
         return {
-          background: '#ddebf180',
+          background: '#ddebf1',
           color: '#0c6e99'
         };
     }

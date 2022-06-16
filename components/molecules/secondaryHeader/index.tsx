@@ -47,9 +47,9 @@ function Secondary() {
               </Item>
             )
           }
-          {/* <SwitchMode darkmode={darkmode.value} onClick={darkmode.toggle}>
+          <SwitchMode darkmode={darkmode.value} onClick={darkmode.toggle}>
             {darkmode.value ? <MoonIcon /> : <SunIcon />}
-          </SwitchMode> */}
+          </SwitchMode>
         </Nav>
       </Inner>
     </Container>

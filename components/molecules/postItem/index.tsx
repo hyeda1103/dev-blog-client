@@ -7,7 +7,18 @@ import DateTag from '@root/components/atoms/dateTag';
 import CategoryItem from '@root/components/molecules/categoryItem/index';
 import * as T from '@root/types'
 import { API } from '@root/config';
-import { Header, Description, Container, TagBox, Title, Footer, TypeWrapper, ClickIcon, ViewWrapper } from './styles';
+import {
+  Header,
+  Description,
+  Container,
+  TagBox,
+  Title,
+  Footer,
+  TypeWrapper,
+  ClickIcon,
+  ViewWrapper,
+  ContentsWrapper,
+} from './styles';
 
 interface Props {
   slug?: string
@@ -36,7 +47,9 @@ function PostItem({ slug, post, allPosts, setAllPosts }: Props) {
           <DateTag endDate={post.createdAt} />
         </TypeWrapper>                      
       </Header>
-      <Description dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.description) }} />
+      <ContentsWrapper>
+        <Description dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.description) }} />
+      </ContentsWrapper>
       <Footer>
         <TagBox>
           {post.categories.map((category) => (
