@@ -42,7 +42,7 @@ function Secondary() {
             ) : (
               <Item>
                 <Link href="/login">
-                  <a>로그인</a>
+                  <a>관리자</a>
                 </Link>
               </Item>
             )

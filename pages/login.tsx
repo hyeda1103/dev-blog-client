@@ -123,7 +123,7 @@ function LoginPage() {
         })
       } catch (err: any) {
         setButtonText('로그인')
-        setServerErrorMessage(err.response.data.error)
+        setServerErrorMessage(err.response?.data.error)
         setIsSubmitting(false);
       }
     }
