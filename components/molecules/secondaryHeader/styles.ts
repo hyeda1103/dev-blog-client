@@ -49,12 +49,13 @@ export const Item = styled.div`
   align-items: center;
   cursor: pointer;
   margin-left: 6px;
-  padding: 2px 6px;
+  padding: 4px 6px;
   border: 1px solid ${({ theme }) => theme.typePrimary};
   transition: 0.05s ease;
 
   a {
     font-size: 11px;
+    line-height: 1;
   }
 `
 
