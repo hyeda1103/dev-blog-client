@@ -136,7 +136,7 @@ function SinglePostPage({ post }: Props) {
             <a href={post.githubLink} target="_blank" rel="noopener noreferrer">
               <GitHubIcon />{post.githubLink}
             </a>
-            <a href={post.githubLink} target="_blank" rel="noopener noreferrer">
+            <a href={post.webLink} target="_blank" rel="noopener noreferrer">
               <WebIcon />{post.webLink}
             </a>
           </LinkWrapper>
