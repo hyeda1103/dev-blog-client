@@ -4,6 +4,7 @@ export const lightTheme = {
   bodyBackground: '#f4f4f4',
   typePrimary: '#161E2E',
   themeWhite: '#FFFFFF',
+  themeBlack: '#161E2E',
   themePrimary: '#ff5339',
   border: '#d2d6dc',
   disabled: '#c1c1c1',
@@ -21,6 +22,7 @@ export const darkTheme = {
   bodyBackground: '#161E2E',
   typePrimary: '#f4f4f4',
   themeWhite: '#FFFFFF',
+  themeBlack: '#161E2E',
   themePrimary: '#0000ee',
   border: '#6B8096',
   active: '#D7E5F0',
@@ -39,6 +41,7 @@ interface Theme {
     bodyBackground: string,
     typePrimary: string,
     themeWhite: string,
+    themeBlack: string,
     themePrimary: string,
 
     border: string,
