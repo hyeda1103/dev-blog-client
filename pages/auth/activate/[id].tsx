@@ -5,11 +5,11 @@ import jwt from 'jsonwebtoken'
 import axios from 'axios'
 import styled from 'styled-components';
 
-import ErrorBox from '@root/components/molecules/errorBox';
-import Button from '@root/components/atoms/button';
-import * as T from '@root/types'
-import AuthForm from '@root/components/templates/authForm'
-import { API } from '@root/config'
+import ErrorBox from '@/components/molecules/errorBox';
+import Button from '@/components/atoms/button';
+import * as T from '@/types'
+import AuthForm from '@/components/templates/authForm'
+import { API } from '@/config'
 
 const StyledForm = styled.form`
   width: 100%;

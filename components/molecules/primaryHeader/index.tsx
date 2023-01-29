@@ -4,7 +4,7 @@ import React from 'react'
 
 import SearchInput from '../searchInput'
 import { Container, Inner, Item, Logo, Nav, Highlight } from './styles'
-import * as T from '@root/types'
+import * as T from '@/types'
 
 function PrimaryHeader() {
   const router = useRouter()

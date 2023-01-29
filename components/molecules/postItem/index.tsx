@@ -1,11 +1,11 @@
-import React, { MouseEventHandler } from 'react'
+import React, { Dispatch, MouseEventHandler, SetStateAction } from 'react'
 import axios from 'axios';
 import { useRouter } from 'next/router';
 
-import DateTag from '@root/components/atoms/dateTag';
-import CategoryItem from '@root/components/molecules/categoryItem/index';
-import * as T from '@root/types'
-import { API } from '@root/config';
+import DateTag from '@/components/atoms/dateTag';
+import CategoryItem from '@/components/molecules/categoryItem/index';
+import * as T from '@/types'
+import { API } from '@/config';
 import {
   Header,
   Container,
@@ -21,7 +21,7 @@ interface Props {
   slug?: string
   post: T.Post
   allPosts: Array<T.Post>
-  setAllPosts: any
+  setAllPosts: Dispatch<SetStateAction<T.Post[]>>
 }
 
 function PostItem({ slug, post, allPosts, setAllPosts }: Props) {

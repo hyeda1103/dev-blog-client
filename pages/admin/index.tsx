@@ -2,10 +2,10 @@ import { GetServerSideProps } from 'next'
 import axios from 'axios'
 import styled from 'styled-components';
 
-import * as T from '@root/types';
-import { getCookie } from '@root/helpers/auth';
-import { API } from '@root/config';
-import SelectList from '@root/components/organisms/selectList';
+import * as T from '@/types';
+import { getCookie } from '@/helpers/auth';
+import { API } from '@/config';
+import SelectList from '@/components/organisms/selectList';
 
 const Container = styled.div`
   position: relative;

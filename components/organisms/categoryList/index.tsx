@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { CategoryList as List } from './styles';
-import * as T from '@root/types'
-import CategoryItem from '@root/components/molecules/categoryItem/index';
+import * as T from '@/types'
+import CategoryItem from '@/components/molecules/categoryItem/index';
 
 interface Props {
   categories: Array<T.Category>

@@ -5,11 +5,11 @@ import { ReactNode } from 'react'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
-import Header from '@root/components/organisms/header'
-import Footer from '@root/components/organisms/footer'
-import Meta from '@root/helpers/meta'
+import Header from '@/components/organisms/header'
+import Footer from '@/components/organisms/footer'
+import Meta from '@/helpers/meta'
 import { Main } from './styles'
-import * as T from '@root/types'
+import * as T from '@/types'
 interface Props {
   children: ReactNode
 }

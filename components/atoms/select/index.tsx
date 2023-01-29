@@ -2,7 +2,7 @@ import React from 'react';
 import Select, { ActionMeta, GroupBase, StylesConfig } from 'react-select';
 import makeAnimated from 'react-select/animated';
 
-import * as T from '@root/types'
+import * as T from '@/types'
 
 const animatedComponents = makeAnimated();
 

@@ -1,19 +1,19 @@
-import React, { MouseEventHandler } from 'react'
+import React, { Dispatch, MouseEventHandler, SetStateAction } from 'react'
 import { useRouter } from 'next/router';
 import axios from 'axios';
 
-import CategoryItem from '@root/components/molecules/categoryItem/index';
-import StatusTag from '@root/components/atoms/statusTag';
-import DateTag from '@root/components/atoms/dateTag';
-import * as T from '@root/types'
-import { API } from '@root/config';
-import { Details, Header, GitHubIcon, WebIcon, Container, TagBox, Title, Footer, TypeWrapper, ClickIcon, ViewWrapper, LinkWrapper } from './styles';
+import CategoryItem from '@/components/molecules/categoryItem/index';
+import StatusTag from '@/components/atoms/statusTag';
+import DateTag from '@/components/atoms/dateTag';
+import * as T from '@/types'
+import { API } from '@/config';
+import { Details, Header, GitHubIcon, WebIcon, HyperLink, HyperText, Container, TagBox, Title, Footer, TypeWrapper, ClickIcon, ViewWrapper, LinkWrapper } from './styles';
 
 interface Props {
   slug?: string
   post: T.Post
   allPosts: Array<T.Post>
-  setAllPosts: any
+  setAllPosts: Dispatch<SetStateAction<T.Post[]>>
 }
 
 function ProjectItem({ slug, post, allPosts, setAllPosts }: Props) {
@@ -39,12 +39,14 @@ function ProjectItem({ slug, post, allPosts, setAllPosts }: Props) {
       </Header>
       <Details>
         <LinkWrapper>
-          <a href={post.githubLink} target="_blank" rel="noopener noreferrer">
-            <GitHubIcon />{post.githubLink}
-          </a>
-          <a href={post.webLink} target="_blank" rel="noopener noreferrer">
-            <WebIcon />{post.webLink}
-          </a>
+          <HyperLink href={post.githubLink} target="_blank" rel="noopener noreferrer">
+            <GitHubIcon />
+            <HyperText>{post.githubLink}</HyperText>
+          </HyperLink>
+          <HyperLink href={post.webLink} target="_blank" rel="noopener noreferrer">
+            <WebIcon />
+            <HyperText>{post.webLink}</HyperText>
+          </HyperLink>
         </LinkWrapper>
       </Details>
       <Footer>

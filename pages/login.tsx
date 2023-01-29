@@ -5,13 +5,13 @@ import axios from 'axios';
 import styled from 'styled-components';
 import { IoIosArrowForward } from 'react-icons/io'
 
-import { authenticate, isAuth } from '@root/helpers/auth';
-import Button from '@root/components/atoms/button';
-import InputWithLabel from '@root/components/molecules/inputWithLabel';
-import AuthForm from '@root/components/templates/authForm';
-import * as T from '@root/types'
-import ErrorBox from '@root/components/molecules/errorBox';
-import { API } from '@root/config';
+import { authenticate, isAuth } from '@/helpers/auth';
+import Button from '@/components/atoms/button';
+import InputWithLabel from '@/components/molecules/inputWithLabel';
+import AuthForm from '@/components/templates/authForm';
+import * as T from '@/types'
+import ErrorBox from '@/components/molecules/errorBox';
+import { API } from '@/config';
 
 const StyledForm = styled.form`
   width: 100%;

@@ -87,7 +87,14 @@ export const LinkIcon = styled(HiLink)`
 `;
 
 export const Title = styled.p`
+  position: relative;
   font-size: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 `;
 
 export const Details = styled.span`

@@ -1,6 +1,6 @@
 import { observable } from 'mobx'
 
-import * as T from '@root/types'
+import * as T from '@/types'
 
 interface ContentState {
   step: T.Step | undefined

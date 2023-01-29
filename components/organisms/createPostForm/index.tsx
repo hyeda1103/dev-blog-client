@@ -2,15 +2,15 @@ import React, { ChangeEvent, FormEventHandler, SyntheticEvent } from 'react'
 import { ActionMeta } from 'react-select';
 import { observer } from 'mobx-react';
 
-import TextEditor from '@root/components/molecules/textEditor';
-import ErrorBox from '@root/components/molecules/errorBox';
-import SelectWithLabel from '@root/components/molecules/selectWithLabel';
-import * as T from '@root/types';
-import contentStore from '@root/stores/contentStore';
+import TextEditor from '@/components/molecules/textEditor';
+import ErrorBox from '@/components/molecules/errorBox';
+import SelectWithLabel from '@/components/molecules/selectWithLabel';
+import * as T from '@/types';
+import contentStore from '@/stores/contentStore';
 import { InputContainer, InputWrapper, StyledForm, BasicButton as Button, GitHubIcon, WebIcon } from './styles';
-import TitleInput from '@root/components/molecules/titleInput';
-import LinkInput from '@root/components/atoms/linkInput';
-import DatePicker from '@root/components/molecules/dualDatePicker';
+import TitleInput from '@/components/molecules/titleInput';
+import LinkInput from '@/components/atoms/linkInput';
+import DatePicker from '@/components/molecules/dualDatePicker';
 
 interface Props {
   token: string

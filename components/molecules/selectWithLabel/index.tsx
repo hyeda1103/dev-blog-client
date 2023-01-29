@@ -1,9 +1,9 @@
 import React from 'react';
 import { ActionMeta } from 'react-select';
 
-import ReactSelect from '@root/components/atoms/select';
-import ErrorBox from '@root/components/molecules/errorBox';
-import * as T from '@root/types'
+import ReactSelect from '@/components/atoms/select';
+import ErrorBox from '@/components/molecules/errorBox';
+import * as T from '@/types'
 import {
   Container,
   Text,

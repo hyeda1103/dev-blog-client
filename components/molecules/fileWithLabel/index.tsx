@@ -1,7 +1,7 @@
 import React, { ChangeEventHandler } from 'react';
 
-import ErrorBox from '@root/components/molecules/errorBox';
-import * as T from '@root/types'
+import ErrorBox from '@/components/molecules/errorBox';
+import * as T from '@/types'
 import {
   StyledLabel,
   Text,

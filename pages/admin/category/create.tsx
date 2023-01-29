@@ -3,12 +3,12 @@ import { ChangeEvent, FormEventHandler, useEffect, useState } from 'react';
 import axios from 'axios'
 import styled from 'styled-components'
 
-import * as T from '@root/types';
-import { API } from '@root/config';
-import { getCookie } from '@root/helpers/auth';
-import Button from '@root/components/atoms/button';
-import ErrorBox from '@root/components/molecules/errorBox';
-import InputWithLabel from '@root/components/molecules/inputWithLabel';
+import * as T from '@/types';
+import { API } from '@/config';
+import { getCookie } from '@/helpers/auth';
+import Button from '@/components/atoms/button';
+import ErrorBox from '@/components/molecules/errorBox';
+import InputWithLabel from '@/components/molecules/inputWithLabel';
 
 const Container = styled.div`
   position: relative;

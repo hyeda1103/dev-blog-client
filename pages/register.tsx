@@ -3,14 +3,14 @@ import Link from 'next/link';
 import Router from 'next/router';
 import styled from 'styled-components';
 
-import Button from '@root/components/atoms/button';
-import InputWithLabel from '@root/components/molecules/inputWithLabel';
-import ErrorBox from '@root/components/molecules/errorBox';
-import AuthForm from '@root/components/templates/authForm';
-import * as T from '@root/types'
-import { isAuth } from '@root/helpers/auth';
+import Button from '@/components/atoms/button';
+import InputWithLabel from '@/components/molecules/inputWithLabel';
+import ErrorBox from '@/components/molecules/errorBox';
+import AuthForm from '@/components/templates/authForm';
+import * as T from '@/types'
+import { isAuth } from '@/helpers/auth';
 import axios from 'axios';
-import { API } from '@root/config'
+import { API } from '@/config'
 
 const StyledForm = styled.form`
   width: 100%;
