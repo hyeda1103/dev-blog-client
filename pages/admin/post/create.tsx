@@ -5,12 +5,12 @@ import { ActionMeta } from 'react-select';
 import { observer } from 'mobx-react'
 import styled from 'styled-components';
 
-import TypeList from '@root/components/organisms/typeList';
-import CreatePostForm from '@root/components/organisms/createPostForm';
-import { getCookie } from '@root/helpers/auth';
-import * as T from '@root/types';
-import { API } from '@root/config';
-import contentStore from '@root/stores/contentStore';
+import TypeList from '@/components/organisms/typeList';
+import CreatePostForm from '@/components/organisms/createPostForm';
+import { getCookie } from '@/helpers/auth';
+import * as T from '@/types';
+import { API } from '@/config';
+import contentStore from '@/stores/contentStore';
 
 const Layout = styled.main`
   margin: 0 auto;

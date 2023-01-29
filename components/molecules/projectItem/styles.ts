@@ -10,10 +10,10 @@ export const Header = styled.div`
   padding: 8px 0;
   width: 100%;
 
-  @media only screen and (max-width: 840px) {
+  @media only screen and (max-width: 720px) {
     flex-direction: column;
     align-items: flex-start;
-    gap: 6px;
+    gap: 8px;
   }
 `;
 
@@ -38,12 +38,11 @@ export const Container = styled.div`
   position: relative;
   border: 1px solid ${({ theme }) => theme.typePrimary};
   padding: 8px 24px;
-  margin: 0 10px 10px 0;
   cursor: pointer;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  color: ${({ theme }) => theme.typePrimary};
 
   &:before {
     content: "";
@@ -85,7 +84,7 @@ const Icon = css`
   color: ${({ theme }) => theme.hyperlink.default};
   vertical-align: middle;
   font-size: 18px;
-  margin-right: 6px;
+  margin: 3px 6px 3px 0;
 `;
 
 export const GitHubIcon = styled(VscGithubInverted)`
@@ -101,10 +100,11 @@ export const ToolIcon = styled(VscTools)`
 `;
 
 export const Title = styled.p`
+  position: relative;
   font-size: 20px;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 80%;
+  width: 100%;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
@@ -138,9 +138,9 @@ export const Footer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 8px;
+  margin: 8px 0;
 
-  @media only screen and (max-width: 840px) {
+  @media only screen and (max-width: 720px) {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
@@ -160,6 +160,7 @@ const Tag = css`
 
 export const TagBox = styled.div`
   box-sizing: border-box;
+  gap: 6px;
 `;
 
 export const CategoryTag = styled.span`
@@ -197,16 +198,21 @@ export const LinkWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 6px;
-
-  a {
-    align-items: center;
-    font-size: 14px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 100%;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-  }
 `;
+
+export const HyperLink = styled.a`
+  display: flex;
+  position: relative;
+`
+
+export const HyperText = styled.p`
+  display: flex;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+`

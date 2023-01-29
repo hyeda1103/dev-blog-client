@@ -1,11 +1,11 @@
 import React, { Dispatch, SetStateAction } from 'react'
 import { observer } from 'mobx-react'
 
-import * as T from '@root/types'
-import StepGuide from '@root/components/molecules/stepGuide';
-import Button from '@root/components/atoms/button';
+import * as T from '@/types'
+import StepGuide from '@/components/molecules/stepGuide';
+import Button from '@/components/atoms/button';
 import { Container, SelectList, SelectItem, ArrowIcon } from './styles';
-import contentStore from '@root/stores/contentStore';
+import contentStore from '@/stores/contentStore';
 
 interface Props {
   postTypes: Array<T.PostType>

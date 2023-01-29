@@ -1,9 +1,9 @@
 import { GetServerSideProps } from 'next'
 import axios from 'axios'
 
-import { getCookie } from '@root/helpers/auth';
-import SelectItem from '@root/components/molecules/selectItem';
-import { API } from '@root/config';
+import { getCookie } from '@/helpers/auth';
+import SelectItem from '@/components/molecules/selectItem';
+import { API } from '@/config';
 import { List } from './styles';
 const SelectList = () => {
   return (      

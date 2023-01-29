@@ -2,7 +2,7 @@ import React, { SyntheticEvent } from 'react'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 
-import * as T from '@root/types'
+import * as T from '@/types'
 import { Root, Container, IconWrapper, CalendarIcon } from './styles'
 
 interface Props {

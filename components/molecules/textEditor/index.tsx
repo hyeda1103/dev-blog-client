@@ -6,10 +6,10 @@ import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css';
 import 'react-quill/dist/quill.bubble.css';
 
-import * as T from '@root/types';
-import { API } from '@root/config';
-import convertToBase64 from '@root/helpers/convertToBase64';
-import CustomToolbar, { formats } from '@root/components/molecules/customToolbar';
+import * as T from '@/types';
+import { API } from '@/config';
+import convertToBase64 from '@/helpers/convertToBase64';
+import CustomToolbar, { formats } from '@/components/molecules/customToolbar';
 import { EditorWrapper } from './styles';
 
 interface Props {
@@ -54,7 +54,7 @@ function TextEditor({
         // Save current cursor state
         const range = quill.getSelection(true);
         const position = range ? range.index : 0;
-
+        
         // Insert uploaded image
         quill.insertEmbed(position, 'image', res.data);
         quill.setSelection(position + 1, 1);

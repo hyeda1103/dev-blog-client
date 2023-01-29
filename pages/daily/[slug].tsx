@@ -6,10 +6,10 @@ import styled from 'styled-components'
 import moment from 'moment';
 import 'moment/locale/ko';
 
-import { API } from '@root/config'
-import * as T from '@root/types'
-import CategoryItem from '@root/components/molecules/categoryItem';
-import Meta from '@root/helpers/meta';
+import { API } from '@/config'
+import * as T from '@/types'
+import CategoryItem from '@/components/molecules/categoryItem';
+import Meta from '@/helpers/meta';
 
 const Paper = styled.article`
   padding: 16px 24px;
@@ -104,7 +104,7 @@ function SinglePostPage({ post }: Props) {
         </Header>
         <TagBox>
           {post.categories?.map((category) => (
-            <CategoryItem key={category._id} category={category} onPost={true} />
+            <CategoryItem key={category._id} category={category} isPost={true} />
           ))}
         </TagBox>
         <MainText dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.description) }} />

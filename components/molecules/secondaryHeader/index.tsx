@@ -2,11 +2,11 @@ import React from 'react'
 import Link from 'next/link'
 import useDarkMode from 'use-dark-mode';
 
-import * as T from '@root/types';
-import { isAuth, logout } from '@root/helpers/auth'
-import SNSIcon from '@root/components/atoms/snsIcon';
+import * as T from '@/types';
+import { isAuth, logout } from '@/helpers/auth'
+import SNSIcon from '@/components/atoms/snsIcon';
 import { Container, Inner, SocialIconWrapper, Nav, Item, SwitchMode, SunIcon, MoonIcon } from './styles'
-import Tippy from '@root/components/atoms/tippy';
+import Tippy from '@/components/atoms/tippy';
 
 function Secondary() {
   const darkmode = useDarkMode(true)

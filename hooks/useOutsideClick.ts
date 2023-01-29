@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, MutableRefObject } from 'react';
 
 function useOutsideClick(
-  ref: any,
-  handler: any,
+  ref: MutableRefObject<any>,
+  handler: (e: any) => void,
 ) {
   useEffect(() => {
     const listener = (e: any) => {

@@ -1,8 +1,8 @@
 import React from 'react'
 import { observer } from 'mobx-react';
 
-import contentStore from '@root/stores/contentStore';
-import * as T from '@root/types'
+import contentStore from '@/stores/contentStore';
+import * as T from '@/types'
 import { Container, Highlight, Inner, Item, Nav } from './styles'
 
 function PostHeader() {

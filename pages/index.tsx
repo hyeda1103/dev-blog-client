@@ -1,13 +1,13 @@
 import { GetServerSideProps } from 'next'
 import axios from 'axios'
 
-import { API } from '@root/config';
-import * as T from '@root/types';
-import PostList from '@root/components/organisms/postList';
-import Section from '@root/components/organisms/section';
-import CategoryList from '@root/components/organisms/categoryList';
-import OneColumn from '@root/components/templates/oneColumn';
-import DirectTo from '@root/components/molecules/directTo';
+import { API } from '@/config';
+import * as T from '@/types';
+import PostList from '@/components/organisms/postList';
+import Section from '@/components/organisms/section';
+import CategoryList from '@/components/organisms/categoryList';
+import OneColumn from '@/components/templates/oneColumn';
+import DirectTo from '@/components/molecules/directTo';
 
 interface Props {
   categories: Array<T.Category>
@@ -57,11 +57,11 @@ export const getServerSideProps: GetServerSideProps = async () => {
     const categoryList = await axios.get(`${API}/categories`)
     const postList = await axios.get(`${API}/posts`)
     const projectList = postList.data.filter((post: T.Post) => post.type === T.PostType.PROJECT)
-    const numOfProjects = projectList.length;  
+    const numOfProjects = projectList?.length || 0;  
     const devPostList = postList.data.filter((post: T.Post) => post.type === T.PostType.DEV)
-    const numOfDevPosts = devPostList.length;
+    const numOfDevPosts = devPostList?.length || 0;
     const dailyPostList = postList.data.filter((post: T.Post) => post.type === T.PostType.DAILY)
-    const numOfDailyPosts = dailyPostList.length;
+    const numOfDailyPosts = dailyPostList?.length || 0;
     
     return {
       props: {

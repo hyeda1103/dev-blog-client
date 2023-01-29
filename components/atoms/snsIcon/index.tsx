@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as T from '@root/types'
+import * as T from '@/types'
 import { GitHubIcon, LinkedInIcon, EmailIcon } from './styles'
 
 

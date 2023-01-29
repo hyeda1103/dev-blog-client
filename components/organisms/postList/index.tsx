@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
-import * as T from '@root/types'
-import PostItem from '@root/components/molecules/postItem';
-import ProjectItem from '@root/components/molecules/projectItem';
+import * as T from '@/types'
+import PostItem from '@/components/molecules/postItem';
+import ProjectItem from '@/components/molecules/projectItem';
 import { PostList as List } from './styles';
 
 interface Props {

@@ -4,10 +4,10 @@ import axios from 'axios'
 import styled from "styled-components";
 import { FaSadTear } from "react-icons/fa";
 
-import { API } from '@root/config'
-import * as T from '@root/types'
-import PostList from '@root/components/organisms/postList'
-import Section from '@root/components/organisms/section'
+import { API } from '@/config'
+import * as T from '@/types'
+import PostList from '@/components/organisms/postList'
+import Section from '@/components/organisms/section'
 
 export const NoResultBox = styled.div`
   display: flex;

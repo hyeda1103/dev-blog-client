@@ -3,7 +3,7 @@ import React, {
   useRef, useState,
 } from 'react';
 
-import useOutsideClick from '@root/hooks/useOutsideClick';
+import useOutsideClick from '@/hooks/useOutsideClick';
 import {
   DropDownContainer,
   DropDownHeader,

@@ -1,6 +1,6 @@
 import React, { ChangeEvent, ReactElement } from 'react';
 
-import * as T from '@root/types'
+import * as T from '@/types'
 import {
   StyledLabel,
   StyledInput,
