@@ -75,7 +75,7 @@ export const Item = styled.li<StyleProps>`
 
 export const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: auto 22px;
+  grid-template-columns: auto 28px;
   grid-column-gap: 6px;
 `
 
@@ -86,7 +86,6 @@ export const SwitchMode = styled.div`
   justify-content: center;
   width: 28px;
   height: 28px;
-  padding: 2px;
   margin: auto 0;
   cursor: pointer;
   transition: 0.25s ease;

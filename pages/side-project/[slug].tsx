@@ -14,21 +14,19 @@ import Meta from '@/helpers/meta';
 
 const Paper = styled.article`
   padding: 16px 24px;
-  background: ${({ theme }) => theme.themeWhite};
+  border: 1px solid ${({ theme }) => theme.typePrimary};
 `;
 
 const Header = styled.div`
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid ${({ theme }) => theme.themeBlack};
+  border-bottom: 1px solid ${({ theme }) => theme.typePrimary};
   padding: 16px 0;
-  color: ${({ theme }) => theme.themeBlack};
 `;
 
 const MainText = styled.div`
   padding: 32px 0;
-  line-height: 1.8;
-  color: ${({ theme }) => theme.themeBlack};
+  line-height: 1.5;
 
   h1 {
     font-size: 24px;
@@ -59,17 +57,17 @@ const MainText = styled.div`
   }
 
   pre.ql-syntax {
-    background: ${({ theme }) => theme.bodyBackground};
     border-radius: 8px;
     padding: 12px 20px;
     font-family: consolas;
+    overflow-x: scroll;
   }
 `;
 
 const Title = styled.h1`
   font-size: 32px;
   font-weight: 700;
-  margin: 16px 0 16px;
+  margin: 1rem 0;
 `;
 
 const TypeWrapper = styled.div`
@@ -86,7 +84,7 @@ const LinkWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 6px;
-  margin: 8px 0;
+  margin: 0.5rem 0;
 
   a {
     display: flex;
@@ -146,7 +144,7 @@ function SinglePostPage({ post }: Props) {
         </Header>
         <TagBox>
           {post.categories?.map((category) => (
-            <CategoryItem key={category._id} category={category} isPost={true} />
+            <CategoryItem key={category._id} category={category} />
           ))}
         </TagBox>
         <MainText dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.description) }} />

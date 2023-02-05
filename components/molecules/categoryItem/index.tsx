@@ -5,18 +5,17 @@ import * as T from '@/types';
 import { Container } from './styles';
 
 interface Props {
-  isPost?: boolean
   category: T.Category
 }
 
-function CategoryItem({ category, isPost }: Props) {
+function CategoryItem({ category }: Props) {
   const router = useRouter()
   const handleClick: MouseEventHandler = (e) => {
     e.stopPropagation()
     router.push(`/categories/${category.slug}`)
   }
   return (
-    <Container key={category._id} onClick={handleClick} isPost={isPost}>
+    <Container key={category._id} onClick={handleClick}>
       {category.name}
     </Container>
   )

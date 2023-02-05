@@ -13,21 +13,19 @@ import Meta from '@/helpers/meta';
 
 const Paper = styled.article`
   padding: 16px 24px;
-  background: ${({ theme }) => theme.themeWhite};
+  border: 1px solid ${({ theme }) => theme.typePrimary};
 `;
 
 const Header = styled.div`
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid ${({ theme }) => theme.themeBlack};
+  border-bottom: 1px solid ${({ theme }) => theme.typePrimary};
   padding: 16px 0;
-  color: ${({ theme }) => theme.themeBlack};
 `;
 
 const MainText = styled.div`
   padding: 16px 0 16px;
-  line-height: 2;
-  color: ${({ theme }) => theme.themeBlack};
+  line-height: 1.5;
 
   h1 {
     font-size: 24px;
@@ -58,7 +56,6 @@ const MainText = styled.div`
   }
 
   pre.ql-syntax {
-    background: ${({ theme }) => theme.bodyBackground};
     border-radius: 8px;
     padding: 12px 20px;
     font-family: consolas;
@@ -104,7 +101,7 @@ function SinglePostPage({ post }: Props) {
         </Header>
         <TagBox>
           {post.categories?.map((category) => (
-            <CategoryItem key={category._id} category={category} isPost={true} />
+            <CategoryItem key={category._id} category={category} />
           ))}
         </TagBox>
         <MainText dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.description) }} />
