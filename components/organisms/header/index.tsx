@@ -1,13 +1,12 @@
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import React from 'react'
 
-import { Container, Inner, Item, Logo, Nav } from './styles'
-import * as T from '@/types'
+import { Container, Inner, Logo, MoonIcon, Wrapper, SunIcon, SwitchMode } from './styles'
 import SearchInput from '@/components/molecules/searchInput'
+import useDarkMode from 'use-dark-mode'
 
 export default function Header() {
-  const router = useRouter()
+  const darkmode = useDarkMode(true)
   return (
     <Container>
       <Inner>
@@ -16,7 +15,12 @@ export default function Header() {
             <a>해다코</a>
           </Link>
         </Logo>
-        <SearchInput />
+        <Wrapper>
+          <SearchInput />
+          <SwitchMode onClick={darkmode.toggle}>
+            {darkmode.value ? <MoonIcon /> : <SunIcon />}
+          </SwitchMode>
+        </Wrapper>
       </Inner>
     </Container>
   )

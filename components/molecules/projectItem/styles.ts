@@ -43,7 +43,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   color: ${({ theme }) => theme.typePrimary};
-  width: calc(100% - 10px);
+  width: calc(100% - 4px);
   
   &:before {
     content: "";

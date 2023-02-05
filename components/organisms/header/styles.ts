@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { IoMdSunny, IoMdMoon } from "react-icons/io";
 
 export const Container = styled.div`
   position: fixed;
@@ -70,4 +71,37 @@ export const Item = styled.li<StyleProps>`
   @media only screen and (max-width: 840px) {
     display: none;
   }
+`
+
+export const Wrapper = styled.div`
+  display: grid;
+  grid-template-columns: auto 22px;
+  grid-column-gap: 6px;
+`
+
+export const SwitchMode = styled.div`
+  background-color: ${({ theme }) => theme.typePrimary};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 2px;
+  margin: auto 0;
+  cursor: pointer;
+  transition: 0.25s ease;
+`
+
+const Icon = css`
+  font-size: 18px;
+  color: ${({ theme }) => theme.bodyBackground};
+  vertical-align: middle;
+`;
+
+export const SunIcon = styled(IoMdSunny)`
+  ${Icon}
+`
+
+export const MoonIcon = styled(IoMdMoon)`
+  ${Icon}
 `

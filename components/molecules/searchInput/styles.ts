@@ -6,13 +6,13 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input`
-  width: 200px;
-  height: 32px;
-  padding: 2px 8px;
+  width: 180px;
+  height: 28px;
+  padding: 6px 8px;
   box-sizing: border-box;
   border: 1px solid ${({ theme }) => theme.typePrimary};
   border-radius: 0;
-  font-size: 14px;
+  font-size: 16px;
   outline: none;
 
   &:focus {
