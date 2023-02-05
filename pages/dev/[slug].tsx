@@ -106,6 +106,7 @@ const Button = styled.button<{
   display: grid;
   grid-template-columns: ${({ arrowOnLeft }) => (arrowOnLeft ? "32px auto" : "auto 32px")};
   align-items: center;
+  cursor: pointer;
 
   svg {
     margin: auto 0;
