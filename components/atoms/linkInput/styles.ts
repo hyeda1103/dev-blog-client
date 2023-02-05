@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledLabel = styled.label`
   position: relative;
@@ -15,11 +15,11 @@ export const IconWrapper = styled.div<StyleProps>`
   height: 100%;
   display: flex;
   align-items: center;
-  color: ${({ theme, error }) => error ? theme.fail : theme.hyperlink.default };
+  color: ${({ theme, error }) => (error ? theme.fail : theme.hyperlink.default)};
 `;
 
 interface StyleProps {
-  error: boolean
+  error: boolean;
 }
 
 export const StyledInput = styled.input<StyleProps>`
@@ -29,14 +29,13 @@ export const StyledInput = styled.input<StyleProps>`
   font-family: consolas;
   color: ${({ theme }) => theme.hyperlink.default};
   border: none;
-  border-bottom: 1px solid ${({ theme, error }) => error ? theme.fail : theme.hyperlink.default};
+  border-bottom: 1px solid ${({ theme, error }) => (error ? theme.fail : theme.hyperlink.default)};
   outline: none;
   box-sizing: border-box;
   background: ${({ theme }) => theme.bodyBackground};
   transition: all 0.15s ease;
 
   &:focus {
-
   }
 `;
 

@@ -12,7 +12,7 @@ const resizeImage = (file: Blob) =>
       (uri) => {
         resolve(uri);
       },
-      "base64"
+      "base64",
     );
   });
 

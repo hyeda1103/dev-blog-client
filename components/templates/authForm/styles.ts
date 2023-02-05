@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   position: relative;
@@ -8,7 +8,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 48px 0;
-;`;
+`;
 
 export const TitleWrapper = styled.div`
   margin-bottom: 37px;

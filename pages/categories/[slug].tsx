@@ -1,21 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import { GetServerSideProps } from 'next';
-import axios from 'axios'
-import InfiniteScroll from "react-infinite-scroll-component";
+import { GetServerSideProps } from "next";
+import axios from "axios";
 
-import { API } from '@/config'
-import * as T from '@/types'
-import Section from '@/components/organisms/section';
-import PostList from '@/components/organisms/postList';
-import OneColumn from '@/components/templates/oneColumn';
+import PostList from "@/components/organisms/postList";
+import Section from "@/components/organisms/section";
+import OneColumn from "@/components/templates/oneColumn";
+import { API } from "@/config";
+import * as T from "@/types";
 
 interface Props {
-  slug: string
-  category: T.Category
-  posts: Array<T.Post>
-  numOfPosts: number
-  postsLimit: number
-  postSkip: number
+  slug: string;
+  category: T.Category;
+  posts: Array<T.Post>;
+  numOfPosts: number;
+  postsLimit: number;
+  postSkip: number;
 }
 
 function SingleCategoryPage({ category, posts }: Props) {
@@ -27,19 +25,19 @@ function SingleCategoryPage({ category, posts }: Props) {
         contents={<PostList posts={posts} />}
       />
     </OneColumn>
-  )
+  );
 }
 
-export default SingleCategoryPage
+export default SingleCategoryPage;
 
 export const getServerSideProps: GetServerSideProps = async ({ query, req }) => {
-  let skip = 0
-  let limit = 3
-  const { slug } = query
-  
-  const all = await axios.post(encodeURI(`${API}/category/${slug}`))
+  const skip = 0;
+  const limit = 3;
+  const { slug } = query;
 
-  const res = await axios.post(encodeURI(`${API}/category/${slug}`), { skip, limit })
+  const all = await axios.post(encodeURI(`${API}/category/${slug}`));
+
+  const res = await axios.post(encodeURI(`${API}/category/${slug}`), { skip, limit });
   return {
     props: {
       slug,
@@ -48,6 +46,6 @@ export const getServerSideProps: GetServerSideProps = async ({ query, req }) => 
       numOfPosts: all.data.posts.length,
       postsLimit: limit,
       postSkip: skip,
-    }
-  }
-}
+    },
+  };
+};

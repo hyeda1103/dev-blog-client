@@ -1,11 +1,9 @@
-import React from 'react'
-
-import { GuideWrapper, TitleWrapper, Title, Logline } from './styles'
+import { GuideWrapper, Logline, Title, TitleWrapper } from "./styles";
 
 interface Props {
-  stepNumber: number
-  title: string
-  guideText: string
+  stepNumber: number;
+  title: string;
+  guideText: string;
 }
 
 function StepGuide({ stepNumber, title, guideText }: Props) {
@@ -16,7 +14,7 @@ function StepGuide({ stepNumber, title, guideText }: Props) {
         <Logline>{guideText}</Logline>
       </TitleWrapper>
     </GuideWrapper>
-  )
+  );
 }
 
-export default StepGuide
+export default StepGuide;

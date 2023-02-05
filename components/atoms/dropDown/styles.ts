@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { FaCaretUp, FaCaretDown } from "react-icons/fa";
+import { FaCaretDown, FaCaretUp } from "react-icons/fa";
+import styled from "styled-components";
 
 export const DropDownContainer = styled.div`
   margin: 0 auto;
@@ -13,25 +13,19 @@ export const DropDownHeader = styled.div<{ isOpen: boolean }>`
   background: #ffffff;
   white-space: nowrap;
   cursor: pointer;
-  gap: 7px; 
+  gap: 7px;
 
   p {
     display: inline-block;
     vertical-align: middle;
     font-size: 13px;
     font-weight: 700;
-    color: ${({ theme, isOpen }) => (isOpen
-    ? theme.typePrimary
-    : theme.typePrimary)};
+    color: ${({ theme, isOpen }) => (isOpen ? theme.typePrimary : theme.typePrimary)};
   }
 
   svg {
-    fill: ${({ theme, isOpen }) => (isOpen
-    ? theme.typePrimary
-    : theme.typePrimary)};
-    stroke: ${({ theme, isOpen }) => (isOpen
-    ? theme.typePrimary
-    : theme.typePrimary)};
+    fill: ${({ theme, isOpen }) => (isOpen ? theme.typePrimary : theme.typePrimary)};
+    stroke: ${({ theme, isOpen }) => (isOpen ? theme.typePrimary : theme.typePrimary)};
   }
 `;
 
@@ -45,7 +39,7 @@ export const DropDownListContainer = styled.div`
   top: 71px;
 `;
 
-export const DropDownList = styled('ul')`
+export const DropDownList = styled("ul")`
   padding: 0;
   margin: 0;
   background: #ffffff;
@@ -55,7 +49,7 @@ export const DropDownList = styled('ul')`
   width: 96px;
 `;
 
-export const ListItem = styled('li')`
+export const ListItem = styled("li")`
   cursor: pointer;
   list-style: none;
   display: flex;

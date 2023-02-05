@@ -1,14 +1,8 @@
-import React from 'react';
-
-import {
-  Wrapper,
-  CheckIcon,
-  ErrorIcon,
-} from './styles';
+import { CheckIcon, ErrorIcon, Wrapper } from "./styles";
 
 interface Props {
-  success?: string
-  error?: string
+  success?: string;
+  error?: string;
 }
 
 function ErrorBox({ success, error }: Props) {
@@ -19,7 +13,7 @@ function ErrorBox({ success, error }: Props) {
           <CheckIcon />
           {success}
         </span>
-      )
+      );
     }
     if (error) {
       return (
@@ -27,16 +21,14 @@ function ErrorBox({ success, error }: Props) {
           <ErrorIcon />
           {error}
         </span>
-      )
+      );
     }
-  })()
-  return (
-    success || error ? (
-      <Wrapper success={!!success} error={!!error}>
-        {Status}
-      </Wrapper>
-    ) : null
-  );
+  })();
+  return success || error ? (
+    <Wrapper success={!!success} error={!!error}>
+      {Status}
+    </Wrapper>
+  ) : null;
 }
 
 export default ErrorBox;

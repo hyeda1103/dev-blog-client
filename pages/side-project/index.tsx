@@ -1,15 +1,14 @@
-import axios from 'axios'
-import { GetServerSideProps } from 'next'
-import React from 'react'
+import { GetServerSideProps } from "next";
+import axios from "axios";
 
-import { API } from '@/config'
-import * as T from '@/types'
-import OneColumn from '@/components/templates/oneColumn'
-import PostList from '@/components/organisms/postList';
-import Section from '@/components/organisms/section'
+import PostList from "@/components/organisms/postList";
+import Section from "@/components/organisms/section";
+import OneColumn from "@/components/templates/oneColumn";
+import { API } from "@/config";
+import * as T from "@/types";
 
 interface Props {
-  projectPosts: Array<T.Post>
+  projectPosts: Array<T.Post>;
 }
 
 function ProjectPage({ projectPosts }: Props) {
@@ -21,24 +20,24 @@ function ProjectPage({ projectPosts }: Props) {
         contents={<PostList posts={projectPosts} />}
       />
     </OneColumn>
-  )
+  );
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    const postList = await axios.get(`${API}/posts`)
-    const projectList = postList.data.filter((post: T.Post) => post.type === T.PostType.PROJECT)
+    const postList = await axios.get(`${API}/posts`);
+    const projectList = postList.data.filter((post: T.Post) => post.type === T.PostType.PROJECT);
 
     return {
       props: {
         projectPosts: projectList,
-      }
-    }
+      },
+    };
   } catch (error) {
     return {
-      props:{},
+      props: {},
     };
   }
-}
+};
 
-export default ProjectPage
+export default ProjectPage;

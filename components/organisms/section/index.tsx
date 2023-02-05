@@ -1,12 +1,12 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode } from "react";
 
-import { Container, Header, TitleWrapper, Title, Logline, ContentsWrapper } from './styles';
+import { Container, ContentsWrapper, Header, Logline, Title, TitleWrapper } from "./styles";
 
 interface Props {
-  title?: string
-  link?: ReactNode
-  logline?: string
-  contents: ReactNode
+  title?: string;
+  link?: ReactNode;
+  logline?: string;
+  contents: ReactNode;
 }
 
 function Section({ title, link, logline, contents }: Props) {
@@ -14,23 +14,14 @@ function Section({ title, link, logline, contents }: Props) {
     <Container>
       <Header>
         <TitleWrapper>
-          <Title>
-            {title}
-          </Title>
+          <Title>{title}</Title>
           {link}
         </TitleWrapper>
-        {
-          logline &&
-          <Logline>
-            {logline}
-          </Logline>
-        }
+        {logline && <Logline>{logline}</Logline>}
       </Header>
-      <ContentsWrapper>
-        {contents}
-      </ContentsWrapper>
+      <ContentsWrapper>{contents}</ContentsWrapper>
     </Container>
-  )
+  );
 }
 
-export default Section
+export default Section;

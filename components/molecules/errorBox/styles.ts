@@ -1,20 +1,20 @@
-import styled from 'styled-components';
-import { MdCheckCircle, MdError } from 'react-icons/md'
+import { MdCheckCircle, MdError } from "react-icons/md";
+import styled from "styled-components";
 
 interface StyleProps {
-  success: boolean
-  error: boolean
+  success: boolean;
+  error: boolean;
 }
 
 export const Wrapper = styled.div<StyleProps>`
   margin: 7px 6px;
-  color: ${({ theme, success, error }) => success ? theme.typePrimary : theme.fail};
+  color: ${({ theme, success, error }) => (success ? theme.typePrimary : theme.fail)};
 
-  span, svg {
+  span,
+  svg {
     vertical-align: middle;
     display: inline-block;
   }
-  
 `;
 
 export const ErrorIcon = styled(MdError)`
@@ -23,4 +23,4 @@ export const ErrorIcon = styled(MdError)`
 
 export const CheckIcon = styled(MdCheckCircle)`
   margin-right: 7px;
-`
+`;

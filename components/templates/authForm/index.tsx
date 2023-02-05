@@ -1,53 +1,32 @@
-import React from 'react';
-
 import {
   Container,
-  TitleWrapper,
-  GuideWrapper,
-  FormWrapper,
-  FindPasswordWrapper,
   DirectToWrapper,
-} from './styles';
+  FindPasswordWrapper,
+  FormWrapper,
+  GuideWrapper,
+  TitleWrapper,
+} from "./styles";
 
 interface Props {
-  title?: React.ReactChild | JSX.Element[] | JSX.Element | null
-  subTitle?: React.ReactChild | JSX.Element[] | JSX.Element | null
-  guide?: React.ReactChild | JSX.Element[] | JSX.Element | null
-  form?: React.ReactChild | JSX.Element[] | JSX.Element | null
-  findPassword?: React.ReactChild | JSX.Element[] | JSX.Element | null
-  directTo?: React.ReactChild | JSX.Element[] | JSX.Element | null
+  title?: React.ReactChild | JSX.Element[] | JSX.Element | null;
+  subTitle?: React.ReactChild | JSX.Element[] | JSX.Element | null;
+  guide?: React.ReactChild | JSX.Element[] | JSX.Element | null;
+  form?: React.ReactChild | JSX.Element[] | JSX.Element | null;
+  findPassword?: React.ReactChild | JSX.Element[] | JSX.Element | null;
+  directTo?: React.ReactChild | JSX.Element[] | JSX.Element | null;
 }
 
-function AuthForm({
-  title,
-  subTitle,
-  guide,
-  form,
-  findPassword,
-  directTo,
-}: Props) {
+function AuthForm({ title, subTitle, guide, form, findPassword, directTo }: Props) {
   return (
     <Container>
       <TitleWrapper>
         {title}
         {subTitle}
       </TitleWrapper>
-      <GuideWrapper>
-        {guide}
-      </GuideWrapper>
-      <FormWrapper>
-        {form}
-      </FormWrapper>
-      {findPassword && (
-      <FindPasswordWrapper>
-        {findPassword}
-      </FindPasswordWrapper>
-      )}
-      {directTo && (
-        <DirectToWrapper>
-          {directTo}
-        </DirectToWrapper>
-      )}
+      <GuideWrapper>{guide}</GuideWrapper>
+      <FormWrapper>{form}</FormWrapper>
+      {findPassword && <FindPasswordWrapper>{findPassword}</FindPasswordWrapper>}
+      {directTo && <DirectToWrapper>{directTo}</DirectToWrapper>}
     </Container>
   );
 }

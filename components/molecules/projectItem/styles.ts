@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components'
-import { HiCursorClick } from 'react-icons/hi'
-import { VscGithubInverted, VscWindow } from 'react-icons/vsc'
+import { HiCursorClick } from "react-icons/hi";
+import { VscGithubInverted, VscWindow } from "react-icons/vsc";
+import styled, { css } from "styled-components";
 
 export const Header = styled.div`
   display: flex;
@@ -44,16 +44,16 @@ export const Container = styled.div`
   flex-direction: column;
   color: ${({ theme }) => theme.typePrimary};
   width: calc(100% - 4px);
-  
+
   &:before {
     content: "";
     position: absolute;
     top: -1px;
     right: -11px;
     border-top: 10px solid transparent;
-	  border-left: 10px solid ${({ theme }) => theme.typePrimary };
-	  height: calc(100% + 1px);
-	  width: 0;
+    border-left: 10px solid ${({ theme }) => theme.typePrimary};
+    height: calc(100% + 1px);
+    width: 0;
   }
 
   &:after {
@@ -61,22 +61,22 @@ export const Container = styled.div`
     position: absolute;
     left: -1px;
     bottom: -11px;
-    border-top: 10px solid ${({ theme }) => theme.typePrimary };
-	  border-left: 10px solid transparent;
-	  height: 0;
-	  width: calc(100% + 2px);
+    border-top: 10px solid ${({ theme }) => theme.typePrimary};
+    border-left: 10px solid transparent;
+    height: 0;
+    width: calc(100% + 2px);
   }
 
   &:hover {
     border: 1px solid ${({ theme }) => theme.themePrimary};
 
     &:before {
-      border-left: 10px solid ${({ theme }) => theme.themePrimary };
+      border-left: 10px solid ${({ theme }) => theme.themePrimary};
     }
 
     &:after {
       content: "";
-      border-top: 10px solid ${({ theme }) => theme.themePrimary };
+      border-top: 10px solid ${({ theme }) => theme.themePrimary};
     }
   }
 `;
@@ -109,7 +109,7 @@ export const Title = styled.p`
 export const Details = styled.div`
   position: relative;
   margin: 8px 0;
-`
+`;
 
 export const TypeWrapper = styled.div`
   display: flex;
@@ -142,7 +142,7 @@ const Tag = css`
   padding: 2px 8px;
   border: 1px solid ${({ theme }) => theme.typePrimary};
   font-size: 14px;
-`
+`;
 
 export const TagBox = styled.div`
   box-sizing: border-box;
@@ -151,15 +151,15 @@ export const TagBox = styled.div`
 
 export const CategoryTag = styled.span`
   ${Tag}
-`
+`;
 
 export const Type = styled.span`
   ${Tag}
-`
+`;
 
 export const Medium = styled.span`
   ${Tag}
-`
+`;
 
 export const ResultWrapper = styled.div`
   font-size: 32px;
@@ -173,7 +173,7 @@ export const ViewWrapper = styled.div`
   @media only screen and (max-width: 720px) {
     display: none;
   }
-`
+`;
 
 export const ClickIcon = styled(HiCursorClick)`
   vertical-align: middle;
@@ -193,7 +193,7 @@ export const HyperLink = styled.a`
   grid-column-gap: 3px;
   position: relative;
   color: ${({ theme }) => theme.hyperlink.default};
-`
+`;
 
 export const HyperText = styled.p`
   display: flex;
@@ -207,15 +207,15 @@ export const HyperText = styled.p`
   -webkit-box-orient: vertical;
 
   ${HyperLink}:hover {
-      text-decoration: underline;
-      text-underline-offset: 2px;
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
   ${HyperLink}:hover {
     text-decoration: underline;
     text-underline-offset: 2px;
   }
-`
+`;
 
 export const Description = styled.div`
   position: relative;

@@ -1,27 +1,25 @@
-import React, {
-  MouseEventHandler,
-  useRef, useState,
-} from 'react';
+import React, { MouseEventHandler, useRef, useState } from "react";
 
-import useOutsideClick from '@/hooks/useOutsideClick';
+import useOutsideClick from "@/hooks/useOutsideClick";
+
 import {
+  CaretDownIcon,
+  CaretUpIcon,
   DropDownContainer,
   DropDownHeader,
   DropDownList,
   DropDownListContainer,
   ListItem,
-  CaretUpIcon,
-  CaretDownIcon,
-} from './styles';
+} from "./styles";
 
 interface Option {
-  value: string
-  label: string
+  value: string;
+  label: string;
 }
 
 interface Props {
-  options: Array<Option>
-  defaultValue?: string
+  options: Array<Option>;
+  defaultValue?: string;
 }
 
 function Dropdown({ options, defaultValue }: Props) {
@@ -45,23 +43,20 @@ function Dropdown({ options, defaultValue }: Props) {
   return (
     <DropDownContainer>
       <DropDownHeader id="dropdown-header" isOpen={isOpen} onClick={handleToggle}>
-        <p id="dropdown-default">
-          {selectedValue}
-        </p>
-        {isOpen
-          ? <CaretUpIcon />
-          : <CaretDownIcon />}
+        <p id="dropdown-default">{selectedValue}</p>
+        {isOpen ? <CaretUpIcon /> : <CaretDownIcon />}
       </DropDownHeader>
       {isOpen && (
-      <DropDownListContainer ref={ref}>
-        <DropDownList>
-          {options && Object.values(options).map((option) => (
-            <ListItem onClick={handleSelect} key={option.value} id={option.label}>
-              {option.label}
-            </ListItem>
-          ))}
-        </DropDownList>
-      </DropDownListContainer>
+        <DropDownListContainer ref={ref}>
+          <DropDownList>
+            {options &&
+              Object.values(options).map((option) => (
+                <ListItem onClick={handleSelect} key={option.value} id={option.label}>
+                  {option.label}
+                </ListItem>
+              ))}
+          </DropDownList>
+        </DropDownListContainer>
       )}
     </DropDownContainer>
   );

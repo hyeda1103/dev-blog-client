@@ -1,19 +1,27 @@
-import React, { ChangeEvent, FormEventHandler, SyntheticEvent } from 'react'
-import { ActionMeta } from 'react-select';
-import { observer } from 'mobx-react';
+import React, { ChangeEvent, FormEventHandler, SyntheticEvent } from "react";
+import { observer } from "mobx-react";
+import { ActionMeta } from "react-select";
 
-import TextEditor from '@/components/molecules/textEditor';
-import ErrorBox from '@/components/molecules/errorBox';
-import SelectWithLabel from '@/components/molecules/selectWithLabel';
-import * as T from '@/types';
-import contentStore from '@/stores/contentStore';
-import { InputContainer, InputWrapper, StyledForm, BasicButton as Button, GitHubIcon, WebIcon } from './styles';
-import TitleInput from '@/components/molecules/titleInput';
-import LinkInput from '@/components/atoms/linkInput';
-import DatePicker from '@/components/molecules/dualDatePicker';
+import LinkInput from "@/components/atoms/linkInput";
+import DatePicker from "@/components/molecules/dualDatePicker";
+import ErrorBox from "@/components/molecules/errorBox";
+import SelectWithLabel from "@/components/molecules/selectWithLabel";
+import TextEditor from "@/components/molecules/textEditor";
+import TitleInput from "@/components/molecules/titleInput";
+import contentStore from "@/stores/contentStore";
+import * as T from "@/types";
+
+import {
+  BasicButton as Button,
+  GitHubIcon,
+  InputContainer,
+  InputWrapper,
+  StyledForm,
+  WebIcon,
+} from "./styles";
 
 interface Props {
-  token: string
+  token: string;
   options: Array<T.SelectOption> | undefined;
   successMessage: string;
   serverErrorMessage: string;
@@ -21,8 +29,8 @@ interface Props {
   formErrors: T.Object;
   handleSubmit: FormEventHandler<HTMLFormElement>;
   handleChange: (keyName: string) => (e: ChangeEvent<HTMLInputElement>) => void;
-  handleStartDate: (date: Date, event: SyntheticEvent<any, Event>) => void
-  handleEndDate: (date: Date, event: SyntheticEvent<any, Event>) => void
+  handleStartDate: (date: Date, event: SyntheticEvent<any, Event>) => void;
+  handleEndDate: (date: Date, event: SyntheticEvent<any, Event>) => void;
   handleSelectSingle: (newValue: unknown, actionMeta: ActionMeta<unknown>) => void;
   handleSelectMulti: (newValue: unknown, actionMeta: ActionMeta<unknown>) => void;
   handleContent: (e: string) => void;
@@ -47,13 +55,14 @@ function CreatePostForm({
 
   const statusOptions = [
     {
-      value: '완성',
-      label: '완성'
-    }, {
-      value: '진행중',
-      label: '진행중'
-    }
-  ]
+      value: "완성",
+      label: "완성",
+    },
+    {
+      value: "진행중",
+      label: "진행중",
+    },
+  ];
 
   const RequiredContent = (() => {
     switch (contentStore.postType) {
@@ -74,7 +83,7 @@ function CreatePostForm({
                 {options && (
                   <SelectWithLabel
                     id="categories"
-                    placeholder='카테고리'
+                    placeholder="카테고리"
                     handleChange={handleSelectMulti}
                     formErrors={formErrors}
                     options={options}
@@ -88,17 +97,12 @@ function CreatePostForm({
                   handleChange={handleContent}
                   formErrors={formErrors}
                 />
-                <ErrorBox
-                  success={successMessage}
-                  error={serverErrorMessage}
-                />
+                <ErrorBox success={successMessage} error={serverErrorMessage} />
               </InputWrapper>
-              <Button disabled={!token}>
-                포스팅하기
-              </Button>
+              <Button disabled={!token}>포스팅하기</Button>
             </StyledForm>
           </InputContainer>
-        )
+        );
       case T.PostType.PROJECT:
         return (
           <InputContainer>
@@ -114,7 +118,7 @@ function CreatePostForm({
                 />
                 <SelectWithLabel
                   id="status"
-                  placeholder='진행상황'
+                  placeholder="진행상황"
                   handleChange={handleSelectSingle}
                   formErrors={formErrors}
                   options={statusOptions}
@@ -123,14 +127,14 @@ function CreatePostForm({
                 {options && (
                   <SelectWithLabel
                     id="categories"
-                    placeholder='기술 스택'
+                    placeholder="기술 스택"
                     handleChange={handleSelectMulti}
                     formErrors={formErrors}
                     options={options}
                     isMulti={true}
                   />
                 )}
-                <DatePicker 
+                <DatePicker
                   handleStartDate={handleStartDate}
                   handleEndDate={handleEndDate}
                   formValues={formValues}
@@ -161,27 +165,18 @@ function CreatePostForm({
                   handleChange={handleContent}
                   formErrors={formErrors}
                 />
-                <ErrorBox
-                  success={successMessage}
-                  error={serverErrorMessage}
-                />
+                <ErrorBox success={successMessage} error={serverErrorMessage} />
               </InputWrapper>
-              <Button disabled={!token}>
-                포스팅하기
-              </Button>
+              <Button disabled={!token}>포스팅하기</Button>
             </StyledForm>
           </InputContainer>
-        )
+        );
       default:
         break;
     }
-  })()
+  })();
 
-  return (
-    <>
-      {RequiredContent}
-    </>
-  );
+  return <>{RequiredContent}</>;
 }
 
 export default observer(CreatePostForm);

@@ -1,15 +1,13 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode } from "react";
 
-import { Root } from './styles';
+import { Root } from "./styles";
 
 interface Props {
-  children: ReactNode
+  children: ReactNode;
 }
 
 function OneColumn({ children }: Props) {
-  return (
-    <Root>{children}</Root>
-  )
+  return <Root>{children}</Root>;
 }
 
-export default OneColumn
+export default OneColumn;

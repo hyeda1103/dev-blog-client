@@ -1,11 +1,11 @@
-import { GetServerSideProps } from 'next'
-import axios from 'axios'
-import styled from 'styled-components';
+import { GetServerSideProps } from "next";
+import axios from "axios";
+import styled from "styled-components";
 
-import * as T from '@/types';
-import { getCookie } from '@/helpers/auth';
-import { API } from '@/config';
-import SelectList from '@/components/organisms/selectList';
+import SelectList from "@/components/organisms/selectList";
+import { API } from "@/config";
+import { getCookie } from "@/helpers/auth";
+import * as T from "@/types";
 
 const Container = styled.div`
   position: relative;
@@ -43,50 +43,46 @@ const Logline = styled.p`
 `;
 
 interface Props {
-  admin: T.Profile
+  admin: T.Profile;
 }
 
-
-function AdminPage ({ admin }: Props) {
+function AdminPage({ admin }: Props) {
   return (
     <Container>
       <Header>
         <TitleWrapper>
           <Title>즐거운 블로깅</Title>
         </TitleWrapper>
-        <Logline>{admin.name}님, 반가워요.
-          아래 목록에서 원하는 작업을 선택해주세요.
-        </Logline>
+        <Logline>{admin.name}님, 반가워요. 아래 목록에서 원하는 작업을 선택해주세요.</Logline>
       </Header>
       <SelectList />
     </Container>
-  )
+  );
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const token = getCookie('token', context.req)
+  const token = getCookie("token", context.req);
 
   try {
     const res = await axios.get(`${API}/admin`, {
       headers: {
-        authorization: `Bearer ${token}`
-      }
-    })
+        authorization: `Bearer ${token}`,
+      },
+    });
     return {
       props: {
-        admin: res.data
-      }
-    }
+        admin: res.data,
+      },
+    };
   } catch (error) {
     return {
       redirect: {
         permanent: false,
         destination: "/",
       },
-      props:{},
+      props: {},
     };
   }
-}
+};
 
-
-export default AdminPage
+export default AdminPage;

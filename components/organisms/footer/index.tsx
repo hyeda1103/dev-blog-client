@@ -1,8 +1,9 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-import * as T from '@/types';
-import SNSIcon from '@/components/atoms/snsIcon';
-import { Root, Inner, Copyright, SocialIconWrapper } from './styles'
+import SNSIcon from "@/components/atoms/snsIcon";
+import * as T from "@/types";
+
+import { Copyright, Inner, Root, SocialIconWrapper } from "./styles";
 
 export default function Footer() {
   return (
@@ -15,13 +16,11 @@ export default function Footer() {
         </SocialIconWrapper>
         <Copyright>
           Copyright &copy; 해다코 {new Date().getFullYear()}, Made with{" "}
-          <Link href='https://nextjs.org/'>
-            <a>
-              Next.js
-            </a>
+          <Link href="https://nextjs.org/">
+            <a>Next.js</a>
           </Link>
         </Copyright>
       </Inner>
     </Root>
-  )
+  );
 }

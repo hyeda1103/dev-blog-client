@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const GuideWrapper = styled.div`
   display: flex;
@@ -23,4 +23,3 @@ export const TitleWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
 `;
-

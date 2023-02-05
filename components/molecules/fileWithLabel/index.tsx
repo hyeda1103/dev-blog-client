@@ -1,30 +1,23 @@
-import React, { ChangeEventHandler } from 'react';
+import React, { ChangeEventHandler } from "react";
 
-import ErrorBox from '@/components/molecules/errorBox';
-import * as T from '@/types'
-import {
-  StyledLabel,
-  Text,
-  StyledInput,
-} from './styles';
+import ErrorBox from "@/components/molecules/errorBox";
+import * as T from "@/types";
+
+import { StyledInput, StyledLabel, Text } from "./styles";
 
 interface Props {
-  id: string
-  label: string
-  type: string
-  accept?: string
-  handleChange: ChangeEventHandler<HTMLElement> | undefined
-  formErrors: T.Object
+  id: string;
+  label: string;
+  type: string;
+  accept?: string;
+  handleChange: ChangeEventHandler<HTMLElement> | undefined;
+  formErrors: T.Object;
 }
 
-function FileWithLabel({
-  id, label, type, accept, handleChange, formErrors
-}: Props) {
+function FileWithLabel({ id, label, type, accept, handleChange, formErrors }: Props) {
   return (
     <StyledLabel htmlFor={id}>
-      <Text>
-        {label}
-      </Text>
+      <Text>{label}</Text>
       <StyledInput
         id={id}
         type={type}
@@ -34,9 +27,7 @@ function FileWithLabel({
         error={!!formErrors[id]}
         hidden
       />
-      {formErrors[id] && (
-        <ErrorBox error={formErrors[id]} />
-      )}
+      {formErrors[id] && <ErrorBox error={formErrors[id]} />}
     </StyledLabel>
   );
 }

@@ -1,8 +1,8 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Root = styled.footer`
   bottom: 0;
-`
+`;
 
 export const Inner = styled.div`
   width: 840px;
@@ -15,11 +15,11 @@ export const Inner = styled.div`
   @media only screen and (max-width: 840px) {
     width: 90%;
   }
-`
+`;
 
 export const Copyright = styled.p`
   font-size: 14px;
-`
+`;
 
 export const SocialIconWrapper = styled.div`
   width: fit-content;

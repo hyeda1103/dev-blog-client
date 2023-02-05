@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 interface StyleProps {
-  error: boolean
+  error: boolean;
 }
 
 export const Container = styled.div<StyleProps>`
@@ -10,9 +10,7 @@ export const Container = styled.div<StyleProps>`
   flex-direction: column;
   margin: 0 auto 6px;
   box-sizing: border-box;
-  border: ${({ theme, error }) => (
-    error ? `1px solid ${theme.fail}` : 'none'
-  )};
+  border: ${({ theme, error }) => (error ? `1px solid ${theme.fail}` : "none")};
 
   &:first-child {
     margin-top: 0;
@@ -27,7 +25,7 @@ export const Text = styled.span`
 `;
 
 interface StyleProps {
-  error: boolean
+  error: boolean;
 }
 
 export const StyledInput = styled.input<StyleProps>`
@@ -35,10 +33,8 @@ export const StyledInput = styled.input<StyleProps>`
   padding: 12px;
   font-size: 18px;
   background-color: ${({ theme }) => theme.bodyBackground};
-  border: ${({ theme, error }) => (error
-    ? `1px solid ${theme.fail}`
-    : `1px solid ${theme.active}`)
-};
+  border: ${({ theme, error }) =>
+    error ? `1px solid ${theme.fail}` : `1px solid ${theme.active}`};
   outline: none;
   box-sizing: border-box;
   transition: all 0.15s ease;

@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
 interface StyleProps {
-  tagColor: {
-    background: string
-    color: string
-  } | undefined
+  tagColor:
+    | {
+        background: string;
+        color: string;
+      }
+    | undefined;
 }
 
 export const Tag = styled.span<StyleProps>`

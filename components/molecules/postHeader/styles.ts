@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Container = styled.div`
   position: fixed;
@@ -10,7 +10,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   z-index: 9;
-`
+`;
 
 export const Inner = styled.div`
   width: 840px;
@@ -20,13 +20,13 @@ export const Inner = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-`
+`;
 
 export const Logo = styled.h3`
   a {
     font-size: 28px;
   }
-`
+`;
 
 export const Nav = styled.ul`
   display: flex;
@@ -34,25 +34,25 @@ export const Nav = styled.ul`
   align-items: center;
   list-style: none;
   position: relative;
-`
+`;
 
 interface StyleProps {
-  isActive: boolean
+  isActive: boolean;
 }
 
 export const Highlight = styled.span<StyleProps>`
-  display: inline-block; 
+  display: inline-block;
   position: relative;
 
   &::after {
-    content:"";
-    width: ${({ isActive }) => isActive ? '100%' : 0};
+    content: "";
+    width: ${({ isActive }) => (isActive ? "100%" : 0)};
     height: 8px;
     display: inline-block;
     background: ${({ theme }) => theme.active};
     position: absolute;
-    bottom:0;
-    left:0;
+    bottom: 0;
+    left: 0;
     z-index: -1;
     transition: 0.25s all;
   }
@@ -66,8 +66,8 @@ export const Item = styled.li`
   cursor: pointer;
   margin-right: 14px;
   padding: 0 2px;
-  display: inline-block; 
+  display: inline-block;
   position: relative;
   z-index: 1;
   font-size: 14px;
-`
+`;

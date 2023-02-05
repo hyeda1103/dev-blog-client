@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { FaArrowAltCircleRight } from "react-icons/fa"; 
+import { FaArrowAltCircleRight } from "react-icons/fa";
+import styled from "styled-components";
 
 export const ArrowIcon = styled(FaArrowAltCircleRight)`
   font-size: 17px;
@@ -19,4 +19,3 @@ export const ListItem = styled.li`
     box-shadow: 0 2px ${({ theme }) => theme.typePrimary};
   }
 `;
-

@@ -1,13 +1,13 @@
-import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import axios from "axios";
 import { FaSadTear } from "react-icons/fa";
+import styled from "styled-components";
 
-import { API } from '@/config'
-import * as T from '@/types'
-import PostList from '@/components/organisms/postList'
-import Section from '@/components/organisms/section'
+import PostList from "@/components/organisms/postList";
+import Section from "@/components/organisms/section";
+import { API } from "@/config";
+import * as T from "@/types";
 
 export const NoResultBox = styled.div`
   display: flex;
@@ -27,37 +27,35 @@ export const Message = styled.p`
 `;
 
 function SearchResultPage() {
-  const router = useRouter()
-  const { keyword } = router.query
-  
-  const [searchResult, setSearchResult] = useState<Array<T.Post>>([])
-  const [errorMessage, setErrorMessage] = useState('')
-  
+  const router = useRouter();
+  const { keyword } = router.query;
+
+  const [searchResult, setSearchResult] = useState<Array<T.Post>>([]);
+  const [errorMessage, setErrorMessage] = useState("");
+
   const fetchPostsByKeyword: (keyword: string) => void = async (keyword) => {
     try {
-      const postList = await axios.get(encodeURI(`${API}/posts?keyword=${keyword}`))
-      setSearchResult(postList.data)
+      const postList = await axios.get(encodeURI(`${API}/posts?keyword=${keyword}`));
+      setSearchResult(postList.data);
     } catch (error) {
-      setErrorMessage('검색 결과가 존재하지 않습니다')
+      setErrorMessage("검색 결과가 존재하지 않습니다");
     }
-  } 
-  
+  };
+
   useEffect(() => {
-    setSearchResult([])
-    setErrorMessage('')
-    if (!keyword) router.push('/')
-    if (typeof keyword !== 'string') return;
-    fetchPostsByKeyword(keyword)
-  }, [keyword, router])
-  
+    setSearchResult([]);
+    setErrorMessage("");
+    if (!keyword) router.push("/");
+    if (typeof keyword !== "string") return;
+    fetchPostsByKeyword(keyword);
+  }, [keyword, router]);
+
   return (
     <>
       {errorMessage && (
         <NoResultBox>
           <SadFaceIcon />
-          <Message>
-            {errorMessage}
-          </Message>
+          <Message>{errorMessage}</Message>
         </NoResultBox>
       )}
       {searchResult.length > 0 && (
@@ -68,7 +66,7 @@ function SearchResultPage() {
         />
       )}
     </>
-  )
+  );
 }
 
-export default SearchResultPage
+export default SearchResultPage;

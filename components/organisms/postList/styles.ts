@@ -1,9 +1,8 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
 `;
-
 
 export const Title = styled.p`
   display: inline-block;
@@ -20,4 +19,3 @@ export const PostList = styled.ul`
   grid-template-columns: 1fr;
   grid-row-gap: 24px;
 `;
-

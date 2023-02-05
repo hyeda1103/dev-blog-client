@@ -1,8 +1,7 @@
-import React from 'react';
-import Select, { ActionMeta, GroupBase, StylesConfig } from 'react-select';
-import makeAnimated from 'react-select/animated';
+import Select, { ActionMeta, GroupBase, StylesConfig } from "react-select";
+import makeAnimated from "react-select/animated";
 
-import * as T from '@/types'
+import * as T from "@/types";
 
 const animatedComponents = makeAnimated();
 
@@ -16,7 +15,7 @@ const customStyles: StylesConfig<unknown, boolean, GroupBase<unknown>> = {
     color: "#161E2E",
     minHeight: "36px",
     height: "36px",
-    boxShadow: "none"
+    boxShadow: "none",
   }),
   // 드롭다운 메뉴
   option: (provided) => ({
@@ -50,10 +49,12 @@ const customStyles: StylesConfig<unknown, boolean, GroupBase<unknown>> = {
 };
 
 interface Props {
-  options: Array<T.SelectOption>
-  handleChange: ((newValue: Array<T.Category> | unknown, actionMeta: ActionMeta<unknown>) => void) | undefined
-  isMulti: boolean
-  placeholder: string
+  options: Array<T.SelectOption>;
+  handleChange:
+    | ((newValue: Array<T.Category> | unknown, actionMeta: ActionMeta<unknown>) => void)
+    | undefined;
+  isMulti: boolean;
+  placeholder: string;
 }
 
 function ReactSelect({ options, handleChange, isMulti, placeholder }: Props) {
@@ -68,7 +69,7 @@ function ReactSelect({ options, handleChange, isMulti, placeholder }: Props) {
       onChange={handleChange}
       styles={customStyles}
     />
-  )
+  );
 }
 
-export default ReactSelect
+export default ReactSelect;

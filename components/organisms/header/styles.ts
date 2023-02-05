@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components'
-import { IoMdSunny, IoMdMoon } from "react-icons/io";
+import { IoMdMoon, IoMdSunny } from "react-icons/io";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   position: fixed;
@@ -10,7 +10,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   z-index: 9;
-`
+`;
 
 export const Inner = styled.div`
   width: 840px;
@@ -24,13 +24,13 @@ export const Inner = styled.div`
   @media only screen and (max-width: 840px) {
     width: 90%;
   }
-`
+`;
 
 export const Logo = styled.h3`
   a {
     font-size: 28px;
   }
-`
+`;
 
 export const Nav = styled.ul`
   display: flex;
@@ -38,28 +38,28 @@ export const Nav = styled.ul`
   align-items: center;
   list-style: none;
   position: relative;
-`
+`;
 
 interface StyleProps {
-  isActive: boolean
+  isActive: boolean;
 }
 
 interface StyleProps {
-  isActive: boolean
+  isActive: boolean;
 }
 
 export const Item = styled.li<StyleProps>`
   cursor: pointer;
   margin-right: 14px;
   padding: 0 2px;
-  display: inline-block; 
+  display: inline-block;
   position: relative;
   z-index: 1;
 
   a {
     font-size: 14px;
     text-decoration: none;
-    color: ${({ theme, isActive }) => isActive ? theme.themePrimary : theme.typePrimary };
+    color: ${({ theme, isActive }) => (isActive ? theme.themePrimary : theme.typePrimary)};
   }
 
   &:hover {
@@ -71,13 +71,13 @@ export const Item = styled.li<StyleProps>`
   @media only screen and (max-width: 840px) {
     display: none;
   }
-`
+`;
 
 export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: auto 28px;
   grid-column-gap: 6px;
-`
+`;
 
 export const SwitchMode = styled.div`
   background-color: ${({ theme }) => theme.typePrimary};
@@ -89,7 +89,7 @@ export const SwitchMode = styled.div`
   margin: auto 0;
   cursor: pointer;
   transition: 0.25s ease;
-`
+`;
 
 const Icon = css`
   font-size: 18px;
@@ -99,8 +99,8 @@ const Icon = css`
 
 export const SunIcon = styled(IoMdSunny)`
   ${Icon}
-`
+`;
 
 export const MoonIcon = styled(IoMdMoon)`
   ${Icon}
-`
+`;

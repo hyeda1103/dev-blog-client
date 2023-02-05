@@ -1,8 +1,6 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-export const Container = styled.div`
-`;
-
+export const Container = styled.div``;
 
 export const Title = styled.p`
   display: inline-block;
@@ -21,4 +19,3 @@ export const CategoryList = styled.ul`
   padding: 8px;
   height: fit-content;
 `;
-

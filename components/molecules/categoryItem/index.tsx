@@ -1,24 +1,25 @@
-import React, { MouseEventHandler } from 'react'
-import { useRouter } from 'next/router';
+import React, { MouseEventHandler } from "react";
+import { useRouter } from "next/router";
 
-import * as T from '@/types';
-import { Container } from './styles';
+import * as T from "@/types";
+
+import { Container } from "./styles";
 
 interface Props {
-  category: T.Category
+  category: T.Category;
 }
 
 function CategoryItem({ category }: Props) {
-  const router = useRouter()
+  const router = useRouter();
   const handleClick: MouseEventHandler = (e) => {
-    e.stopPropagation()
-    router.push(`/categories/${category.slug}`)
-  }
+    e.stopPropagation();
+    router.push(`/categories/${category.slug}`);
+  };
   return (
     <Container key={category._id} onClick={handleClick}>
       {category.name}
     </Container>
-  )
+  );
 }
 
-export default CategoryItem
+export default CategoryItem;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface StyleProps {
-  error: boolean
+  error: boolean;
 }
 
 export const EditorWrapper = styled.div<StyleProps>`
@@ -9,5 +9,5 @@ export const EditorWrapper = styled.div<StyleProps>`
   box-sizing: border-box;
   width: 840px;
   margin: 0 auto;
-  border: 1px solid ${({ theme, error }) => error ? theme.fail : theme.themeWhite };
-`
+  border: 1px solid ${({ theme, error }) => (error ? theme.fail : theme.themeWhite)};
+`;

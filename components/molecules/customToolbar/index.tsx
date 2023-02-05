@@ -1,6 +1,6 @@
-import React, { memo } from 'react'
+import React, { memo } from "react";
 
-import { Toolbar, Inner } from './styles'
+import { Inner, Toolbar } from "./styles";
 
 export const formats = [
   "header",
@@ -20,7 +20,7 @@ export const formats = [
   "link",
   "image",
   "color",
-  "code-block"
+  "code-block",
 ];
 
 function CustomToolbar() {
@@ -75,7 +75,7 @@ function CustomToolbar() {
         </span>
       </Inner>
     </Toolbar>
-  )
+  );
 }
 
-export default memo(CustomToolbar)
+export default memo(CustomToolbar);

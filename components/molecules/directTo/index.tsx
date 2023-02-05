@@ -1,10 +1,9 @@
-import Link from 'next/link'
-import React from 'react'
+import Link from "next/link";
 
-import { Container, RightArrow } from './styles'
+import { Container, RightArrow } from "./styles";
 
 interface Props {
-  link: string
+  link: string;
 }
 
 function DirectTo({ link }: Props) {
@@ -16,7 +15,7 @@ function DirectTo({ link }: Props) {
         </a>
       </Link>
     </Container>
-  )
+  );
 }
 
-export default DirectTo
+export default DirectTo;

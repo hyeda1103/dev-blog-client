@@ -1,15 +1,15 @@
-import React, { ChangeEvent, FormEventHandler, useEffect, useState } from 'react'
-import Router from 'next/router';
-import axios from 'axios';
-import styled from 'styled-components';
+import React, { ChangeEvent, FormEventHandler, useEffect, useState } from "react";
+import Router from "next/router";
+import axios from "axios";
+import styled from "styled-components";
 
-import { isAuth } from '@/helpers/auth';
-import Button from '@/components/atoms/button';
-import InputWithLabel from '@/components/molecules/inputWithLabel';
-import AuthForm from '@/components/templates/authForm';
-import * as T from '@/types'
-import ErrorBox from '@/components/molecules/errorBox';
-import { API } from '@/config';
+import Button from "@/components/atoms/button";
+import ErrorBox from "@/components/molecules/errorBox";
+import InputWithLabel from "@/components/molecules/inputWithLabel";
+import AuthForm from "@/components/templates/authForm";
+import { API } from "@/config";
+import { isAuth } from "@/helpers/auth";
+import * as T from "@/types";
 
 const StyledForm = styled.form`
   width: 100%;
@@ -32,23 +32,23 @@ const InputWrapper = styled.div`
 
 function ForgotPassword() {
   const [formValues, setFormValues] = useState({
-    email: '',
+    email: "",
   });
   const [formErrors, setFormErrors] = useState<T.Object>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [successMessage, setSuccessMessage] = useState('');
-  const [serverErrorMessage, setServerErrorMessage] = useState('');
-  const [buttonText, setButtonText] = useState('링크 보내기')
+  const [successMessage, setSuccessMessage] = useState("");
+  const [serverErrorMessage, setServerErrorMessage] = useState("");
+  const [buttonText, setButtonText] = useState("링크 보내기");
 
   const { email } = formValues;
 
   useEffect(() => {
-    isAuth() && Router.push('/')
-  }, [])
+    isAuth() && Router.push("/");
+  }, []);
 
   const handleChange = (keyName: string) => (e: ChangeEvent<HTMLInputElement>) => {
     setIsSubmitting(false);
-    setFormErrors({ ...formErrors, [keyName]: '' });
+    setFormErrors({ ...formErrors, [keyName]: "" });
     setFormValues({ ...formValues, [keyName]: e.target.value });
   };
 
@@ -58,11 +58,11 @@ function ForgotPassword() {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 
     if (!values.email) {
-      errorRegisters.email = '이메일 주소를 입력해야 합니다';
+      errorRegisters.email = "이메일 주소를 입력해야 합니다";
     } else if (!regex.test(values.email)) {
-      errorRegisters.email = '올바르지 않은 이메일 주소입니다';
+      errorRegisters.email = "올바르지 않은 이메일 주소입니다";
     }
-    
+
     return errorRegisters;
   };
 
@@ -74,38 +74,35 @@ function ForgotPassword() {
 
   useEffect(() => {
     const sendPasswordRestLink = async () => {
-      setButtonText('링크보내는 중...')
+      setButtonText("링크보내는 중...");
       try {
         const res = await axios.put(`${API}/forgot-password`, {
-            email
-        })      
+          email,
+        });
         setFormValues({
-          email: '',
-        })
-        setButtonText('이메일 발신 완료')
-        setServerErrorMessage('')
-        setSuccessMessage(res.data.message)
+          email: "",
+        });
+        setButtonText("이메일 발신 완료");
+        setServerErrorMessage("");
+        setSuccessMessage(res.data.message);
         setIsSubmitting(false);
       } catch (err: any) {
-        setButtonText('링크 보내기')
-        setServerErrorMessage(err.response.data.error)
+        setButtonText("링크 보내기");
+        setServerErrorMessage(err.response.data.error);
         setIsSubmitting(false);
       }
-    }
-    if (!Object.keys(formErrors).length && isSubmitting) sendPasswordRestLink()
+    };
+    if (!Object.keys(formErrors).length && isSubmitting) sendPasswordRestLink();
   }, [formErrors, isSubmitting, email]);
 
-  const title = (
-    <Title>
-      비밀번호 재설정하기
-    </Title>
-  );
+  const title = <Title>비밀번호 재설정하기</Title>;
 
   const subTitle = (
     <Logline>
-      아래 입력한 이메일 주소로 비밀번호 재설정을 위한 링크가 발신됩니다. 10분 내로 확인하고 비밀번호 재설정을 완료해주세요.
+      아래 입력한 이메일 주소로 비밀번호 재설정을 위한 링크가 발신됩니다. 10분 내로 확인하고
+      비밀번호 재설정을 완료해주세요.
     </Logline>
-  )
+  );
 
   const form = (
     <StyledForm onSubmit={handleSubmit} noValidate>
@@ -119,24 +116,13 @@ function ForgotPassword() {
           handleChange={handleChange}
           formErrors={formErrors}
         />
-        <ErrorBox
-          success={successMessage}
-          error={serverErrorMessage}
-        />
+        <ErrorBox success={successMessage} error={serverErrorMessage} />
       </InputWrapper>
-      <Button>
-        {buttonText}
-      </Button>
+      <Button>{buttonText}</Button>
     </StyledForm>
   );
 
-  return (
-    <AuthForm
-      title={title}
-      subTitle={subTitle}
-      form={form}
-    />
-  );
+  return <AuthForm title={title} subTitle={subTitle} form={form} />;
 }
 
-export default ForgotPassword
+export default ForgotPassword;

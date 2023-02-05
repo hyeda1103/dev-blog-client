@@ -1,60 +1,60 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export const lightTheme = {
-  bodyBackground: '#f4f4f4',
-  typePrimary: '#161E2E',
-  themeWhite: '#FFFFFF',
-  themeBlack: '#161E2E',
-  themePrimary: '#ff5339',
-  border: '#d2d6dc',
-  disabled: '#c1c1c1',
-  active: '#D7E5F0',
-  fail: '#ff3300',
-  highlight: '#60fd1e',
+  bodyBackground: "#f4f4f4",
+  typePrimary: "#161E2E",
+  themeWhite: "#FFFFFF",
+  themeBlack: "#161E2E",
+  themePrimary: "#ff5339",
+  border: "#d2d6dc",
+  disabled: "#c1c1c1",
+  active: "#D7E5F0",
+  fail: "#ff3300",
+  highlight: "#60fd1e",
   hyperlink: {
-    default: '#0000ee',
-    contrast: '#00ee00',
-    broken: '#ee0000'
+    default: "#0000ee",
+    contrast: "#00ee00",
+    broken: "#ee0000",
   },
-}
+};
 
 export const darkTheme = {
-  bodyBackground: '#161E2E',
-  typePrimary: '#f4f4f4',
-  themeWhite: '#FFFFFF',
-  themeBlack: '#161E2E',
-  themePrimary: '#0000ee',
-  border: '#6B8096',
-  active: '#D7E5F0',
-  disabled: '#c1c1c1',
-  fail: '#ff3300',
-  highlight: '#7f7fff',
+  bodyBackground: "#161E2E",
+  typePrimary: "#f4f4f4",
+  themeWhite: "#FFFFFF",
+  themeBlack: "#161E2E",
+  themePrimary: "#0000ee",
+  border: "#6B8096",
+  active: "#D7E5F0",
+  disabled: "#c1c1c1",
+  fail: "#ff3300",
+  highlight: "#7f7fff",
   hyperlink: {
-    default: '#00ee00',
-    contrast: '#00ee00',
-    broken: '#ee0000'
+    default: "#00ee00",
+    contrast: "#00ee00",
+    broken: "#ee0000",
   },
-}
+};
 
 interface Theme {
   theme: {
-    bodyBackground: string,
-    typePrimary: string,
-    themeWhite: string,
-    themeBlack: string,
-    themePrimary: string,
+    bodyBackground: string;
+    typePrimary: string;
+    themeWhite: string;
+    themeBlack: string;
+    themePrimary: string;
 
-    border: string,
-    disabled: string,
-    active: string,
-    fail: string,
-    highlight: string,
+    border: string;
+    disabled: string;
+    active: string;
+    fail: string;
+    highlight: string;
     hyperlink: {
-      default: string,
-      contrast: string,
-      broken: string
-    },
-  }
+      default: string;
+      contrast: string;
+      broken: string;
+    };
+  };
 }
 
 export const GlobalStyles = createGlobalStyle`

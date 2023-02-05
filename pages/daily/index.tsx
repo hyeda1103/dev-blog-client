@@ -1,14 +1,14 @@
-import { GetServerSideProps } from 'next'
-import axios from 'axios'
+import { GetServerSideProps } from "next";
+import axios from "axios";
 
-import { API } from '@/config';
-import * as T from '@/types';
-import PostList from '@/components/organisms/postList';
-import OneColumn from '@/components/templates/oneColumn';
-import Section from '@/components/organisms/section';
+import PostList from "@/components/organisms/postList";
+import Section from "@/components/organisms/section";
+import OneColumn from "@/components/templates/oneColumn";
+import { API } from "@/config";
+import * as T from "@/types";
 
 interface Props {
-  dailyPosts: Array<T.Post>
+  dailyPosts: Array<T.Post>;
 }
 
 function DailyPage({ dailyPosts }: Props) {
@@ -20,24 +20,24 @@ function DailyPage({ dailyPosts }: Props) {
         contents={<PostList posts={dailyPosts} />}
       />
     </OneColumn>
-  )
+  );
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    const postList = await axios.get(`${API}/posts`)
-    const dailyPostList = postList.data.filter((post: T.Post) => post.type === T.PostType.DAILY)
+    const postList = await axios.get(`${API}/posts`);
+    const dailyPostList = postList.data.filter((post: T.Post) => post.type === T.PostType.DAILY);
 
     return {
       props: {
         dailyPosts: dailyPostList,
-      }
-    }
+      },
+    };
   } catch (error) {
     return {
-      props:{},
+      props: {},
     };
   }
-}
+};
 
-export default DailyPage
+export default DailyPage;

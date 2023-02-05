@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledLabel = styled.label`
   position: relative;
@@ -17,17 +17,15 @@ export const Text = styled.span`
 `;
 
 interface StyleProps {
-  error: boolean
+  error: boolean;
 }
 
 export const StyledInput = styled.input<StyleProps>`
   width: 100%;
   padding: 12px;
   font-size: 18px;
-  border: ${({ theme, error }) => (error
-    ? `1px solid ${theme.fail}`
-  : `1px solid ${theme.typePrimary}`
-  )};
+  border: ${({ theme, error }) =>
+    error ? `1px solid ${theme.fail}` : `1px solid ${theme.typePrimary}`};
   outline: none;
   box-sizing: border-box;
   transition: all 0.15s ease;

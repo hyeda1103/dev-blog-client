@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Container = styled.li<{
-  isPost?: boolean
+  isPost?: boolean;
 }>`
   cursor: pointer;
   display: inline-block;

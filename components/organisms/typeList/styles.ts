@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { FaArrowAltCircleRight, FaLongArrowAltRight } from "react-icons/fa";
+import styled from "styled-components";
 
 export const Container = styled.div`
   position: relative;
@@ -9,7 +9,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 48px 0;
-;`;
+`;
 
 export const ArrowIcon = styled(FaArrowAltCircleRight)`
   font-size: 17px;
@@ -30,7 +30,7 @@ export const NextIcon = styled(FaLongArrowAltRight)`
 `;
 
 interface StyleProps {
-  isSelected: boolean
+  isSelected: boolean;
 }
 
 export const SelectItem = styled.li<StyleProps>`
@@ -40,15 +40,17 @@ export const SelectItem = styled.li<StyleProps>`
   align-items: center;
   cursor: pointer;
   display: flex;
-  -webkit-box-shadow: 0 2px ${({ theme, isSelected }) => isSelected ? theme.typePrimary : theme.bodyBackground };
-  box-shadow: 0 2px ${({ theme, isSelected }) => isSelected ? theme.typePrimary : theme.bodyBackground };
+  -webkit-box-shadow: 0 2px
+    ${({ theme, isSelected }) => (isSelected ? theme.typePrimary : theme.bodyBackground)};
+  box-shadow: 0 2px
+    ${({ theme, isSelected }) => (isSelected ? theme.typePrimary : theme.bodyBackground)};
 
   &:first-child {
-    margin-top: 0
+    margin-top: 0;
   }
 
   &:last-child {
-    margin-bottom: 0
+    margin-bottom: 0;
   }
 
   &:hover {

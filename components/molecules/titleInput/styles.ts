@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledLabel = styled.label`
   position: relative;
@@ -10,7 +10,7 @@ export const StyledLabel = styled.label`
 `;
 
 interface StyleProps {
-  error: boolean
+  error: boolean;
 }
 
 export const StyledInput = styled.input<StyleProps>`
@@ -18,10 +18,7 @@ export const StyledInput = styled.input<StyleProps>`
   padding: 12px;
   font-size: 32px;
   outline: none;
-  border: ${({ theme, error }) => (error
-    ? `1px solid ${theme.fail}`
-  : 'none'
-  )};
+  border: ${({ theme, error }) => (error ? `1px solid ${theme.fail}` : "none")};
   outline: none;
   transition: all 0.15s ease;
   background: ${({ theme }) => theme.themeWhite};

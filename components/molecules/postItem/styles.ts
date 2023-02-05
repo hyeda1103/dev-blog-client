@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components'
-import { HiCursorClick } from 'react-icons/hi'
+import { HiCursorClick } from "react-icons/hi";
+import styled, { css } from "styled-components";
 
 export const Header = styled.div`
   display: flex;
@@ -44,9 +44,9 @@ export const Container = styled.div`
     top: -1px;
     right: -11px;
     border-top: 10px solid transparent;
-	  border-left: 10px solid ${({ theme }) => theme.typePrimary };
-	  height: calc(100% + 1px);
-	  width: 0;
+    border-left: 10px solid ${({ theme }) => theme.typePrimary};
+    height: calc(100% + 1px);
+    width: 0;
   }
 
   &:after {
@@ -54,22 +54,22 @@ export const Container = styled.div`
     position: absolute;
     left: -1px;
     bottom: -11px;
-    border-top: 10px solid ${({ theme }) => theme.typePrimary };
-	  border-left: 10px solid transparent;
-	  height: 0;
-	  width: calc(100% + 2px);
+    border-top: 10px solid ${({ theme }) => theme.typePrimary};
+    border-left: 10px solid transparent;
+    height: 0;
+    width: calc(100% + 2px);
   }
 
   &:hover {
     border: 1px solid ${({ theme }) => theme.themePrimary};
 
     &:before {
-      border-left: 10px solid ${({ theme }) => theme.themePrimary };
+      border-left: 10px solid ${({ theme }) => theme.themePrimary};
     }
 
     &:after {
       content: "";
-      border-top: 10px solid ${({ theme }) => theme.themePrimary };
+      border-top: 10px solid ${({ theme }) => theme.themePrimary};
     }
   }
 `;
@@ -118,7 +118,7 @@ const Tag = css`
   padding: 2px 8px;
   border: 1px solid ${({ theme }) => theme.typePrimary};
   font-size: 14px;
-`
+`;
 
 export const TagBox = styled.div`
   gap: 6px;
@@ -126,15 +126,15 @@ export const TagBox = styled.div`
 
 export const CategoryTag = styled.span`
   ${Tag}
-`
+`;
 
 export const Type = styled.span`
   ${Tag}
-`
+`;
 
 export const Medium = styled.span`
   ${Tag}
-`
+`;
 
 export const ResultWrapper = styled.div`
   font-size: 32px;
@@ -148,7 +148,7 @@ export const ViewWrapper = styled.div`
   @media only screen and (max-width: 840px) {
     display: none;
   }
-`
+`;
 
 export const ClickIcon = styled(HiCursorClick)`
   vertical-align: middle;

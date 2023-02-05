@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const BasicButton = styled.button`
   display: inline-block;
@@ -6,7 +6,7 @@ export const BasicButton = styled.button`
   height: 52px;
   cursor: pointer;
   font-size: 1.25rem;
-  transition: background-color .25s ease;
+  transition: background-color 0.25s ease;
   border: 1px solid ${({ theme }) => theme.typePrimary};
   color: ${({ theme }) => theme.typePrimary};
   background-color: ${({ theme }) => theme.bodyBackground};
@@ -23,4 +23,4 @@ export const BasicButton = styled.button`
     color: ${({ theme }) => theme.disabled};
     border: 1px solid ${({ theme }) => theme.disabled};
   }
-`
+`;
