@@ -225,6 +225,6 @@ export const Description = styled.div`
   width: 100%;
   margin: 4px 0 8px;
   display: -webkit-box;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 `;

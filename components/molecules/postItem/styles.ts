@@ -163,7 +163,7 @@ export const Description = styled.div`
   width: 100%;
   margin: 8px 0;
   display: -webkit-box;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 `;
 
