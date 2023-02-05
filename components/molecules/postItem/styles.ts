@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { HiLink, HiCursorClick } from 'react-icons/hi'
+import { HiCursorClick } from 'react-icons/hi'
 
 export const Header = styled.div`
   display: flex;
@@ -25,12 +25,6 @@ export const CategoryInfo = styled.div`
   p {
     font-size: 32px;
   }
-`;
-
-export const PostList = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  row-gap: 24px;
 `;
 
 export const Container = styled.div`
@@ -80,13 +74,6 @@ export const Container = styled.div`
   }
 `;
 
-export const LinkIcon = styled(HiLink)`
-  color: ${({ theme }) => theme.hyperlink.default};
-  vertical-align: middle;
-  font-size: 14px;
-  margin-right: 4px;
-`;
-
 export const Title = styled.p`
   position: relative;
   font-size: 20px;
@@ -97,21 +84,6 @@ export const Title = styled.p`
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 `;
-
-export const Details = styled.span`
-  vertical-align: middle;
-  display: inline-block;
-  margin: 8px 0;
-
-  a {
-    color: ${({ theme }) => theme.hyperlink.default};
-
-    &:hover {
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-  }
-`
 
 export const TypeWrapper = styled.div`
   display: flex;

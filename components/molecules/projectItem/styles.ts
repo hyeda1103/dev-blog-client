@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { HiCursorClick } from 'react-icons/hi'
-import { VscGithubInverted, VscWindow, VscTools } from 'react-icons/vsc'
+import { VscGithubInverted, VscWindow } from 'react-icons/vsc'
 
 export const Header = styled.div`
   display: flex;
@@ -83,9 +83,8 @@ export const Container = styled.div`
 
 const Icon = css`
   color: ${({ theme }) => theme.hyperlink.default};
-  vertical-align: middle;
-  font-size: 18px;
-  margin: 3px 6px 3px 0;
+  font-size: 16px;
+  margin: auto 0;
 `;
 
 export const GitHubIcon = styled(VscGithubInverted)`
@@ -93,10 +92,6 @@ export const GitHubIcon = styled(VscGithubInverted)`
 `;
 
 export const WebIcon = styled(VscWindow)`
-  ${Icon}
-`;
-
-export const ToolIcon = styled(VscTools)`
   ${Icon}
 `;
 
@@ -111,19 +106,9 @@ export const Title = styled.p`
   -webkit-box-orient: vertical;
 `;
 
-export const Details = styled.span`
-  vertical-align: middle;
-  display: inline-block;
+export const Details = styled.div`
+  position: relative;
   margin: 8px 0;
-
-  a {
-    color: ${({ theme }) => theme.hyperlink.default};
-
-    &:hover {
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-  }
 `
 
 export const TypeWrapper = styled.div`
@@ -185,7 +170,7 @@ export const ViewWrapper = styled.div`
   align-items: center;
   font-size: 14px;
 
-  @media only screen and (max-width: 840px) {
+  @media only screen and (max-width: 720px) {
     display: none;
   }
 `
@@ -202,8 +187,12 @@ export const LinkWrapper = styled.div`
 `;
 
 export const HyperLink = styled.a`
-  display: flex;
+  display: grid;
+  grid-template-columns: 16px auto;
+  grid-template-rows: 1fr;
+  grid-column-gap: 3px;
   position: relative;
+  color: ${({ theme }) => theme.hyperlink.default};
 `
 
 export const HyperText = styled.p`
@@ -216,6 +205,11 @@ export const HyperText = styled.p`
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+
+  ${HyperLink}:hover {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+  }
 
   ${HyperLink}:hover {
     text-decoration: underline;
