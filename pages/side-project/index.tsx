@@ -17,7 +17,7 @@ function ProjectPage({ projectPosts }: Props) {
     <OneColumn>
       <Section
         title="사이드 프로젝트"
-        logline={`사이드 프로젝트에 대하여 총 ${projectPosts?.length || 0}개의 글이 작성되었습니다`}
+        logline={`사이드 프로젝트에 대하여 총 ${projectPosts?.length || 0}편의 글이 작성되었습니다`}
         contents={<PostList posts={projectPosts} />}
       />
     </OneColumn>

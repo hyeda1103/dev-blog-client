@@ -11,10 +11,6 @@ interface Props {
 
 function PostList({ posts }: Props) {
   const [allPosts, setAllPosts] = useState<Array<T.Post>>([])
-  
-  useEffect(() => {
-    setAllPosts(posts)
-  }, [posts]) 
 
   const Item = (post: T.Post) => {
     switch (post.type) {
@@ -42,6 +38,9 @@ function PostList({ posts }: Props) {
     }
   }
 
+  useEffect(() => {
+    setAllPosts(posts)
+  }, [posts]) 
   return (
     <List>
       {allPosts?.map(Item)}

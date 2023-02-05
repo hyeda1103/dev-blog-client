@@ -16,7 +16,7 @@ function SearchInput() {
       <Input 
         name='keyword'
         type='text'
-        placeholder='검색어를 입력하세요'
+        placeholder='검색...'
         onChange={handleChange}
       />
     </Form>

@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Script from 'next/script'
 import Router, { useRouter } from 'next/router'
 import { ReactNode } from 'react'

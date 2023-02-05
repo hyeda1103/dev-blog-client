@@ -18,6 +18,7 @@ export const CategoryList = styled.ul`
   box-sizing: border-box;
   border: 1px solid ${({ theme }) => theme.typePrimary};
   position: relative;
-  padding: 24px;
+  padding: 8px;
+  height: fit-content;
 `;
 

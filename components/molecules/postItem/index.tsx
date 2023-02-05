@@ -1,4 +1,4 @@
-import React, { Dispatch, MouseEventHandler, SetStateAction } from 'react'
+import React, { Dispatch, MouseEventHandler, SetStateAction, useEffect, useState } from 'react'
 import axios from 'axios';
 import { useRouter } from 'next/router';
 
@@ -15,7 +15,9 @@ import {
   TypeWrapper,
   ClickIcon,
   ViewWrapper,
+  Description,
 } from './styles';
+import DOMPurify from 'dompurify';
 
 interface Props {
   slug?: string
@@ -26,6 +28,8 @@ interface Props {
 
 function PostItem({ slug, post, allPosts, setAllPosts }: Props) {
   const router = useRouter()
+  const [parsed, setParsed] = useState("")
+  
   const handleClick: MouseEventHandler = async (e) => {
     e.preventDefault()
     if (post.type === T.PostType.DAILY) {
@@ -36,6 +40,13 @@ function PostItem({ slug, post, allPosts, setAllPosts }: Props) {
     await axios.put(`${API}/click-count`, { postId: post._id });
   }
   
+  useEffect(() => {
+    const match = post.description.match(/<p>(.*?)<\/p>/i)
+
+    if (match === null || match[0] === null) return
+    setParsed(match[0])
+  }, [post])
+  
   return (
     <Container onClick={handleClick}>
       <Header>
@@ -44,6 +55,7 @@ function PostItem({ slug, post, allPosts, setAllPosts }: Props) {
           <DateTag endDate={post.createdAt} />
         </TypeWrapper>                      
       </Header>
+      <Description dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(parsed) }} />
       <Footer>
         <TagBox>
           {post.categories.map((category) => (
@@ -51,7 +63,7 @@ function PostItem({ slug, post, allPosts, setAllPosts }: Props) {
           ))}
         </TagBox>
         <ViewWrapper>
-          {post.clicks} clicks
+          {post.clicks}
           <ClickIcon />
         </ViewWrapper>          
       </Footer>

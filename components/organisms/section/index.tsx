@@ -19,9 +19,12 @@ function Section({ title, link, logline, contents }: Props) {
           </Title>
           {link}
         </TitleWrapper>
-        <Logline>
-          {logline}
-        </Logline>
+        {
+          logline &&
+          <Logline>
+            {logline}
+          </Logline>
+        }
       </Header>
       <ContentsWrapper>
         {contents}

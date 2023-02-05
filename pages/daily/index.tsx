@@ -16,7 +16,7 @@ function DailyPage({ dailyPosts }: Props) {
     <OneColumn>
       <Section
         title="일상"
-        logline={`일상에 대하여 총 ${dailyPosts?.length || 0}개의 글이 작성되었습니다`}
+        logline={`일상에 대하여 총 ${dailyPosts?.length || 0}편의 글이 작성되었습니다`}
         contents={<PostList posts={dailyPosts} />}
       />
     </OneColumn>

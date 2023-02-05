@@ -20,3 +20,11 @@ export const Inner = styled.div`
 export const Copyright = styled.p`
   font-size: 14px;
 `
+
+export const SocialIconWrapper = styled.div`
+  width: fit-content;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 6px;
+`;

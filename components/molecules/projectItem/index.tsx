@@ -1,4 +1,4 @@
-import React, { Dispatch, MouseEventHandler, SetStateAction } from 'react'
+import React, { Dispatch, MouseEventHandler, SetStateAction, useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
 import axios from 'axios';
 
@@ -7,7 +7,8 @@ import StatusTag from '@/components/atoms/statusTag';
 import DateTag from '@/components/atoms/dateTag';
 import * as T from '@/types'
 import { API } from '@/config';
-import { Details, Header, GitHubIcon, WebIcon, HyperLink, HyperText, Container, TagBox, Title, Footer, TypeWrapper, ClickIcon, ViewWrapper, LinkWrapper } from './styles';
+import { Details, Header, GitHubIcon, WebIcon, HyperLink, HyperText, Container, TagBox, Title, Footer, TypeWrapper, ClickIcon, ViewWrapper, LinkWrapper, Description } from './styles';
+import DOMPurify from 'dompurify';
 
 interface Props {
   slug?: string
@@ -18,6 +19,7 @@ interface Props {
 
 function ProjectItem({ slug, post, allPosts, setAllPosts }: Props) {
   const router = useRouter()
+  const [parsed, setParsed] = useState("")
 
   const handleClick: MouseEventHandler = async (e) => {
     if ((e.target as HTMLElement).tagName === 'A') return;
@@ -27,6 +29,13 @@ function ProjectItem({ slug, post, allPosts, setAllPosts }: Props) {
     router.push(`/side-project/${post.slug}`)
     await axios.put(`${API}/click-count`, { postId: post._id })
   }
+
+  useEffect(() => {
+    const match = post.description.match(/<p>(.*?)<\/p>/i)
+
+    if (match === null || match[0] === null) return
+    setParsed(match[0])
+  }, [post])
 
   return (
     <Container onClick={handleClick}>
@@ -49,6 +58,7 @@ function ProjectItem({ slug, post, allPosts, setAllPosts }: Props) {
           </HyperLink>
         </LinkWrapper>
       </Details>
+      <Description dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(parsed) }} />
       <Footer>
         <TagBox>
           {post.categories.map((category) => (
@@ -56,7 +66,7 @@ function ProjectItem({ slug, post, allPosts, setAllPosts }: Props) {
           ))}
         </TagBox>
         <ViewWrapper>
-          {post.clicks} clicks
+          {post.clicks}
           <ClickIcon />
         </ViewWrapper>          
       </Footer>

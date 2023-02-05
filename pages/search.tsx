@@ -62,7 +62,7 @@ function SearchResultPage() {
       )}
       {searchResult.length > 0 && (
         <Section
-          logline={`${keyword}에 대해 총 ${searchResult.length}개의 글이 작성되었습니다`}
+          logline={`${keyword}에 대해 총 ${searchResult.length}편의 글이 작성되었습니다`}
           contents={<PostList posts={searchResult} />}
         />
       )}

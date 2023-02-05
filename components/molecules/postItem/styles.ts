@@ -42,15 +42,16 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   color: ${({ theme }) => theme.typePrimary};
+  width: calc(100% - 10px);
 
   &:before {
     content: "";
     position: absolute;
     top: -1px;
-    right: -10px;
+    right: -11px;
     border-top: 10px solid transparent;
 	  border-left: 10px solid ${({ theme }) => theme.typePrimary };
-	  height: 100%;
+	  height: calc(100% + 1px);
 	  width: 0;
   }
 
@@ -58,11 +59,11 @@ export const Container = styled.div`
     content: "";
     position: absolute;
     left: -1px;
-    bottom: -10px;
+    bottom: -11px;
     border-top: 10px solid ${({ theme }) => theme.typePrimary };
 	  border-left: 10px solid transparent;
 	  height: 0;
-	  width: calc(100% + 1px);
+	  width: calc(100% + 2px);
   }
 
   &:hover {
@@ -184,11 +185,11 @@ export const ClickIcon = styled(HiCursorClick)`
 
 export const Description = styled.div`
   position: relative;
-  margin: 8px 0;
   font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
+  margin: 8px 0;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;

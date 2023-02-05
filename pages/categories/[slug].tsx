@@ -18,46 +18,13 @@ interface Props {
   postSkip: number
 }
 
-function SingleCategoryPage({ slug, category, posts, numOfPosts, postsLimit, postSkip }: Props) {
-  const [allPosts, setAllPosts] = useState<Array<T.Post>>(posts)
-  const [limit, setLimit] = useState(postsLimit);
-  const [skip, setSkip] = useState(postSkip)
-  const [size, setSize] = useState(numOfPosts)
-
-  useEffect(() => {
-    setAllPosts(posts)
-    setSkip(postSkip)
-    setSize(numOfPosts)
-    setLimit(postsLimit)
-  }, [slug, posts, postSkip, numOfPosts, postsLimit])
-  
-  const loadMore = async () => {
-    let toSkip = skip + limit
-    setSkip(toSkip)
-    const res = await axios.post(encodeURI(`${API}/category/${slug}`), { skip: toSkip, limit })
-    setAllPosts([...allPosts, ...res.data.posts])
-    setSize(res.data.posts.length)
-  }
-  
-  const postList = (() => {
-    return (
-      <InfiniteScroll
-        dataLength={allPosts.length}
-        next={loadMore}
-        hasMore={size > 0 && size >= limit}
-        loader={<></>}
-        endMessage={<></>}
-      >
-        <PostList posts={allPosts} />
-      </ InfiniteScroll>
-    )
-  })()
+function SingleCategoryPage({ category, posts }: Props) {
   return (
     <OneColumn>
       <Section
         title={`${category.name}`}
-        logline={`${category.name}에 대해 총 ${allPosts.length}개의 글이 작성되었습니다`}
-        contents={postList}
+        logline={`${category.name}에 대해 총 ${posts?.length}편의 글이 작성되었습니다`}
+        contents={<PostList posts={posts} />}
       />
     </OneColumn>
   )
