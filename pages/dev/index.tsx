@@ -16,7 +16,7 @@ function DevPage({ devPosts }: Props) {
     <OneColumn>
       <Section
         title="개발"
-        logline={`개발에 대하여 총 ${devPosts?.length || 0}편의글이 작성되었습니다`}
+        logline={`검색결과: 총 ${devPosts?.length || 0}건`}
         contents={<PostList posts={devPosts} />}
       />
     </OneColumn>

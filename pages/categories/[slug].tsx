@@ -23,7 +23,7 @@ function SingleCategoryPage({ category, posts }: Props) {
     <OneColumn>
       <Section
         title={`${category.name}`}
-        logline={`${category.name}에 대해 총 ${posts?.length}편의 글이 작성되었습니다`}
+        logline={`검색결과: 총 ${posts?.length}건`}
         contents={<PostList posts={posts} />}
       />
     </OneColumn>
