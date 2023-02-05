@@ -169,7 +169,7 @@ function SinglePostPage({ post, prev, next }: Props) {
       <Nav>
         <Button
           arrowOnLeft={true}
-          onClick={() => router.push(`/dev/${prev?.slug}`)}
+          onClick={() => router.push(`/daily/${prev?.slug}`)}
           isVisible={!!prev}
         >
           <LeftArrow />
@@ -177,7 +177,7 @@ function SinglePostPage({ post, prev, next }: Props) {
         </Button>
         <Button
           arrowOnLeft={false}
-          onClick={() => router.push(`/dev/${next?.slug}`)}
+          onClick={() => router.push(`/daily/${next?.slug}`)}
           isVisible={!!next}
         >
           <span>{next?.title}</span>
